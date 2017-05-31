@@ -78,7 +78,7 @@ app.post('/',function(request,response){
 	cs_query = cs_query + 1;
 
 	//입력 기록 받음
-	var cs_order = request.body.result.parameters.order_num[0];
+	var cs_order = request.body.result.parameters.order_num;
 	console.log(cs_order);
 	    
 	if (cs_intent == 'delMenu'){
