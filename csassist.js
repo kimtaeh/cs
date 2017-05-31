@@ -77,7 +77,7 @@ app.post('/',function(request,response){
 	  else if (cs_intent == 'delReturn'){
   		console.log('22');
  		var cs_order = request.body.result.parameters.order_num;
- 		if (cs_order == 1101{
+ 		if (cs_order == 1101){
 			cs_intent = '';
 			cs_message = '고객님이 주문하신 '+ cs_order + '번 반품신청이 완료되었습니다.'
 		}
