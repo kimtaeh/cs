@@ -24,7 +24,7 @@ app.post('/',function(request,response){
     if (typeof cs_order == 'undefined'){
          if (cs_type == 'delCheck'){
     		console.log('11');
-		cs_message = '고객님이 최근 주문하신 물건 중 조회가 가능한 주문은 아래와 같습니다. \n 2017-05-31 , 12300001번 나이키 운동화 \n 2017-05-29 , 123000002번 식료품 \n 어떤 주문을 조회하고 싶으신가요? '
+		cs_message = '고객님이 최근 주문하신 물건 중 배송 조회가 가능한 주문은 아래와 같습니다. \n\n 2017-05-31 주문번호 1101번 나이키 운동화 \n\n 2017-05-29 1008번 신라면 \n\n 어떤 주문을 조회하고 싶으신가요?'
   		cs_intent = cs_type; 
  		 response.json({
   		 "speech": cs_message,
