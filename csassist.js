@@ -27,7 +27,7 @@ app.post('/',function(request,response){
   		cs_intent = cs_type; 
  		 response.json({
   		 "speech": "조회하실 주문 번호를 입력해 주세요. 최근 고객님이 주문하신 번호는 1210031번입니다.",
- 		 "displayText": "조회하실 주문 번호를 입력해 주세요. 최근 고객님이 주문하신 번호는 1210031번입니다.",
+ 		 "displayText": "조회하실 주문 번호를 입력해 주세요. \n 11111",
  		 "source": "delCheck"
 		  });
          }
