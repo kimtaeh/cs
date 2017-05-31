@@ -76,9 +76,13 @@ app.post('/',function(request,response){
 	  else if (cs_intent == 'delReturn'){
   		console.log('22');
  		var cs_order = request.body.result.parameters.order_num;
- 		if(cs_order == 1101 || cs_order == 1008){
+ 		if(cs_order == 1101{
 			cs_intent = '';
-			cs_message = '고객님이 주문하신 '+ cs_order + '번 취소신청이 완료되었습니다.'
+			cs_message = '고객님이 주문하신 '+ cs_order + '번 반품신청이 완료되었습니다.'
+		}
+		 if(cs_order == 1008){
+			cs_intent = '';
+			cs_message = '주문의 경우 이미 배송이 시작되어 취소 신청이 되지 않습니다. \n\n 요청주신 취소 건은 상담원에게 전달 후 처리를 지원해드리겠습니다.'
 		}
 		else{
 			cs_intent = cs_type;
