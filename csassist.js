@@ -21,7 +21,7 @@ app.post('/',function(request,response){
     var cs_message;
     var cs_query = request.body.result.resolvedQuery;
 	
-    if(typeof cs_order != 'undefined' && cs_order =='1번'{
+    if(typeof cs_order != 'undefined' && cs_order =='1번'){
 		cs_intent = 'delCheck'; 
 		cs_message = '고객님이 최근 주문하신 물건 중 배송 조회가 가능한 주문은 아래와 같습니다. \n\n 2017-05-31 주문번호 1101번 나이키 운동화, \n\n 2017-05-29 1008번 신라면 \n\n 어떤 주문을 조회하고 싶으신가요?'
 		response.json({
@@ -30,7 +30,7 @@ app.post('/',function(request,response){
  		 "source": "delCheck"
 	  });
    }
-   elseif(typeof cs_order != 'undefined' && cs_order =='2번'{
+   elseif(typeof cs_order != 'undefined' && cs_order =='2번'){
 		cs_intent = 'delCheck'; 
 		cs_message = '고객님이 최근 주문하신 물건 중 배송 조회가 가능한 주문은 아래와 같습니다. \n\n 2017-05-31 주문번호 1101번 나이키 운동화, \n\n 2017-05-29 1008번 신라면 \n\n 어떤 주문을 조회하고 싶으신가요?'
 		response.json({
@@ -39,7 +39,7 @@ app.post('/',function(request,response){
  		 "source": "delCheck"
 		  });
    }
-   elseif(typeof cs_order != 'undefined' && cs_order.length <2){
+   elseif(typeof cs_order != 'undefined' && cs_order.length < 2){
 		cs_intent = ''; 
 		cs_message = '지원되지 않는 메뉴입니다. \n\n 정확한 메뉴를 선택해주세요 \n\n (1번 배송, 2번 반품)'
 		response.json({
