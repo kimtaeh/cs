@@ -59,7 +59,7 @@ app.post('/',function(request,response){
   		  //console.log(cs_order);
 		  //console.log(request.body.result.parameters.order_num); 
  		 var cs_order = request.body.result.parameters.order_num;
-		if(cs_order == 1101 || cs_order == 1101){
+		if(cs_order == 1101 || cs_order == 1008){
 			cs_intent = '';
 			cs_message = '고객님이 주문하신 '+ cs_order + '번 주문은 담당기사님께서 배송 중에 있습니다. \n\n 배송의 경우 상품 발송 후 수령까지 약 1~2일 정도 시간이 소요됩니다.'
 		}
@@ -76,7 +76,7 @@ app.post('/',function(request,response){
 	  else if (cs_intent == 'delReturn'){
   		console.log('22');
  		var cs_order = request.body.result.parameters.order_num;
- 		if(cs_order == 1101 || cs_order == 1101){
+ 		if(cs_order == 1101 || cs_order == 1008){
 			cs_intent = '';
 			cs_message = '고객님이 주문하신 '+ cs_order + '번 취소신청이 완료되었습니다.'
 		}
