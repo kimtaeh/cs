@@ -41,6 +41,7 @@ app.post('/',function(request,response){
 		console.log('11');
 		console.log(cs_input_cnt);
 		console.log(cs_intent);
+
 		//기존 정보 초기화
 		cs_intent = 'delMenu';
 		cs_input_cnt = 0;
@@ -75,6 +76,7 @@ app.post('/',function(request,response){
 	//log 기록(사용자 정보 저장)
 	cs_message_log [cs_input_cnt] = cs_query;
 	cs_query = cs_query + 1;
+	console.log(cs_order);
 
 	//입력 기록 받음
 	var cs_order = request.body.result.parameters.order_num[0];
@@ -85,7 +87,7 @@ app.post('/',function(request,response){
 			console.log('21');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
-		
+			
 			//intent 정의
 			cs_intent = 'delCheck';
 
