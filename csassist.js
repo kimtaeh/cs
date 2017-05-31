@@ -81,7 +81,7 @@ app.post('/',function(request,response){
 			cs_intent = '';
 			cs_message = '고객님이 주문하신 '+ cs_order + '번 반품신청이 완료되었습니다.'
 		}
-		elseif (cs_order == 1008){
+		else if (cs_order == 1008){
 			cs_intent = '';
 			cs_message = '주문의 경우 이미 배송이 시작되어 취소 신청이 되지 않습니다. \n\n 요청주신 취소 건은 상담원에게 전달 후 처리를 지원해드리겠습니다.'
 		}
