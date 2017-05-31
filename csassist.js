@@ -72,7 +72,7 @@ app.post('/',function(request,response){
 			cs_intent = 'delReturn'; 
 			cs_message = '고객님이 최근 주문하신 물건 중 반품 신청이 가능한 주문은 다음과 같습니다. \n\n 2017-05-31 주문번호 1101번 나이키 운동화, \n\n 2017-05-29 1008번 신라면 \n\n 반품 신청할 주문을 입력해주세요'
 		}
-		elseif (cs_order < 10){
+		else if (cs_order < 10){
 			cs_intent = ''; 
 			cs_message = '지원되지 않는 메뉴입니다. \n\n 정확한 메뉴를 선택해주세요 \n\n (1번 배송, 2번 반품)';
 		}
@@ -105,7 +105,7 @@ app.post('/',function(request,response){
 			cs_intent = 'delReturn'; 
 			cs_message = '고객님이 최근 주문하신 물건 중 반품 신청이 가능한 주문은 다음과 같습니다. \n\n 2017-05-31 주문번호 1101번 나이키 운동화, \n\n 2017-05-29 1008번 신라면 \n\n 반품 신청할 주문을 입력해주세요'
 		}
-		elseif (cs_order < 10){
+		else if (cs_order < 10){
 			cs_intent = ''; 
 			cs_message = '지원되지 않는 메뉴입니다. \n\n 정확한 메뉴를 선택해주세요 \n\n (1번 배송, 2번 반품)';
 		}
