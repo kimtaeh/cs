@@ -34,10 +34,11 @@ app.post('/',function(request,response){
          }
     	 else if (cs_type == 'delReturn'){
    		 console.log('12');
+		 cs_message = '고객님이 최근 주문하신 물건 중 반품 신청이 가능한 주문은 다음과 같습니다. \n\n 2017-05-31 주문번호 1101번 나이키 운동화 \n\n 2017-05-29 1008번 신라면 \n\n 반품 신청할 주문을 입력해주세요'
  		 cs_intent = cs_type;
 		 response.json({
-		 "speech": "조회하실 주문 번호를 입력해 주세요. 최근 고객님이 주문하신 번호는 1210031번입니다.",
- 		 "displayText": "조회하실 주문 번호를 입력해 주세요. 최근 고객님이 주문하신 번호는 1210031번입니다.",
+		 "speech": cs_message,
+ 		 "displayText": cs_message,
  		 "source": "delReturn"
  		 });
          }
@@ -58,8 +59,14 @@ app.post('/',function(request,response){
   		  //console.log(cs_order);
 		  //console.log(request.body.result.parameters.order_num); 
  		 var cs_order = request.body.result.parameters.order_num;
- 		 cs_intent = '';
-  		 cs_message = '고객님이 주문하신 '+ cs_order + '번 주문은 아직 배송되지 않았습니다.'
+		if(cs_order == 1101 || cs_order == 1101){
+			cs_intent = '';
+			cs_message = '고객님이 주문하신 '+ cs_order + '번 주문은 담당기사님께서 배송 중에 있습니다. \n\n 배송의 경우 상품 발송 후 수령까지 약 1~2일 정도 시간이 소요됩니다.'
+		}
+		else{
+			cs_intent = cs_type;
+			cs_message = '입력하신 '+ cs_order + '번 주문은 조회가 가능하지 않습니다. \n\n  주문번호를 다시 확인해주세요' 
+		}
  		 response.json({
   		"speech": cs_message ,
   		"displayText": cs_message ,
@@ -69,8 +76,14 @@ app.post('/',function(request,response){
 	  else if (cs_intent == 'delReturn'){
   		console.log('22');
  		var cs_order = request.body.result.parameters.order_num;
-  		cs_intent = '';
-  		cs_message = '고객님이 주문하신 '+ cs_order + '번 취소신청이 완료되었습니다.'
+ 		if(cs_order == 1101 || cs_order == 1101){
+			cs_intent = '';
+			cs_message = '고객님이 주문하신 '+ cs_order + '번 취소신청이 완료되었습니다.'
+		}
+		else{
+			cs_intent = cs_type;
+			cs_message = '입력하신 '+ cs_order + '번 주문은 조회가 가능하지 않습니다. \n\n  주문번호를 다시 확인해주세요.' 
+		}  	
   		response.json({
   		"speech": cs_message ,
   		"displayText": cs_message ,
