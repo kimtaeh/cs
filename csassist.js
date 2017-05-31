@@ -129,9 +129,7 @@ app.post('/',function(request,response){
 			cs_message_log.splice();
 		
 			//상담자에게 종료 알림
-  			cs_message = "이용해 주셔서 감사합니다.문의주신 내용은 상담사를 통해 답변을 드리겠습니
-
-다.";
+  			cs_message = "이용해 주셔서 감사합니다.문의주신 내용은 상담사를 통해 답변을 드리겠습니다.";
 			response.json({
   			"speech": cs_message ,
  		 	"displayText": cs_message ,
