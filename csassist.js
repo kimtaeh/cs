@@ -47,7 +47,7 @@ app.post('/',function(request,response){
 		cs_input_cnt = 0;
 		cs_message_log.splice();
 		
-		cs_message = "무엇을 도와드릴까요\n1번 배송확인\n2번 반품신청 \n0번 상담원 연결";
+		cs_message = "무엇을 도와드릴까요\n\n1번 배송확인\n2번 반품신청 \n0번 상담원 연결";
 		response.json({
 		"speech": cs_message ,
  		"displayText": cs_message ,
@@ -61,7 +61,7 @@ app.post('/',function(request,response){
 		//정보 초기화
 		cs_intent = 'delMenu';
 
-		cs_message = "안녕하세요 CS TEST 챗봇 입니다.\n무엇을 도와드릴까요\n1번 배송확인\n2번 반품신청\n0번 상담원 연결\n메뉴라고 말씀주시면 첫 화면으로 돌아갑니다.";
+		cs_message = "안녕하세요 CS TEST 챗봇 입니다.\n무엇을 도와드릴까요\n\n1번 배송확인\n2번 반품신청\n0번 상담원 연결\n\n메뉴라고 말씀주시면 첫 화면으로 돌아갑니다.";
 		response.json({
 		"speech": cs_message ,
  		"displayText": cs_message ,
@@ -92,7 +92,7 @@ app.post('/',function(request,response){
 			//intent 정의
 			cs_intent = 'delCheck';
 
-			cs_message = "배송확인을 도와드리겠습니다\n최근 주문하신 상품은 아래와 같습니다\n1번 2017-05-27 나이키 운동화(주문번호:1101)\n2번 2017-05-23 신라면 번들(주문번호:1008)\n0번 상담원 연결";
+			cs_message = "배송확인을 도와드리겠습니다\n최근 주문하신 상품은 아래와 같습니다\\nn1번 2017-05-27 나이키 운동화(주문번호:1101)\n\n2번 2017-05-23 신라면 번들(주문번호:1008)\n0번 상담원 연결";
 			response.json({
 			"speech": cs_message ,
 	 		"displayText": cs_message ,
@@ -106,7 +106,7 @@ app.post('/',function(request,response){
 			//intent 정의
 			cs_intent = 'delReturn';
 
-			cs_message = "반품신청을 도와드리겠습니다\n최근 주문하신 상품은 아래와 같습니다\n1번 2017-05-27 나이키 운동화(주문번호:1101)\n2번 2017-05-23 신라면 번들(주문번호:1008)\n0번 상담원 연결";
+			cs_message = "반품신청을 도와드리겠습니다\n최근 주문하신 상품은 아래와 같습니다\\nn1번 2017-05-27 나이키 운동화(주문번호:1101)\n\n2번 2017-05-23 신라면 번들(주문번호:1008)\n0번 상담원 연결";
 			response.json({
 			"speech": cs_message ,
 	 		"displayText": cs_message ,
@@ -132,7 +132,7 @@ app.post('/',function(request,response){
 			cs_message_log.splice();
 		
 			//상담자에게 종료 알림
-  			cs_message = "이용해 주셔서 감사합니다.문의주신 내용은 상담사를 통해 답변을 드리겠습니다.";
+  			cs_message = "이용해 주셔서 감사합니다\n문의주신 내용은 상담사를 통해 답변을 드리겠습니다.";
 			response.json({
   			"speech": cs_message ,
  		 	"displayText": cs_message ,
@@ -144,7 +144,7 @@ app.post('/',function(request,response){
 
 			//잘못된 메뉴 선택
 			//오류 메시지 출력
-			cs_message = "다시 메뉴를 선택해주세요\n1번 배송확인\n2번 반품신청\n0번 상담원 연결";
+			cs_message = "다시 메뉴를 선택해주세요\n\n1번 배송확인\n2번 반품신청\n0번 상담원 연결";
 			response.json({
   				"speech": cs_message ,
  				"displayText": cs_message ,
@@ -162,7 +162,7 @@ app.post('/',function(request,response){
 			//intent 정의
 			cs_intent = 'delCheck';
 
-			cs_message = "고객님이 주문하신 나이키 운동화(주문번호:1101)는 택배사에서 배송 중에 있습니다\n상품 배송의 경우 상품 발송 후 수령까지 약 1~2일 정도 시간이 소요됩니다\n다른 주문을 확인하시겠어요?";
+			cs_message = "고객님이 주문하신 나이키 운동화(주문번호:1101)는 택배사에서 배송 중에 있습니다\n상품 배송의 경우 상품 발송 후 수령까지 약 1~2일 정도 시간이 소요됩니다\n\n다른 주문을 확인하시겠어요?";
 			response.json({
 			"speech": cs_message ,
 	 		"displayText": cs_message ,
@@ -178,7 +178,7 @@ app.post('/',function(request,response){
 			//intent 정의
 			cs_intent = 'delCheck';
 	
-			cs_message = "고객님이 주문하신 신라면 번들(주문번호:1008) 배송이 완료되었습니다\n배송을 받지 못하셨다면 상담원 연결을 통해 문의 부탁 드립니다\n다른 주문을 확인하시겠어요?";
+			cs_message = "고객님이 주문하신 신라면 번들(주문번호:1008) 배송이 완료되었습니다\n배송을 받지 못하셨다면 상담원 연결을 통해 문의 부탁 드립니다\n\n다른 주문을 확인하시겠어요?";
 			response.json({
 			"speech": cs_message ,
 	 		"displayText": cs_message ,
@@ -223,7 +223,7 @@ app.post('/',function(request,response){
 
 			//화면 출력
 
-			cs_message = "주문번호를 다시 확인해주세요\n1번 2017-05-27 나이키 운동화(주문번호:1101)\n2번 2017-05-23 신라면 번들(주문번호:1008)\n0번 상담원 연결";
+			cs_message = "주문번호를 다시 확인해주세요\n\n1번 2017-05-27 나이키 운동화(주문번호:1101)\n2번 2017-05-23 신라면 번들(주문번호:1008)\n0번 상담원 연결";
 			response.json({
 			"speech": cs_message ,
 	 		"displayText": cs_message ,
@@ -243,7 +243,7 @@ app.post('/',function(request,response){
 			//intent 정의
 			cs_intent = 'delReturn';
 
-			cs_message = "고객님이 주문하신 나이키 운동화(주문번호:1101)의 취소 신청이 완료되었습니다\n환불까지 약 3~4일 정도가 소요되며 환불을 받지 못하셨다면 상담원 연결을 통해 문의 부탁 드립니다\n다른 주문을 확인하시겠어요?";
+			cs_message = "고객님이 주문하신 나이키 운동화(주문번호:1101)의 취소 신청이 완료되었습니다\n환불까지 약 3~4일 정도가 소요되며 환불을 받지 못하셨다면 상담원 연결을 통해 문의 부탁 드립니다\n\n다른 주문을 확인하시겠어요?";
 			response.json({
 			"speech": cs_message ,
 	 		"displayText": cs_message ,
@@ -261,7 +261,7 @@ app.post('/',function(request,response){
 			cs_intent = 'delReturn';
 	
 			//화면 출력
-			cs_message = "고객님이 주문하신 신라면 번들(주문번호:1008)은 반품 가능기간이 아닙니다\n반품과 관련하여 문의 내용이 있으시다면 상담원 연결을 통해 문의 부탁 드립니다\n다른 주문을 확인하시겠어요?";
+			cs_message = "고객님이 주문하신 신라면 번들(주문번호:1008)은 반품 가능기간이 아닙니다\n반품과 관련하여 문의 내용이 있으시다면 상담원 연결을 통해 문의 부탁 드립니다\n\n다른 주문을 확인하시겠어요?";
 			response.json({
 			"speech": cs_message ,
 	 		"displayText": cs_message ,
@@ -304,7 +304,7 @@ app.post('/',function(request,response){
 			//intent 정의
 			cs_intent = 'delReturn';
 
-			cs_message = "주문번호를 다시 확인해주세요\n1번 2017-05-27 나이키 운동화(주문번호:1101)\n2번 2017-05-23 신라면 번들(주문번호:1008)\n0번 상담원 연결";
+			cs_message = "주문번호를 다시 확인해주세요\n\n1번 2017-05-27 나이키 운동화(주문번호:1101)\n2번 2017-05-23 신라면 번들(주문번호:1008)\n0번 상담원 연결";
 			response.json({
 			"speech": cs_message ,
 	 		"displayText": cs_message ,
@@ -321,7 +321,7 @@ app.post('/',function(request,response){
 		cs_message_log.splice();
 
 		//오류 메시지 출력
-		cs_message = "다시 메뉴를 선택해주세요\n1번 배송확인\n2번 반품신청\n0번 상담원 연결";
+		cs_message = "다시 메뉴를 선택해주세요\n\n1번 배송확인\n2번 반품신청\n0번 상담원 연결";
 		response.json({
   			"speech": cs_message ,
  			"displayText": cs_message ,
@@ -346,7 +346,7 @@ app.post('/',function(request,response){
 
 	//화면 출력
 
-	cs_message = "배송확인을 도와드리겠습니다.\n최근 주문하신 상품은 아래와 같습니다\n1번 2017-05-27 나이키 운동화(주문번호:1101)\n2번 2017-05-23 신라면 번들(주문번호:1008)\n0번 상담원 연결";
+	cs_message = "배송확인을 도와드리겠습니다.\n최근 주문하신 상품은 아래와 같습니다\n\n1번 2017-05-27 나이키 운동화(주문번호:1101)\n2번 2017-05-23 신라면 번들(주문번호:1008)\n0번 상담원 연결";
 	response.json({
   	"speech": cs_message ,
  	"displayText": cs_message ,
@@ -367,7 +367,7 @@ app.post('/',function(request,response){
 	//intent 정의
 	cs_intent = 'delReturn';
 
-	cs_message = "반품신청을 도와드리겠습니다\n최근 주문하신 상품은 아래와 같습니다\n1번 2017-05-27 나이키 운동화(주문번호:1101)\n2번 2017-05-23 신라면 번들(주문번호:1008)\n0번 상담원 연결";
+	cs_message = "반품신청을 도와드리겠습니다\n최근 주문하신 상품은 아래와 같습니다\n\n1번 2017-05-27 나이키 운동화(주문번호:1101)\n2번 2017-05-23 신라면 번들(주문번호:1008)\n0번 상담원 연결";
 	response.json({
   	"speech": cs_message ,
  	"displayText": cs_message ,
@@ -414,7 +414,7 @@ app.post('/',function(request,response){
 	cs_message_log.splice();
 
 	//오류 메시지 출력
-	cs_message = "다시 메뉴를 선택해주세요\n1번 배송확인\n2번 반품신청\n0번 상담원 연결";
+	cs_message = "다시 메뉴를 선택해주세요\n\n1번 배송확인\n2번 반품신청\n0번 상담원 연결";
 	response.json({
   	"speech": cs_message ,
  	"displayText": cs_message ,
