@@ -106,7 +106,7 @@ app.post('/',function(request,response){
 			//intent 정의
 			cs_intent = 'delReturn';
 
-			cs_message = "반품신청을 도와드리겠습니다\n최근 주문하신 상품은 아래와 같습니다\\nn1번 2017-05-27 나이키 운동화(주문번호:1101)\n\n2번 2017-05-23 신라면 번들(주문번호:1008)\n0번 상담원 연결";
+			cs_message = "반품신청을 도와드리겠습니다\n최근 주문하신 상품은 아래와 같습니다\n\n1번 2017-05-27 나이키 운동화(주문번호:1101)\n\n2번 2017-05-23 신라면 번들(주문번호:1008)\n0번 상담원 연결";
 			response.json({
 			"speech": cs_message ,
 	 		"displayText": cs_message ,
