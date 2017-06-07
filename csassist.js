@@ -27,7 +27,7 @@ app.post('/keyboard',function(request,response){
         }
     });
 
-});
+};
 
 //rest_api : message
 app.post('/message',function(request,response){
@@ -41,7 +41,7 @@ app.post('/message',function(request,response){
         }
     });
 
-});
+};
 
 var server = http.createServer(app).listen(80, function () {
 console.log('server running...')
