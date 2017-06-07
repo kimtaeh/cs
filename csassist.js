@@ -14,7 +14,14 @@ var cs_input_cnt = 0;
 
 //reply define
 
+//rest_api : keyboard 
+app.post('/',function(request,response){
+ 
+    console.log(request.body);
+    console.log("hello");
+});
 
+/*
 //rest_api : keyboard 
 app.post('/keyboard',function(request,response){
  
@@ -38,7 +45,7 @@ app.post('/message',function(request,response){
     });
 
 });
-
+*/
 var server = http.createServer(app).listen(80, function () {
 console.log('server running...')
 });
