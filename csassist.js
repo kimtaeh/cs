@@ -34,7 +34,7 @@ app.get('/keyboard',function(request,response){
 //rest_api : message
 app.post('/message',function(request,response){
  
-    console.log(request.body);
+    console.log(request.body.content);
 
     cs_message = "할룽";
     response.setHeader('Content-Type', 'application/json; charset=utf-8');
