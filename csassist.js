@@ -16,7 +16,7 @@ var cs_input_cnt = 0;
 
 
 //rest_api : keyboard 
-app.post('/keyboard',function(request,response){
+app.get('/keyboard',function(request,response){
  
     console.log(request.body);
 
