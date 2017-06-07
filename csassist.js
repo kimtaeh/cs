@@ -5,12 +5,15 @@ var bodyParser = require('body-parser');
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+var urlencode = require('urlencode');
 
 //data predefine
 var cs_intent = '';
 var cs_message_log = new Array();
 var cs_input_cnt = 0;
+
+console.log(urlencode("변환")); 
+console.log(urlencode.decode('%EB%B3%80%ED%99%98'));
 
 //reply define
 
