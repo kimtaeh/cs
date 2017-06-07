@@ -34,7 +34,7 @@ app.post('/message',function(request,response){
 
     cs_message = "할룽";
     response.json({
-    "message" :    "message" : cs_message 
+    "message" : cs_message 
     });
 
 });
