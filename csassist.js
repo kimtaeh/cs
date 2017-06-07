@@ -18,7 +18,7 @@ var cs_input_cnt = 0;
 //rest_api : keyboard 
 app.get('/keyboard',function(request,response){
  
-    console.log(request.body);
+    console.log("11");
 
     cs_message = "무엇을 도와드릴까요";
     response.setHeader('Content-Type', 'application/json; charset=utf-8');
