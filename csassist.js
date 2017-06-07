@@ -23,9 +23,7 @@ app.get('/keyboard',function(request,response){
     cs_message = "무엇을 도와드릴까요";
     response.setHeader('Content-Type', 'application/json; charset=utf-8');
     response.json({
-    "message" : {
-          "text" : cs_message 
-        }
+    "type" : "text"
     });
 
 });
