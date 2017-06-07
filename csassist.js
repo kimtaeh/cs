@@ -22,12 +22,10 @@ app.post('/keyboard',function(request,response){
 
     cs_message = "무엇을 도와드릴까요";
     response.json({
-    "message" : {
-          "text" : cs_message 
-        }
+    "message" : cs_message 
     });
 
-};
+});
 
 //rest_api : message
 app.post('/message',function(request,response){
@@ -36,12 +34,10 @@ app.post('/message',function(request,response){
 
     cs_message = "할룽";
     response.json({
-    "message" : {
-          "text" : cs_message 
-        }
+    "message" :    "message" : cs_message 
     });
 
-};
+});
 
 var server = http.createServer(app).listen(80, function () {
 console.log('server running...')
