@@ -21,6 +21,7 @@ app.get('/keyboard',function(request,response){
     console.log(request.body);
 
     cs_message = "무엇을 도와드릴까요";
+    response.setHeader('Content-Type', 'application/json; charset=utf-8');
     response.json({
     "message" : {
           "text" : cs_message 
@@ -35,6 +36,7 @@ app.post('/message',function(request,response){
     console.log(request.body);
 
     cs_message = "할룽";
+    response.setHeader('Content-Type', 'application/json; charset=utf-8');
     response.json({
     "message" : {
           "text" : cs_message 
