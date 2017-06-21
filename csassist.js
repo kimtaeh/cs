@@ -133,8 +133,13 @@ app.post('/',function(request,response){
 		//정보 초기화
 		cs_intent = 'delMenu';
 
+		cs_message = "무엇을 도와드릴까요\n\n1번 배송확인\n2번 반품신청 \n0번 상담원 연결";
+		
 		response.json({
-			"message":{
+			
+		"speech": cs_message ,
+ 		"displayText": cs_message ,
+		"message":{
 					    "attachment":{
 					      "type":"template",
 					      "payload":{
