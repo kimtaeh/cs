@@ -211,7 +211,12 @@ app.post('/',function(request,response){
 								      "payload": "SEARCH_IN_CATE 400000080 나이키"
 								    }
 								  ]
-								,
+								},
+					      			{
+								  "title": "",
+								  "subtitle": "17903개의 상품",
+								  "item_url": "http://m.g9.co.kr/Category.htm#/Display/G9Category/400000080",
+								  "image_url": "http://image.g9.co.kr/i/2016/10/19/b3b0b6dc176a45f4.png",
 								  "buttons": [
 								    {
 								      "type": "postback",
