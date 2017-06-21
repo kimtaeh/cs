@@ -87,21 +87,24 @@ app.post('/',function(request,response){
 
 		
 		response.json({
- 			"message":{
-				"text":"Pick a color:",
-				    "quick_replies":[
-				      {
-				        "content_type":"text",
-				        "title":"Red",
-				        "image_url":"http://petersfantastichats.com/img/red.png"
-				      },
-				      {
-				        "content_type":"text",
-				        "title":"Green",
-				        "image_url":"http://petersfantastichats.com/img/green.png"
-			      		}
-		  		 ]
+		"data": {"facebook": {
+ 				"message":{
+					"text":"Pick a color:",
+					    "quick_replies":[
+					      {
+					        "content_type":"text",
+					        "title":"Red",
+					        "image_url":"http://petersfantastichats.com/img/red.png"
+					      },
+					      {
+					        "content_type":"text",
+					        "title":"Green",
+					        "image_url":"http://petersfantastichats.com/img/green.png"
+			 	     		}
+		  			 ]
+				}
 			}
+		}
 		});
 		
 		//response.json({
