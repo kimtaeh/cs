@@ -85,32 +85,51 @@ app.post('/',function(request,response){
 		//정보 초기화
 		cs_intent = 'delMenu';
 
+		
 		response.json({
-			"data": {
- 	 			"message":{
-					    "attachment":{
-					      "type":"template",
-					      "payload":{
-					        "template_type":"generic",
-					        "elements":[
-					           {
-					            "title":"Welcome to Peter\'s Hats",
-					            "buttons":[
-					              {
-					                "type":"postback",
-					                "title":"yes"
-					              },{
-					                "type":"postback",
-					                "title":"no"
-					              }              
-					            ]    
-						   }
-					         ]
-					      }
-					    }
-					  }
+ 			"message":{
+				"text":"Pick a color:",
+				    "quick_replies":[
+				      {
+				        "content_type":"text",
+				        "title":"Red",
+				        "image_url":"http://petersfantastichats.com/img/red.png"
+				      },
+				      {
+				        "content_type":"text",
+				        "title":"Green",
+				        "image_url":"http://petersfantastichats.com/img/green.png"
+			      		}
+		  		 ]
 			}
 		});
+		
+		//response.json({
+		//	"data": {
+ 	 	//		"message":{
+		//			    "attachment":{
+		//			      "type":"template",
+		//			      "payload":{
+		//			        "template_type":"generic",
+		//			        "elements":[
+		//			           {
+		//			            "title":"Welcome to Peter\'s Hats",
+		//			            "buttons":[
+		//			              {
+		//			                "type":"postback",
+		//			                "title":"yes"
+		//			              },{
+		//			                "type":"postback",
+		//			                "title":"no"
+		//			              }              
+		//			            ]    
+		//				   }
+		//			         ]
+		//			      }
+		//			    }
+		//			  }
+		//	}
+		//});
 		
 		//cs_message = "안녕하세요 CS TEST 챗봇 입니다.\n무엇을 도와드릴까요\n\n1번 배송확인\n2번 반품신청\n0번 상담원 연결\n\n메뉴라고 말씀주시면 첫 화면으로 돌아갑니다.";
 		//response.json({
