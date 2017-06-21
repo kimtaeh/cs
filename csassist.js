@@ -134,12 +134,13 @@ app.post('/',function(request,response){
 		cs_intent = 'delMenu';
 
 		cs_message = "무엇을 도와드릴까요\n\n1번 배송확인\n2번 반품신청 \n0번 상담원 연결";
-		
+
 		response.json({
 			
 		"speech": cs_message ,
  		"displayText": cs_message ,
-		"messages":{
+		"message":{
+			"attachment":{
 					      "type":"template",
 					      "payload":{
 					        "template_type":"generic",
@@ -158,8 +159,35 @@ app.post('/',function(request,response){
 						   }
 					         ]
 					      }
+				}
 			  }
 		});
+		
+		//response.json({
+			
+		//"speech": cs_message ,
+ 		//"displayText": cs_message ,
+		//"messages":{
+		//			      "type":"template",
+		//			      "payload":{
+		//			        "template_type":"generic",
+		//			        "elements":[
+		//			           {
+		//			            "title":"Welcome to Peter\'s Hats",
+		//			            "buttons":[
+		//			              {
+		//			                "type":"postback",
+		//			                "title":"yes"
+		//			              },{
+		//			                "type":"postback",
+		//			                "title":"no"
+		//			              }              
+		//			            ]    
+		//				   }
+		//			         ]
+		//			      }
+		//	  }
+		//});
 		
 		//response.json({
 		//"data": {"facebook": {
