@@ -134,7 +134,7 @@ app.post('/',function(request,response){
 		cs_intent = 'delMenu';
 
 		response.json({
- 	 	"message": {
+ 	 	"facebook": {
     			"attachment": {
       				"type": "template",
       				"payload": {
