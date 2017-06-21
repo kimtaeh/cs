@@ -133,50 +133,27 @@ app.post('/',function(request,response){
 		//정보 초기화
 		cs_intent = 'delMenu';
 
-		response.json({
- 	 	"facebook": {
-    			"attachment": {
-      				"type": "template",
-      				"payload": {
-        				"template_type":"button",
-        				"text":"무엇을 도와드릴까요",
-        				"buttons":[
-          						{
-            							"type":"postback",
-            							"title":"1번 배송확인",
-            							"payload":"USER_DEFINED_PAYLOAD"
-          						},
-          						{
-            							"type":"postback",
-            							"title":"2번 반품신청",
-            							"payload":"USER_DEFINED_PAYLOAD"
-          						}
-        					]
-      					}
-    				}
-  			}
-		});
 		
-		//response.json({
-		//"data": {"facebook": {
- 		//		"message":{
-		//			"speech":"Pick a color:",
-		//			    "quick_replies":[
-		//			      {
-		//			        "content_type":"text",
-		//			        "title":"Red",
-		//			        "image_url":"http://petersfantastichats.com/img/red.png"
-		//			      },
-		//			      {
-		//			        "content_type":"text",
-		//			        "title":"Green",
-		//			        "image_url":"http://petersfantastichats.com/img/green.png"
-		//	 	     		}
-		  //			 ]
-		//		}
-		//	}
-		//}
-		//});
+		response.json({
+		"data": {"facebook": {
+ 				"message":{
+					"speech":"Pick a color:",
+					    "quick_replies":[
+					      {
+					        "content_type":"text",
+					        "title":"Red",
+					        "image_url":"http://petersfantastichats.com/img/red.png"
+					      },
+					      {
+					        "content_type":"text",
+					        "title":"Green",
+					        "image_url":"http://petersfantastichats.com/img/green.png"
+			 	     		}
+					 ]
+				}
+			}
+		}
+		});
 		
 		//response.json({
 		//	"data": {
