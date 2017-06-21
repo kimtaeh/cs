@@ -140,7 +140,6 @@ app.post('/',function(request,response){
 		"speech": cs_message ,
  		"displayText": cs_message ,
 		"messages":{
-				    "attachment":{
 					      "type":"template",
 					      "payload":{
 					        "template_type":"generic",
@@ -159,7 +158,6 @@ app.post('/',function(request,response){
 						   }
 					         ]
 					      }
-			    }
 			  }
 		});
 		
