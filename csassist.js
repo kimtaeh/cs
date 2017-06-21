@@ -139,7 +139,7 @@ app.post('/',function(request,response){
 			
 		"speech": cs_message ,
  		"displayText": cs_message ,
-		"message":{
+		"messages":{
 			"attachment":{
 					      "type":"template",
 					      "payload":{
