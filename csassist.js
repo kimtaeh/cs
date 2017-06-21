@@ -149,10 +149,12 @@ app.post('/',function(request,response){
 					            "buttons":[
 					              {
 					                "type":"postback",
-					                "title":"yes"
+					                "title":"yes",
+							"payload":"1"
 					              },{
 					                "type":"postback",
-					                "title":"no"
+					                "title":"no",
+							"payload":"2"
 					              }              
 					            ]    
 						   }
