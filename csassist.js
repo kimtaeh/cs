@@ -32,7 +32,7 @@ app.post('/',function(request,response){
     var cs_message;
     var cs_query = request.body.result.resolvedQuery;
 
-    //log 기록(사용자 정보 저장)
+    //log 기록(사용자정보 저장)
     cs_message_log [cs_input_cnt] = cs_query;
     cs_input_cnt = cs_input_cnt+ 1;
     
@@ -139,8 +139,8 @@ app.post('/',function(request,response){
 			
 		"speech": cs_message ,
  		"displayText": cs_message ,
-		"message":{
-		//			    "attachment":{
+		"messages":{
+				    "attachment":{
 					      "type":"template",
 					      "payload":{
 					        "template_type":"generic",
@@ -159,7 +159,7 @@ app.post('/',function(request,response){
 						   }
 					         ]
 					      }
-		//		    }
+			    }
 			  }
 		});
 		
