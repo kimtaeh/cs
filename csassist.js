@@ -193,7 +193,7 @@ app.post('/',function(request,response){
 				
 		response.json({
 		"data": {"facebook": {
-					 "attachment":{
+					 "attachments":{
 					      "type":"template",
 					      "payload":{
 					        "template_type":"generic",
