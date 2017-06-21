@@ -46,7 +46,7 @@ app.post('/',function(request,response){
 		cs_intent = 'delMenu';
 		cs_input_cnt = 0;
 		cs_message_log.splice();
-
+		
 		response.json({
  	 	"facebook": {
     			"attachment": {
@@ -70,6 +70,30 @@ app.post('/',function(request,response){
     				}
   			}
 		});
+
+		//response.json({
+ 	 	//"facebook": {
+    		//	"attachment": {
+      		//		"type": "template",
+      		//		"payload": {
+        	//			"template_type":"button",
+        	//			"text":"무엇을 도와드릴까요",
+        	//			"buttons":[
+          	//					{
+            	//						"type":"postback",
+            	//						"title":"1번 배송확인",
+            	//						"payload":"USER_DEFINED_PAYLOAD"
+          	//					},
+          	//					{
+            	//						"type":"postback",
+            	//						"title":"2번 반품신청",
+            	//						"payload":"USER_DEFINED_PAYLOAD"
+          	//					}
+        	//				]
+      		//			}
+    		//		}
+  		//	}
+		//});
 		
 		//cs_message = "무엇을 도와드릴까요\n\n1번 배송확인\n2번 반품신청 \n0번 상담원 연결";
 		//response.json({
@@ -89,7 +113,7 @@ app.post('/',function(request,response){
 		response.json({
 		"data": {"facebook": {
  				"message":{
-					"text":"Pick a color:",
+					"speech":"Pick a color:",
 					    "quick_replies":[
 					      {
 					        "content_type":"text",
