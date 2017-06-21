@@ -140,7 +140,7 @@ app.post('/',function(request,response){
 		"speech": cs_message ,
  		"displayText": cs_message ,
 		"message":{
-					    "attachment":{
+		//			    "attachment":{
 					      "type":"template",
 					      "payload":{
 					        "template_type":"generic",
@@ -159,7 +159,7 @@ app.post('/',function(request,response){
 						   }
 					         ]
 					      }
-				    }
+		//		    }
 			  }
 		});
 		
