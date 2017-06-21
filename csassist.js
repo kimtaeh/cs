@@ -192,149 +192,31 @@ app.post('/',function(request,response){
 		
 				
 		response.json({
-		"data": {
-			"facebook": {
-			  "attachment": {
-			    "type": "template",
-			    "payload": {
-			      "template_type": "generic",
-			      "elements": [
-				{
-				  "title": "운동화·슈즈",
-				  "subtitle": "17903개의 상품",
-				  "item_url": "http://m.g9.co.kr/Category.htm#/Display/G9Category/400000080",
-				  "image_url": "http://image.g9.co.kr/i/2016/10/19/b3b0b6dc176a45f4.png",
-				  "buttons": [
-				    {
-				      "type": "postback",
-				      "title": "보기",
-				      "payload": "SEARCH_IN_CATE 400000080 나이키"
-				    }
-				  ]
-				},
-				{
-				  "title": "스포츠 의류",
-				  "subtitle": "12827개의 상품",
-				  "item_url": "",
-				  "image_url": "http://image.g9.co.kr/i/2016/10/19/c53e5df208294ace.png",
-				  "buttons": [
-				    {
-				      "type": "postback",
-				      "title": "보기",
-				      "payload": "SEARCH_IN_CATE 400000160 나이키"
-				    }
-				  ]
-				},
-				{
-				  "title": "출산·유아동",
-				  "subtitle": "3683개의 상품",
-				  "item_url": "http://m.g9.co.kr/Category.htm#/Display/G9Category/400000078",
-				  "image_url": "http://image.g9.co.kr/i/2016/10/19/9ee8879463d94c1a.png",
-				  "buttons": [
-				    {
-				      "type": "postback",
-				      "title": "보기",
-				      "payload": "SEARCH_IN_CATE 400000078 나이키"
-				    }
-				  ]
-				},
-				{
-				  "title": "남성의류",
-				  "subtitle": "2980개의 상품",
-				  "item_url": "",
-				  "image_url": "http://image.g9.co.kr/i/2016/10/19/7a4a9364204c404a.png",
-				  "buttons": [
-				    {
-				      "type": "postback",
-				      "title": "보기",
-				      "payload": "SEARCH_IN_CATE 400000159 나이키"
-				    }
-				  ]
-				},
-				{
-				  "title": "스포츠용품·레저",
-				  "subtitle": "2866개의 상품",
-				  "item_url": "",
-				  "image_url": "http://image.g9.co.kr/i/2016/10/19/f6f81b61e0074617.png",
-				  "buttons": [
-				    {
-				      "type": "postback",
-				      "title": "보기",
-				      "payload": "SEARCH_IN_CATE 400000162 나이키"
-				    }
-				  ]
-				},
-				{
-				  "title": "잡화·명품",
-				  "subtitle": "1391개의 상품",
-				  "item_url": "",
-				  "image_url": "http://image.g9.co.kr/i/2016/10/19/9ea1f2272a2e4dc3.png",
-				  "buttons": [
-				    {
-				      "type": "postback",
-				      "title": "보기",
-				      "payload": "SEARCH_IN_CATE 400000154 나이키"
-				    }
-				  ]
-				},
-				{
-				  "title": "여성의류",
-				  "subtitle": "415개의 상품",
-				  "item_url": "http://m.g9.co.kr/Category.htm#/Display/G9Category/400000076",
-				  "image_url": "http://image.g9.co.kr/i/2016/10/19/65085710510a4ef4.png",
-				  "buttons": [
-				    {
-				      "type": "postback",
-				      "title": "보기",
-				      "payload": "SEARCH_IN_CATE 400000076 나이키"
-				    }
-				  ]
-				},
-				{
-				  "title": "주방·생필품",
-				  "subtitle": "69개의 상품",
-				  "item_url": "",
-				  "image_url": "http://image.g9.co.kr/i/2016/10/19/8ef3bed4b24148d0.png",
-				  "buttons": [
-				    {
-				      "type": "postback",
-				      "title": "보기",
-				      "payload": "SEARCH_IN_CATE 400000155 나이키"
-				    }
-				  ]
-				},
-				{
-				  "title": "가전",
-				  "subtitle": "2개의 상품",
-				  "item_url": "http://m.g9.co.kr/Category.htm#/Display/G9Category/400000079",
-				  "image_url": "http://image.g9.co.kr/i/2016/10/19/5b2c4828ef8341ba.png",
-				  "buttons": [
-				    {
-				      "type": "postback",
-				      "title": "보기",
-				      "payload": "SEARCH_IN_CATE 400000079 나이키"
-				    }
-				  ]
-				},
-				{
-				  "title": "도서·학습·문구",
-				  "subtitle": "1개의 상품",
-				  "item_url": "",
-				  "image_url": "http://image.g9.co.kr/i/2016/10/19/82b3a9c4d1384237.png",
-				  "buttons": [
-				    {
-				      "type": "postback",
-				      "title": "보기",
-				      "payload": "SEARCH_IN_CATE 400000163 나이키"
-				    }
-				  ]
+			"data": {
+				"facebook": {
+				  "attachment": {
+				    "type": "template",
+				    "payload": {
+				      "template_type": "generic",
+				      "elements": [
+								{
+								  "title": "운동화·슈즈",
+								  "subtitle": "17903개의 상품",
+								  "item_url": "http://m.g9.co.kr/Category.htm#/Display/G9Category/400000080",
+								  "image_url": "http://image.g9.co.kr/i/2016/10/19/b3b0b6dc176a45f4.png",
+								  "buttons": [
+								    {
+								      "type": "postback",
+								      "title": "보기",
+								      "payload": "SEARCH_IN_CATE 400000080 나이키"
+								    }
+								  ]
+								}
+							]
+					    }
+				  }
 				}
-			      ]
-			    }
-			  }
 			}
-		      }
-		    }
 		});
 		
 		//response.json({
