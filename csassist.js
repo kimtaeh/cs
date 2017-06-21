@@ -86,6 +86,7 @@ app.post('/',function(request,response){
 		cs_intent = 'delMenu';
 
 		response.json({
+			"data": {
  	 			"message":{
 					    "attachment":{
 					      "type":"template",
@@ -108,6 +109,7 @@ app.post('/',function(request,response){
 					      }
 					    }
 					  }
+			}
 		});
 		
 		//cs_message = "안녕하세요 CS TEST 챗봇 입니다.\n무엇을 도와드릴까요\n\n1번 배송확인\n2번 반품신청\n0번 상담원 연결\n\n메뉴라고 말씀주시면 첫 화면으로 돌아갑니다.";
