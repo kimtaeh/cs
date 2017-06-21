@@ -209,7 +209,10 @@ app.post('/',function(request,response){
 								      "type": "postback",
 								      "title": "보기",
 								      "payload": "SEARCH_IN_CATE 400000080 나이키"
-								    },
+								    }
+								  ]
+								,
+								  "buttons": [
 								    {
 								      "type": "postback",
 								      "title": "보기",
