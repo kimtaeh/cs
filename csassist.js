@@ -133,25 +133,49 @@ app.post('/',function(request,response){
 		//정보 초기화
 		cs_intent = 'delMenu';
 
-		
 		response.json({
-		"data": {"facebook": {
- 				"message":{
-					"speech":"Pick a color:",
-					    "quick_replies":[
-					      {
-					        "content_type":"text",
-					        "title":"Red",
-					      },
-					      {
-					        "content_type":"text",
-					        "title":"Green",
-			 	     		}
-					 ]
-				}
-			}
-		}
+			"message":{
+					    "attachment":{
+					      "type":"template",
+					      "payload":{
+					        "template_type":"generic",
+					        "elements":[
+					           {
+					            "title":"Welcome to Peter\'s Hats",
+					            "buttons":[
+					              {
+					                "type":"postback",
+					                "title":"yes"
+					              },{
+					                "type":"postback",
+					                "title":"no"
+					              }              
+					            ]    
+						   }
+					         ]
+					      }
+				    }
+			  }
 		});
+		
+		//response.json({
+		//"data": {"facebook": {
+ 		//		"message":{
+		//			"speech":"Pick a color:",
+		//			    "quick_replies":[
+		//			      {
+		//			        "content_type":"text",
+		//			        "title":"Red",
+		//			      },
+		//			      {
+		//			        "content_type":"text",
+		//			        "title":"Green",
+		//	 	     		}
+		//			 ]
+		//		}
+		//	}
+		//}
+		//});
 		
 		//response.json({
 		//	"data": {
