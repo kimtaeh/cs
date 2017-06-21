@@ -135,10 +135,9 @@ app.post('/',function(request,response){
 
 		cs_message = "무엇을 도와드릴까요\n\n1번 배송확인\n2번 반품신청 \n0번 상담원 연결";
 
-		response.json({
-			
-		"speech": cs_message ,
- 		"displayText": cs_message ,
+		response.json({	
+		//"speech": cs_message ,
+ 		//"displayText": cs_message ,
 		"messages":{
 			"attachment":{
 					      "type":"template",
