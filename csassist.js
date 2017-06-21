@@ -98,10 +98,10 @@ app.post('/',function(request,response){
 					            "buttons":[
 					              {
 					                "type":"postback",
-					                "title":"yes",
+					                "title":"yes"
 					              },{
 					                "type":"postback",
-					                "title":"no",
+					                "title":"no"
 					              }              
 					            ]      
 					          }
