@@ -94,7 +94,8 @@ app.post('/',function(request,response){
 					        "template_type":"generic",
 					        "elements":[
 					           {
-					            "title":"Welcome to Peter\'s Hats",
+					            "title":"Welcome to Peter\'s Hats"
+						   },
 					            "buttons":[
 					              {
 					                "type":"postback",
@@ -104,8 +105,7 @@ app.post('/',function(request,response){
 					                "title":"no"
 					              }              
 					            ]      
-					          }
-					        ]
+					         ]
 					      }
 					    }
 					  }
