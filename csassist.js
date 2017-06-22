@@ -265,13 +265,50 @@ app.post('/',function(request,response){
 		else{
 
 			console.log('24');
-			//잘못된 메뉴 선택
-			//오류 메시지 출력
-			cs_message = "다시 메뉴를 선택해주세요";
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+
+			//기존 정보 초기화
+			cs_intent = 'delMenu';
+			cs_input_cnt = 0;
+			cs_message_log.splice();
+		
 			response.json({
-  				"speech": cs_message ,
- 				"displayText": cs_message ,
- 				"source": "delMenu"
+				"data": {
+					"facebook": {
+				  		"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": "무엇을 도와드릴까요",
+									  "buttons": [
+									    {
+									      "type": "postback",
+									      "title": "1번 주문/배송 확인",
+									      "payload": "1"
+									    },
+									    {
+								  		    "type": "postback",
+						  				    "title": "2번 반품/교환 신청",
+						  				    "payload": "2"
+						  	    		},
+							   		 {
+						  		    		"type":"web_url",
+                								    "url":"http://member2.gmarket.co.kr/CustomerCenter/Main",
+								  		    "title": "0번 FAQ 연결"
+								  	    }
+
+									  ]
+									}
+							
+								]
+			    				}
+		  				}
+					}
+				}
 			});
 		}
 	}
