@@ -373,12 +373,12 @@ app.post('/',function(request,response){
 				console.log(cs_message_log[i]);
 			}
 			//기존 정보 초기화
-			cs_intent = '';
+			cs_intent = 'require';
 			cs_input_cnt = 0;
 			cs_message_log.splice();
 		
 			//상담자에게 종료 알림
-  			cs_message = "문의 내용을 입력해 주시면 상담원 연결 시 같이 전달 드리겠습니다.";
+  			cs_message = "상담받고 싶으신 내용을 입력해주세요.";
 			response.json({
   			"speech": cs_message ,
  		 	"displayText": cs_message ,
@@ -537,7 +537,7 @@ app.post('/',function(request,response){
 				console.log(cs_message_log[i]);
 			}
 			//기존 정보 초기화
-			cs_intent = '';
+			cs_intent = 'require';
 			cs_input_cnt = 0;
 			cs_message_log.splice();
 		
@@ -597,6 +597,52 @@ app.post('/',function(request,response){
 				}
 			});
 		}
+	}
+	else if (cs_intent == 'require'){
+		console.log('33');
+		console.log(cs_input_cnt);
+		console.log(cs_intent);
+
+		//기존 로그를 상담원에게 전달과 동시에 챗봇 종료
+	
+		//상담원에게 정보 전달
+		for (var i = 0; i < cs_input_cnt ; i++){
+			console.log(cs_message_log[i]);
+		}
+		//기존 정보 초기화
+		cs_intent = '';
+		cs_input_cnt = 0;
+		cs_message_log.splice();
+	
+		response.json({
+				"data": {
+					"facebook": {
+				  		"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": "입력해주셔서 감사합니다. \n아래 버튼을 클릭하시면 상담원을 연결해드리겠습니다.",
+									  "buttons": [
+							    		    {
+						  		    		   "type":"web_url",
+                								    "url":"http://member2.gmarket.co.kr/CustomerCenter/Main",
+								  		    "title": "상담원 연결"
+								  	    }
+
+									  ]
+									}
+							
+								]
+			    				}
+		  				}
+					}
+				}
+			});
+
+		}
+		
 	}
 	else {
 		//상담원 이동 등 중간에 비정상 적인 경우
