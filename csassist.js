@@ -445,9 +445,9 @@ app.post('/',function(request,response){
 			console.log(cs_intent);
 		
 			//intent 정의
-			cs_intent = 'delReturn';
+			cs_intent = 'returnCheck';
 
-			cs_message = "고객님이 주문하신 나이키 운동화(주문번호:1101)의 취소 신청이 완료되었습니다";
+			cs_message = "선택하신 나이키 운동화를 취소하시겠습니까";
 			response.json({
 				"data": {
 					"facebook": {
@@ -461,13 +461,13 @@ app.post('/',function(request,response){
 									  "buttons": [
 									    {
 									      "type": "postback",
-									      "title": "처음으로",
-									      "payload": "3"
+									      "title": "예",
+									      "payload": "1"
 									    },
 									    {
-								  		    "type": "postback",
-						  				    "title": "상담원 연결",
-						  				    "payload": "0"
+								  		"type": "postback",
+						  				"title": "아니오",
+						  				"payload": "2"
 						  	    		    }
 									  ]
 									}
@@ -641,6 +641,168 @@ app.post('/',function(request,response){
 				}
 			});
 
+	}
+	else if (cs_intent == 'returnCheck'){
+		//로직 처리
+		if (cs_query == '1' || cs_query == '1번' || cs_query == '1101'){
+
+			console.log('41');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+		
+			//intent 정의
+			cs_intent = 'returnCheck';
+
+			cs_message = "고객님이 주문하신 나이키 운동화(주문번호:1101)의 취소 신청이 완료되었습니다";
+			response.json({
+					"data": {
+						"facebook": {
+							"attachment": {
+								"type": "template",
+								 "payload": {
+									"template_type": "generic",
+									"elements": [
+										{
+										"title": cs_message,
+										  "buttons": [
+										    {
+										      "type": "postback",
+										      "title": "처음으로",
+										      "payload": "3"
+										    },
+										    {
+											    "type": "postback",
+											    "title": "상담원 연결",
+											    "payload": "0"
+										    }
+										  ]
+										}
+
+									]
+								}
+							}
+						}
+					}
+				});
+
+		}
+		else if (cs_query == '2' || cs_query == '2번' || cs_query == '1008'){
+
+			console.log('42');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+			//intent 정의
+			cs_intent = 'delReturn';
+	
+			//화면 출력
+			cs_message = "반품/취소 신청이 중지 되었습니다.";
+			response.json({
+				"data": {
+					"facebook": {
+				  		"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": cs_message,
+									  "buttons": [
+									    {
+									      "type": "postback",
+									      "title": "처음으로",
+									      "payload": "3"
+									    },
+									    {
+								  		    "type": "postback",
+						  				    "title": "상담원 연결",
+						  				    "payload": "0"
+						  	    		    }
+									  ]
+									}
+							
+								]
+			    				}
+		  				}
+					}
+				}
+			});
+		
+		}
+		else if(cs_query == '0' || cs_query == '0번'){
+
+
+			console.log('43');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+			//기존 로그를 상담원에게 전달과 동시에 챗봇 종료
+		
+			//상담원에게 정보 전달
+			for (var i = 0; i < cs_input_cnt ; i++){
+				console.log(cs_message_log[i]);
+			}
+			//기존 정보 초기화
+			cs_intent = 'require';
+			cs_input_cnt = 0;
+			cs_message_log.splice();
+		
+			//상담자에게 종료 알림
+  			cs_message = "문의 내용을 입력해 주시면 상담원 연결 시 같이 전달 드리겠습니다.";
+			response.json({
+  			"speech": cs_message ,
+ 		 	"displayText": cs_message ,
+	 	 	"source": "delReturn"
+			});
+		}
+		else{
+
+			console.log('44');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+			//기존 정보 초기화
+			cs_intent = 'delMenu';
+			cs_input_cnt = 0;
+			cs_message_log.splice();
+		
+			response.json({
+				"data": {
+					"facebook": {
+				  		"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": "무엇을 도와드릴까요",
+									  "buttons": [
+									    {
+									      "type": "postback",
+									      "title": "1번 주문/배송 확인",
+									      "payload": "1"
+									    },
+									    {
+								  		    "type": "postback",
+						  				    "title": "2번 반품/교환 신청",
+						  				    "payload": "2"
+						  	    		},
+							   		 {
+						  		    		"type":"web_url",
+                								    "url":"http://member2.gmarket.co.kr/CustomerCenter/Main",
+								  		    "title": "0번 FAQ 연결"
+								  	    }
+
+									  ]
+									}
+							
+								]
+			    				}
+		  				}
+					}
+				}
+			});
+		}
 	}
 	else {
 		//상담원 이동 등 중간에 비정상 적인 경우
