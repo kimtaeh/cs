@@ -133,6 +133,7 @@ app.post('/',function(request,response){
 
 								  		"title": "첫메뉴로",
 										 "subtitle": "처음으로 돌아가기",
+										"image_url": "https://sslimage.gmarket.co.kr/_Net/MyInfo/login/logo.gif",
 								  		"buttons": [
 								  		  {
 								  		    "type": "postback",
@@ -196,6 +197,7 @@ app.post('/',function(request,response){
 
 								  		"title": "첫메뉴로",
 										 "subtitle": "처음으로 돌아가기",
+										"image_url": "https://sslimage.gmarket.co.kr/_Net/MyInfo/login/logo.gif",
 								  		"buttons": [
 								  		  {
 								  		    "type": "postback",
@@ -302,7 +304,7 @@ app.post('/',function(request,response){
 									    },
 									    {
 								  		    "type": "postback",
-						  				    "title": "상담원 전달",
+						  				    "title": "상담원 연결",
 						  				    "payload": "0"
 						  	    		    }
 									  ]
@@ -344,7 +346,7 @@ app.post('/',function(request,response){
 									    },
 									    {
 								  		    "type": "postback",
-						  				    "title": "상담원 전달",
+						  				    "title": "상담원 연결",
 						  				    "payload": "0"
 						  	    		    }
 									  ]
@@ -464,7 +466,7 @@ app.post('/',function(request,response){
 									    },
 									    {
 								  		    "type": "postback",
-						  				    "title": "상담원 전달",
+						  				    "title": "상담원 연결",
 						  				    "payload": "0"
 						  	    		    }
 									  ]
@@ -507,7 +509,7 @@ app.post('/',function(request,response){
 									    },
 									    {
 								  		    "type": "postback",
-						  				    "title": "상담원 전달",
+						  				    "title": "상담원 연결",
 						  				    "payload": "0"
 						  	    		    }
 									  ]
