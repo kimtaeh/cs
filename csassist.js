@@ -29,7 +29,7 @@ app.post('/',function(request,response){
     cs_message_log [cs_input_cnt] = cs_query;
     cs_input_cnt = cs_input_cnt+ 1;
     
-    if (cs_intent == ''){
+    if (cs_intent == '' || cs_query == "하이"){
 	console.log('11');
 	console.log(cs_input_cnt);
 	console.log(cs_intent);
