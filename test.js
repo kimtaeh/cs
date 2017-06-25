@@ -29,8 +29,8 @@ mecab.nouns(text, function (err, result) {
 		    }
 	}
 	   
-    console.log(result);
-    console.log(message);
+    console.log(ret_message);
+    console.log(ret_url);
     
     
 });
