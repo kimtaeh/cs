@@ -12,9 +12,7 @@ app.use(bodyParser.json());
 var cs_intent = '';
 var cs_message_log = new Array();
 var cs_input_cnt = 0;
-var message = '';
-var ret_message = '';
-var ret_url = '';
+
 
 //faq define
 var faq_list = 
@@ -222,9 +220,9 @@ app.post('/',function(request,response){
 			cs_intent = 'del_welcome';
 			cs_input_cnt = 0;
 			cs_message_log.splice();
-			message = '';
-			ret_message = '';
-			ret_url = '';
+			var message = '';
+			var ret_message = '';
+			var ret_url = '';
 			
 			mecab.nouns(cs_query, function (err, result) {
     
