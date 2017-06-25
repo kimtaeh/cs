@@ -342,7 +342,7 @@ app.post('/',function(request,response){
 			console.log(cs_intent);
 
 			//intent 정의
-			cs_intent = 'del_order_checkk';
+			cs_intent = 'del_order_check';
 	
 			response.json({
 				"data": {
