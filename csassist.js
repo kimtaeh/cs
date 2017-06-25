@@ -88,7 +88,7 @@ app.post('/',function(request,response){
 										      "payload": "1"
 										    },
 										    {
-											    "type": "postback",
+											"type": "postback",
 											    "title": "추가조회",
 											    "payload": "2"
 										},
@@ -102,6 +102,7 @@ app.post('/',function(request,response){
 										}
 
 									]
+								}
 								}
 							}
 							]
