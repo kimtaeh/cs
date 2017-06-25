@@ -81,7 +81,7 @@ app.post('/',function(request,response){
 									"elements": [
 										{
 										 "title": "나이키 운동화",
-									  	 "subtitle": "2017-05-27"
+									  	 "subtitle": "2017-05-27",
 										 "buttons": [
 										    {
 										      "type": "postback",
