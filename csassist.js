@@ -243,11 +243,11 @@ app.post('/',function(request,response){
 					    }
 				}
 
-			    console.log(ret_message);
-			    console.log(ret_url);
-
 
 			});
+			
+			console.log(ret_message);
+			console.log(ret_url);
 			
 			response.json({
 				"data": {
