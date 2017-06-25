@@ -254,27 +254,7 @@ app.post('/',function(request,response){
 					"facebook": [
 							{
 								"text": ret_message
-							},
-							{
-								"attachment": {
-				    				"type": "template",
-				  			 	"payload": {
-				      					"template_type": "generic",
-				      					"elements": [
-											{
-											  "buttons": [
-												  {						  		  {
-								  		   		 "type":"web_url",
-										   		 "title": "내용 확인",
-                								  		  "url": ret_url
-								  		 		 }
-											  ]
-											}
-										  ]
-									}
-							
-								]
-			    				}
+							}
 						]
 					}
 				});
