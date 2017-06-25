@@ -266,7 +266,7 @@ app.post('/',function(request,response){
 												  {						  		  {
 								  		   		 "type":"web_url",
 										   		 "title": "내용 확인",
-                								  		  "url":"https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+                								  		  "url": ret_url
 								  		 		 }
 											  ]
 											}
@@ -275,8 +275,6 @@ app.post('/',function(request,response){
 							
 								]
 			    				}
-		  				}
-							}
 						]
 					}
 				});
