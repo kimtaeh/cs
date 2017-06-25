@@ -224,7 +224,7 @@ app.post('/',function(request,response){
 			cs_message_log.splice();
 
 			
-			mecab.nouns(cs_query, function (err, result) {
+			var t = mecab.nouns(cs_query, function (err, result) {
     
 			    var t1 = result.length;
 			    var message = '';
@@ -244,13 +244,11 @@ app.post('/',function(request,response){
 					    }
 				}
 				
-				global.ret_message = message;
-				global.ret_url = ret_url;
+				return ret_message;
 
 			});
-			
-			console.log(global.ret_message);
-			console.log(global.ret_url);
+
+			console.log(t);
 			
 			response.json({
 				"data": {
