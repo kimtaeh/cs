@@ -19,8 +19,7 @@ mecab.nouns(text, function (err, result) {
 	console.log(result[i]);
 	message = message + result[i]  + ' ';
 	}
-
-    console.log(faq_list);
+	
     console.log(result);
     console.log(message);
     
