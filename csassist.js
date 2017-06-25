@@ -254,25 +254,25 @@ app.post('/',function(request,response){
 									"text": ret_message
 								},
 								{
-																		"attachment": {
-					    				"type": "template",
-					  			 		"payload": {
-					      					"template_type": "generic",
-					      					"elements": [
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
 											{
+				
 											  "buttons": [
-											 {
-											    "type":"web_url",
-											    "title": "내역 확인",
-											    "url": ret_url
-											  }
-										  ]
-											}
-								
-										]
-				    					}
-				    				
-				    					}
+											    {
+											      	"type":"web_url",
+											    	"title": "내역 확인",
+											    	"url": ret_url
+											    }
+											  ]
+										}
+
+									]
+									}
+								}
 								}
 							]
 						}
