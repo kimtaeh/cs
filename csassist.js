@@ -70,43 +70,44 @@ app.post('/',function(request,response){
 			response.json({
 				"data": {
 					"facebook": [
-
+							{
+								"text": "고객님이 최근 주문하신 상품은 아래와 같습니다."
+							},
 							{
 								"attachment": {
-								"type": "template",
-								 "payload": {
-									"template_type": "generic",
-									"elements": [
+				    				"type": "template",
+				  			 	"payload": {
+				      					"template_type": "generic",
+				      					"elements": [
 										{
-										 "title": "나이키 운동화",
-									  	 "subtitle": "2017-05-27",
-										 "buttons": [
+									  	"title": "무엇을 도와드릴까요",
+										  "buttons": [
 										    {
 										      "type": "postback",
-										      "title": "주문확인",
+										      "title": "1번 주문/배송 확인",
 										      "payload": "1"
 										    },
 										    {
-											"type": "postback",
-											    "title": "추가조회",
-											    "payload": "2"
-										},
-										 {
-											"type":"postback",
-											    "title": "상담원 연결",
-											    "title": "0번 FAQ 연결"
-										    }
+									  		    "type": "postback",
+						  					    "title": "2번 반품/교환 신청",
+						  					    "payload": "2"
+						  	  	  		},
+							   			 {
+						  			    		"type":"web_url",
+                									    "url":"http://member2.gmarket.co.kr/CustomerCenter/Main",
+									  		    "title": "0번 FAQ 연결"
+									  	    }
 
 										  ]
-										}
-
-									]
-								}
-								}
+									}
+							
+								]
+			    				}
+		  				}
 							}
-							]
-						}
-					});
+						]
+					}
+				});
 
 		}
 		else if (cs_type == 'del_status_check'){
