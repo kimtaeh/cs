@@ -276,7 +276,7 @@ app.post('/',function(request,response){
 
 
 		}
-		else if (cs_query == '2' || cs_query == '2번' || cs_query == '1008'){
+		else if (cs_query == '0'){
 			console.log('32');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
@@ -284,7 +284,6 @@ app.post('/',function(request,response){
 			//intent 정의
 			cs_intent = 'del_order_checkk';
 	
-			cs_message = "고객님이 주문하신 신라면 번들(주문번호:1008) 배송이 완료되었습니다";
 			response.json({
 				"data": {
 					"facebook": {
@@ -294,24 +293,49 @@ app.post('/',function(request,response){
 				      				"template_type": "generic",
 				      				"elements": [
 									{
-								  	"title": cs_message,
+								  	"title": "나이키 운동화",
+									  "subtitle": "2017-05-27 (주문번호:1101)",
+									  "item_url": "http://gmkt.kr/gUJQJh",
+									  "image_url": "http://gdimg.gmarket.co.kr/goods_image2/shop_img/337/969/337969761.jpg",
 									  "buttons": [
 									    {
 									      "type": "postback",
-									      "title": "처음으로",
-									      "payload": "3"
-									    },
-									    {
-								  		    "type": "postback",
-						  				    "title": "상담원 연결",
-						  				    "payload": "0"
-						  	    		    }
+									      "title": "나이키 운동화",
+									      "payload": "1"
+									    }
 									  ]
 									}
-							
+									,
+									{
+
+								  		"title": "신라면 번들",
+										 "subtitle": "2017-05-23 (주문번호:1008)",
+								  		"item_url": "http://gmkt.kr/g1aYMh",
+									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/896/107/896107297.jpg",
+								  		"buttons": [
+								  		  {
+								  		    "type": "postback",
+								  		    "title": "신라면 번들",
+								  		    "payload": "2"
+								  		  }
+									  ]
+									},
+									{
+
+								  		"title": "MyG",
+										 "subtitle": "MyG",
+										"image_url": "https://sslimage.gmarket.co.kr/_Net/MyInfo/login/logo.gif",
+								  		"buttons": [
+								  		  {
+								  		    "type":"web_url",
+										    "title": "MyG",
+                								    "url":"https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+								  		  }
+									  ]
+									}
 								]
-			    				}
-		  				}
+					    		}
+				  		}
 					}
 				}
 			});
