@@ -70,9 +70,7 @@ app.post('/',function(request,response){
 			response.json({
 				"data": {
 					"facebook": [
-							{
-								"text": "고객님이 최근 주문하신 상품은 아래와 같습니다."
-							},
+
 							{
 								"attachment": {
 								"type": "template",
