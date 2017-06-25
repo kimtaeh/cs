@@ -453,7 +453,8 @@ app.post('/',function(request,response){
 
 		}
 		else{
-			console.log('34');
+			//faq 처리
+			console.log('24');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
 
@@ -462,41 +463,92 @@ app.post('/',function(request,response){
 			cs_intent = 'del_welcome';
 			cs_input_cnt = 0;
 			cs_message_log.splice();
-		
-			response.json({
-				"data": {
-					"facebook": {
-				  		"attachment": {
-				    			"type": "template",
-				  			 "payload": {
-				      				"template_type": "generic",
-				      				"elements": [
-									{
-								  	"title": "무엇을 도와드릴까요",
-									  "buttons": [
-									    {
-									      "type": "postback",
-									      "title": "1번 주문/배송 확인",
-									      "payload": "1"
-									    },
-									    {
-								  		    "type": "postback",
-						  				    "title": "2번 반품/교환 신청",
-						  				    "payload": "2"
-						  	    		},
-							   		 {
-						  		    		"type":"web_url",
-                								    "url":"http://member2.gmarket.co.kr/CustomerCenter/Main",
-								  		    "title": "0번 FAQ 연결"
-								  	    }
 
-									  ]
+			
+			mecab.nouns(cs_query, function (err, result) {
+    
+			    var t1 = result.length;
+			    var message = '';
+			    var ret_message = '';
+			    var ret_url = '';
+
+			    //faq 조회
+				for (var i = 0; i < t1 ; i++){
+				console.log(result[i]);
+				message = message + result[i]  + ' ';
+				}
+
+				for (var j = 0; j < 2 ; j++){
+					if (message == faq_list[j][0]){
+						ret_message = faq_list[j][1];
+						ret_url = faq_list[j][2];
+					    }
+				}
+				
+				if (ret_message != '') {
+					response.json({
+					"data": {
+						"facebook": [
+								{
+									"text": ret_message
+								},
+								{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
+											{
+											  "title" : "문의 내역 확인",
+											  "buttons": [
+											    {
+											      	"type":"web_url",
+											    	"title": "이동",
+											    	"url": ret_url
+											    }
+											  ]
+										}
+
+									]
 									}
-							
-								]
-			    				}
-		  				}
-					}
+								}
+								}
+							]
+						}
+					});
+				}
+				else{
+				    	response.json({
+					"data": {
+						"facebook": [
+								{
+									"text": ret_message
+								},
+								{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
+											{
+											  "text": "문의 주신 내용은 현재 지원하지 않는 문의 입니다.\n질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요",
+											  "buttons": [
+											    {
+											      	"type":"web_url",
+											    	"title": "이동",
+											    	"url": "http://mobile.gmarket.co.kr/CustomerCenter"
+											    }
+											  ]
+										}
+
+									]
+									}
+								}
+								}
+							]
+						}
+					});
+				    
 				}
 			});
 
@@ -871,52 +923,106 @@ app.post('/',function(request,response){
 		}
 	}
 	else {
-		//상담원 이동 등 중간에 비정상 적인 경우
-		//다시 메뉴 화면 출력
-		//기존 정보 초기화
+		//faq 처리
+			console.log('24');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
 
-		//기존 정보 초기화
-		cs_intent = 'del_welcome'
-		cs_input_cnt = 0;
-		cs_message_log.splice();
-		
-		response.json({
-			"data": {
-				"facebook": {
-			  		"attachment": {
-			    			"type": "template",
-			  			 "payload": {
-			      				"template_type": "generic",
-			      				"elements": [
-								{
-							  	"title": "무엇을 도와드릴까요",
-								  "buttons": [
-								    {
-								      "type": "postback",
-								      "title": "1번 주문/배송 확인",
-								      "payload": "1"
-								    },
-								    {
-							  		    "type": "postback",
-					  				    "title": "2번 반품/교환 신청",
-					  				    "payload": "2"
-					  	    		},
-						   		 {
-					  		    		"type":"web_url",
-               								    "url":"http://member2.gmarket.co.kr/CustomerCenter/Main",
-							  		    "title": "0번 FAQ 연결"
-							  	    }
-								  ]
-								}
-						
-							]
-		    				}
-	  				}
+
+			//기존 정보 초기화
+			cs_intent = 'del_welcome';
+			cs_input_cnt = 0;
+			cs_message_log.splice();
+
+			
+			mecab.nouns(cs_query, function (err, result) {
+    
+			    var t1 = result.length;
+			    var message = '';
+			    var ret_message = '';
+			    var ret_url = '';
+
+			    //faq 조회
+				for (var i = 0; i < t1 ; i++){
+				console.log(result[i]);
+				message = message + result[i]  + ' ';
 				}
-			}
-		});
-	}
-	
+
+				for (var j = 0; j < 2 ; j++){
+					if (message == faq_list[j][0]){
+						ret_message = faq_list[j][1];
+						ret_url = faq_list[j][2];
+					    }
+				}
+				
+				if (ret_message != '') {
+					response.json({
+					"data": {
+						"facebook": [
+								{
+									"text": ret_message
+								},
+								{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
+											{
+											  "title" : "문의 내역 확인",
+											  "buttons": [
+											    {
+											      	"type":"web_url",
+											    	"title": "이동",
+											    	"url": ret_url
+											    }
+											  ]
+										}
+
+									]
+									}
+								}
+								}
+							]
+						}
+					});
+				}
+				else{
+				    	response.json({
+					"data": {
+						"facebook": [
+								{
+									"text": ret_message
+								},
+								{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
+											{
+											  "text": "문의 주신 내용은 현재 지원하지 않는 문의 입니다.\n질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요",
+											  "buttons": [
+											    {
+											      	"type":"web_url",
+											    	"title": "이동",
+											    	"url": "http://mobile.gmarket.co.kr/CustomerCenter"
+											    }
+											  ]
+										}
+
+									]
+									}
+								}
+								}
+							]
+						}
+					});
+				    
+				}
+			});
+
+		}
     }
 
 });
