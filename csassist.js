@@ -241,7 +241,7 @@ app.post('/',function(request,response){
 					    }
 				}
 				
-				if () {
+				if (ret_message != '') {
 					response.json({
 					"data": {
 						"facebook": [
