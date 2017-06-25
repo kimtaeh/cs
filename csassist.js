@@ -12,6 +12,8 @@ app.use(bodyParser.json());
 var cs_intent = '';
 var cs_message_log = new Array();
 var cs_input_cnt = 0;
+var ret_message = '';
+var ret_url = '';
 
 
 //faq define
@@ -220,13 +222,14 @@ app.post('/',function(request,response){
 			cs_intent = 'del_welcome';
 			cs_input_cnt = 0;
 			cs_message_log.splice();
-			var message = '';
-			var ret_message = '';
-			var ret_url = '';
+
 			
 			mecab.nouns(cs_query, function (err, result) {
     
 			    var t1 = result.length;
+			    var message = '';
+			    var ret_message = '';
+			    var ret_url = '';
 
 			    //faq 조회
 				for (var i = 0; i < t1 ; i++){
@@ -240,12 +243,14 @@ app.post('/',function(request,response){
 						ret_url = faq_list[j][2];
 					    }
 				}
-
+				
+				global.ret_message = message;
+				global.ret_url = ret_url;
 
 			});
 			
-			console.log(ret_message);
-			console.log(ret_url);
+			console.log(global.ret_message);
+			console.log(global.ret_url);
 			
 			response.json({
 				"data": {
