@@ -24,24 +24,29 @@ app.post('/',function(request,response){
     //intent
     var cs_message;
     var cs_query = request.body.result.resolvedQuery;
+    var cs_type = request.body.result.action;
 
     //log 기록(사용자 정보 저장)
     cs_message_log [cs_input_cnt] = cs_query;
     cs_input_cnt = cs_input_cnt+ 1;
     
-    if (cs_intent == '' || cs_query == "하이" || cs_query == "메뉴" || cs_query == "처음" || cs_query == "시작"){
+    if (cs_type == 'del_welcome' || cs_intent == '' || cs_query == "하이" || cs_query == "메뉴" || cs_query == "처음" || cs_query == "시작"){
 	console.log('11');
 	console.log(cs_input_cnt);
 	console.log(cs_intent);
 	//기존 정보 초기화
-	cs_intent = 'delMenu';
+	cs_intent = 'del_welcome';
 	cs_input_cnt = 0;
 	cs_message_log.splice();
 	
 	response.json({
 		"data": {
-			"facebook": {
-		  		"attachment": {
+			"facebook": [
+				{
+		  			"text": "hello, world!"	
+				},
+				{
+					"attachment": {
 		    			"type": "template",
 		  			 "payload": {
 		      				"template_type": "generic",
@@ -69,9 +74,11 @@ app.post('/',function(request,response){
 							}
 							
 						]
+						}
 			    		}
 		  		}
-			}
+				
+			]
 		}
 	});
 
@@ -82,16 +89,16 @@ app.post('/',function(request,response){
 	cs_message_log [cs_input_cnt] = cs_query;
 	cs_input_cnt = cs_input_cnt+ 1;
 	    
-	if (cs_intent == 'delMenu'){
+	if (cs_intent  == 'del_welcome'){
 
 		//로직 처리
-		if (cs_query == 1 || cs_query == '1번'){
+		if (cs_query == 'del_order_check'){
 			console.log('21');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
 			
 			//intent 정의
-			cs_intent = 'delCheck';
+			cs_intent == 'del_order_check';
 
 			response.json({
 				"data": {
@@ -150,12 +157,12 @@ app.post('/',function(request,response){
 			});
 
 		}
-		else if (cs_query == 2 || cs_query == '2번'){
+		else if (cs_query == 'del_status_check'){
 			console.log('22');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
 			//intent 정의
-			cs_intent = 'delReturn';
+			cs_intent == 'del_status_check'
 
 			response.json({
 				"data": {
@@ -214,14 +221,14 @@ app.post('/',function(request,response){
 			});
 		
 		}
-		else if(cs_query == 0 || cs_query == '0번'){
+		else if(cs_query  == 'del_return_require'){
 
 			console.log('23');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
 
 			//기존 정보 초기화
-			cs_intent = 'delMenu';
+			cs_intent == 'del_return_require';
 			cs_input_cnt = 0;
 			cs_message_log.splice();
 		
@@ -264,13 +271,14 @@ app.post('/',function(request,response){
 		}
 		else{
 
+			//faq 처리
 			console.log('24');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
 
 
 			//기존 정보 초기화
-			cs_intent = 'delMenu';
+			cs_intent = 'del_order_check';
 			cs_input_cnt = 0;
 			cs_message_log.splice();
 		
@@ -312,7 +320,7 @@ app.post('/',function(request,response){
 			});
 		}
 	}
-	else if (cs_intent == 'delCheck'){
+	else if (cs_intent  == 'del_order_check'){
 		//로직 처리
 		if (cs_query == '1' || cs_query == '1번' || cs_query == '1101'){
 			console.log('31');
@@ -320,7 +328,7 @@ app.post('/',function(request,response){
 			console.log(cs_intent);
 
 			//intent 정의
-			cs_intent = 'delCheck';
+			cs_intent  == 'del_status_check';
 
 			cs_message = "고객님이 주문하신 나이키 운동화(주문번호:1101)는 택배사에서 배송 중에 있습니다";
 			response.json({
@@ -362,7 +370,7 @@ app.post('/',function(request,response){
 			console.log(cs_intent);
 
 			//intent 정의
-			cs_intent = 'delCheck';
+			cs_intent = 'del_order_checkk';
 	
 			cs_message = "고객님이 주문하신 신라면 번들(주문번호:1008) 배송이 완료되었습니다";
 			response.json({
@@ -430,7 +438,7 @@ app.post('/',function(request,response){
 
 
 			//기존 정보 초기화
-			cs_intent = 'delMenu';
+			cs_intent = 'del_welcome';
 			cs_input_cnt = 0;
 			cs_message_log.splice();
 		
@@ -473,7 +481,7 @@ app.post('/',function(request,response){
 
 		}
 	}
-	else if (cs_intent == 'delReturn'){
+	else if (cs_intent == 'del_status_check'){
 		//로직 처리
 		if (cs_query == '1' || cs_query == '1번' || cs_query == '1101'){
 
@@ -482,7 +490,7 @@ app.post('/',function(request,response){
 			console.log(cs_intent);
 		
 			//intent 정의
-			cs_intent = 'returnCheck';
+			cs_intent = 'del_status_check';
 
 			cs_message = "선택하신 나이키 운동화를 취소하시겠습니까";
 			response.json({
@@ -524,7 +532,7 @@ app.post('/',function(request,response){
 			console.log(cs_intent);
 
 			//intent 정의
-			cs_intent = 'delReturn';
+			cs_intent = 'del_status_check';
 	
 			//화면 출력
 			cs_message = "고객님이 주문하신 신라면 번들(주문번호:1008)은 반품 가능기간이 아닙니다";
@@ -593,7 +601,7 @@ app.post('/',function(request,response){
 			console.log(cs_intent);
 
 			//기존 정보 초기화
-			cs_intent = 'delMenu';
+			cs_intent = 'del_welcome';
 			cs_input_cnt = 0;
 			cs_message_log.splice();
 		
@@ -679,7 +687,7 @@ app.post('/',function(request,response){
 			});
 
 	}
-	else if (cs_intent == 'returnCheck'){
+	else if (cs_intent == 'del_return_require'){
 		//로직 처리
 		if (cs_query == '1' || cs_query == '1번' || cs_query == '1101'){
 
@@ -688,7 +696,7 @@ app.post('/',function(request,response){
 			console.log(cs_intent);
 		
 			//intent 정의
-			cs_intent = 'returnCheck';
+			cs_intent = 'del_return_require';
 
 			cs_message = "고객님이 주문하신 나이키 운동화(주문번호:1101)의 취소 신청이 완료되었습니다";
 			response.json({
@@ -730,7 +738,7 @@ app.post('/',function(request,response){
 			console.log(cs_intent);
 
 			//intent 정의
-			cs_intent = 'delReturn';
+			cs_intent = 'del_return_require';
 	
 			//화면 출력
 			cs_message = "반품/취소 신청이 중지 되었습니다.";
@@ -799,7 +807,7 @@ app.post('/',function(request,response){
 			console.log(cs_intent);
 
 			//기존 정보 초기화
-			cs_intent = 'delMenu';
+			cs_intent = 'del_welcome'
 			cs_input_cnt = 0;
 			cs_message_log.splice();
 		
@@ -847,7 +855,7 @@ app.post('/',function(request,response){
 		//기존 정보 초기화
 
 		//기존 정보 초기화
-		cs_intent = 'delMenu';
+		cs_intent = 'del_welcome'
 		cs_input_cnt = 0;
 		cs_message_log.splice();
 		
