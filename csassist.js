@@ -30,7 +30,7 @@ app.post('/',function(request,response){
     cs_message_log [cs_input_cnt] = cs_query;
     cs_input_cnt = cs_input_cnt+ 1;
     
-    if (cs_type == 'del_welcome'){
+    if (cs_type == ''){
 	console.log('11');
 	console.log(cs_input_cnt);
 	console.log(cs_intent);
