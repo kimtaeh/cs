@@ -21,14 +21,8 @@ mecab.nouns(text, function (err, result) {
 	console.log(result[i]);
 	message = message + result[i]  + ' ';
 	}
-	
-	for (var j = 0; j < 2 ; j++){
-		if (message == faq_list[j][0]){
-		    	ret_message = faq_list[j][1];
-			ret_url = faq_list[j][2];
-		    }
-	}
-	   
+
+    console.log(faq_list[0][0]);
     console.log(result);
     console.log(message);
     
