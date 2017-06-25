@@ -97,14 +97,8 @@ app.post('/',function(request,response){
 										    {
 									  		    "type": "postback",
 						  					    "title": "추가 조회",
-						  					    "payload": "2"
-						  	  	  		 },
-							   			 {
-						  	    				    "type": "postback",
-						  					    "title": "상담원 연결",
 						  					    "payload": "0"
-									  	    }
-
+						  	  	  		 }
 										  ]
 									}
 							
@@ -142,20 +136,14 @@ app.post('/',function(request,response){
 										  "buttons": [
 										    {
 										      "type": "postback",
-										      "title": "주문 확인",
+										      "title": "배송 확인",
 										      "payload": "1"
 										    },
 										    {
 									  		    "type": "postback",
 						  					    "title": "추가 조회",
-						  					    "payload": "2"
-						  	  	  		 },
-							   			 {
-						  	    				    "type": "postback",
-						  					    "title": "상담원 연결",
 						  					    "payload": "0"
-									  	    }
-
+						  	  	  		   }
 										  ]
 									}
 							
@@ -196,21 +184,15 @@ app.post('/',function(request,response){
 										"image_url": "http://gdimg.gmarket.co.kr/goods_image2/shop_img/337/969/337969761.jpg",
 										  "buttons": [
 										    {
-										      "type": "postback",
-										      "title": "주문 확인",
-										      "payload": "1"
+											      "type": "postback",
+											      "title": "반품 신청",
+											      "payload": "1"
 										    },
 										    {
 									  		    "type": "postback",
 						  					    "title": "추가 조회",
-						  					    "payload": "2"
-						  	  	  		 },
-							   			 {
-						  	    				    "type": "postback",
-						  					    "title": "상담원 연결",
 						  					    "payload": "0"
-									  	    }
-
+						  	  	  		    }
 										  ]
 									}
 							
@@ -275,45 +257,43 @@ app.post('/',function(request,response){
 	}
 	else if (cs_intent  == 'del_order_check'){
 		//로직 처리
-		if (cs_query == '1' || cs_query == '1번' || cs_query == '1101'){
+		if (cs_query != '0'){
 			console.log('31');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
 
 			//intent 정의
-			cs_intent  = 'del_status_check';
-
-			cs_message = "고객님이 주문하신 나이키 운동화(주문번호:1101)는 택배사에서 배송 중에 있습니다";
+			cs_intent  = 'del_welcome';
 			response.json({
 				"data": {
-					"facebook": {
-				  		"attachment": {
-				    			"type": "template",
-				  			 "payload": {
-				      				"template_type": "generic",
-				      				"elements": [
-									{
-								  	"title": cs_message,
-									  "buttons": [
-									    {
-									      "type": "postback",
-									      "title": "처음으로",
-									      "payload": "3"
-									    },
-									    {
-								  		    "type": "postback",
-						  				    "title": "상담원 연결",
-						  				    "payload": "0"
-						  	    		    }
-									  ]
-									}
+					"facebook": [
+							{
+								"text": "요청주신 주문건은 결제가 완료되었습니다.\n배송의 경우 입금 확인 후 1~2일 이내 배송이 시작됩니다."
+							},
+							{
+								"attachment": {
+				    				"type": "template",
+				  			 	"payload": {
+				      					"template_type": "generic",
+				      					"elements": [
+										{
+										"buttons": [
+
+										    {
+									  		    "type": "postback",
+						  					    "title": "추가 조회",
+						  					    "payload": "0"
+						  	  	  			 }
+											  ]
+											}
 							
-								]
-			    				}
-		  				}
+										]
+			    						}
+		  						}
+							}
+						]
 					}
-				}
-			});
+				});
 
 
 		}
