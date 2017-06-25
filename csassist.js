@@ -36,7 +36,7 @@ app.post('/',function(request,response){
 	console.log(cs_type);
     }
     
-    if (cs_intent == ''){
+    if (cs_intent == '' || cs_type == 'del_welcome'){
 	console.log('11');
 	console.log(cs_input_cnt);
 	console.log(cs_intent);
