@@ -277,8 +277,8 @@ app.post('/',function(request,response){
 				      					"template_type": "generic",
 				      					"elements": [
 										{
+										"title": "추가 조회",
 										"buttons": [
-											"title": "추가 조회",
 										         {
 									  		    "type": "postback",
 						  					    "payload": "0"
