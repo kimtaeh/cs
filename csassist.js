@@ -278,10 +278,9 @@ app.post('/',function(request,response){
 				      					"elements": [
 										{
 										"buttons": [
-
-										    {
+											"title": "추가 조회",
+										         {
 									  		    "type": "postback",
-						  					    "title": "추가 조회",
 						  					    "payload": "0"
 						  	  	  			 }
 											  ]
