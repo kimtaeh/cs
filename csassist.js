@@ -18,6 +18,11 @@ var faq_list =
 [['판매자 통화 ', '판매자의 주소와 연락처는 상품 상세정보 페이지에서 확인하실 수 있습니다.', 'http://member2.gmarket.co.kr/CustomerCenter/Main']
 ,['주문 번호 확인 ','구매한 상품의 주문번호는 나의 쇼핑정보 > 전체주문내역에서 확인 가능합니다','http://member2.gmarket.co.kr//CustomerCenter/FaqList?SearchClass_0=01&SearchClass_1=102&SearchClass_2=10201&SearchClass_3=1020101']]
 
+//synoym define
+var synonym_list = 
+[['셀러','판매자']
+,['구매','주문']]
+
 //rest_api
 app.post('/',function(request,response){
  
@@ -249,13 +254,25 @@ app.post('/',function(request,response){
 									"text": ret_message
 								},
 								{
-									"buttons": [
-									 {
-										    "type":"web_url",
-										    "title": "내역 확인",
-										    "url": ret_url
-										  }
-									  ]
+																		"attachment": {
+					    				"type": "template",
+					  			 		"payload": {
+					      					"template_type": "generic",
+					      					"elements": [
+											{
+											  "buttons": [
+											 {
+											    "type":"web_url",
+											    "title": "내역 확인",
+											    "url": ret_url
+											  }
+										  ]
+											}
+								
+										]
+				    					}
+				    				
+				    					}
 								}
 							]
 						}
@@ -269,13 +286,25 @@ app.post('/',function(request,response){
 									"text": "문의 주신 내용은 현재 지원하지 않는 문의 입니다.\n질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요"
 								},
 								{
-									"buttons": [
-									 {
-										    "type":"web_url",
-										    "title": "상담원 연결",
-										    "url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/Question/CustomerQuestion"
-										  }
-									  ]
+																		"attachment": {
+					    				"type": "template",
+					  			 		"payload": {
+					      					"template_type": "generic",
+					      					"elements": [
+											{
+											  "buttons": [
+											 {
+											    "type":"web_url",
+											    "title": "내역 확인",
+											    "url": ret_url
+											  }
+										  ]
+											}
+								
+										]
+				    					}
+				    				
+				    				}
 								}
 							]
 						}
