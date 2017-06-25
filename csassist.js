@@ -59,7 +59,7 @@ app.post('/',function(request,response){
 	if (cs_intent  == 'del_welcome'){
 
 		//로직 처리
-		if (cs_query == 'del_order_check'){
+		if (cs_type == 'del_order_check'){
 			console.log('21');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
@@ -110,7 +110,7 @@ app.post('/',function(request,response){
 					});
 
 		}
-		else if (cs_query == 'del_status_check'){
+		else if (cs_type == 'del_status_check'){
 			console.log('22');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
@@ -174,7 +174,7 @@ app.post('/',function(request,response){
 			});
 		
 		}
-		else if(cs_query  == 'del_return_require'){
+		else if(cs_type  == 'del_return_require'){
 
 			console.log('23');
 			console.log(cs_input_cnt);
