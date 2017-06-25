@@ -286,7 +286,9 @@ app.post('/',function(request,response){
 	
 			response.json({
 				"data": {
-					"facebook": {
+					"facebook": 
+						[
+						{
 				  		"attachment": {
 				    			"type": "template",
 				  			 "payload": {
@@ -335,8 +337,31 @@ app.post('/',function(request,response){
 									}
 								]
 					    		}
-				  		}
-					}
+							}
+						},
+						{
+							"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": "이전 주문의 경우 MyG에서 조회하실 수 있습니다.",
+									  "buttons": [									
+								  		  {
+								  		    "type":"web_url",
+										    "title": "MyG",
+                								    "url":"https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+								  		  }
+									  ]
+									}
+								]
+					    		}
+							}
+						}
+						
+						
+					]
 				}
 			});
 		
