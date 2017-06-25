@@ -1,6 +1,6 @@
 var mecab = require('mecab-ya');
 
-var text = '판매자와 통화하고 싶어요';
+var text = '주문번호는 어디서 확인 하나요';
 
 
 mecab.nouns(text, function (err, result) {
