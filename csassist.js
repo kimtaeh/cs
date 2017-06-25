@@ -29,6 +29,10 @@ app.post('/',function(request,response){
     //log 기록(사용자 정보 저장)
     cs_message_log [cs_input_cnt] = cs_query;
     cs_input_cnt = cs_input_cnt+ 1;
+
+    if (cs_query == '1' || cs_query == '2' || cs_query == '3' || cs_query == '4' || cs_query == '0'){
+	cs_query = cs_intent;
+    }
     
     if (cs_intent == ''){
 	console.log('11');
