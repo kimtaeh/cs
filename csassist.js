@@ -269,26 +269,6 @@ app.post('/',function(request,response){
 					"facebook": [
 							{
 								"text": "요청주신 주문건은 결제가 완료되었습니다.\n배송의 경우 입금 확인 후 1~2일 이내 배송이 시작됩니다."
-							},
-							{
-								"attachment": {
-				    				"type": "template",
-				  			 	"payload": {
-				      					"template_type": "generic",
-				      					"elements": [
-										{
-										"title": "추가 조회",
-										"buttons": [
-										         {
-									  		    "type": "postback",
-						  					    "payload": "0"
-						  	  	  			 }
-											  ]
-											}
-							
-										]
-			    						}
-		  						}
 							}
 						]
 					}
