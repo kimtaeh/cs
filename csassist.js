@@ -2,6 +2,7 @@
 var express = require('express');
 var http = require('http');
 var bodyParser = require('body-parser');
+var mecab = require('mecab-ya');
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -11,9 +12,14 @@ app.use(bodyParser.json());
 var cs_intent = '';
 var cs_message_log = new Array();
 var cs_input_cnt = 0;
+var message = '';
+var ret_message = '';
+var ret_url = '';
 
-//reply define
-
+//faq define
+var faq_list = 
+[['판매자 통화 ', '판매자의 주소와 연락처는 상품 상세정보 페이지에서 확인하실 수 있습니다.', 'http://member2.gmarket.co.kr/CustomerCenter/Main']
+,['주문 번호 확인 ','구매한 상품의 주문번호는 나의 쇼핑정보 > 전체주문내역에서 확인 가능합니다','http://member2.gmarket.co.kr//CustomerCenter/FaqList?SearchClass_0=01&SearchClass_1=102&SearchClass_2=10201&SearchClass_3=1020101']]
 
 //rest_api
 app.post('/',function(request,response){
@@ -213,46 +219,67 @@ app.post('/',function(request,response){
 
 
 			//기존 정보 초기화
-			cs_intent = 'del_order_check';
+			cs_intent = 'del_welcome';
 			cs_input_cnt = 0;
 			cs_message_log.splice();
-		
+			message = '';
+			ret_message = '';
+			ret_url = '';
+			
+			mecab.nouns(cs_query, function (err, result) {
+    
+			    var t1 = result.length;
+
+			    //faq 조회
+				for (var i = 0; i < t1 ; i++){
+				console.log(result[i]);
+				message = message + result[i]  + ' ';
+				}
+
+				for (var j = 0; j < 2 ; j++){
+					if (message == faq_list[j][0]){
+						ret_message = faq_list[j][1];
+						ret_url = faq_list[j][2];
+					    }
+				}
+
+			    console.log(ret_message);
+			    console.log(ret_url);
+
+
+			});
+			
 			response.json({
 				"data": {
-					"facebook": {
-				  		"attachment": {
-				    			"type": "template",
-				  			 "payload": {
-				      				"template_type": "generic",
-				      				"elements": [
-									{
-								  	"title": "무엇을 도와드릴까요",
-									  "buttons": [
-									    {
-									      "type": "postback",
-									      "title": "1번 주문/배송 확인",
-									      "payload": "1"
-									    },
-									    {
-								  		    "type": "postback",
-						  				    "title": "2번 반품/교환 신청",
-						  				    "payload": "2"
-						  	    		},
-							   		 {
-						  		    		"type":"web_url",
-                								    "url":"http://member2.gmarket.co.kr/CustomerCenter/Main",
-								  		    "title": "0번 FAQ 연결"
-								  	    }
-
-									  ]
+					"facebook": [
+							{
+								"text": ret_message
+							},
+							{
+								"attachment": {
+				    				"type": "template",
+				  			 	"payload": {
+				      					"template_type": "generic",
+				      					"elements": [
+											{
+											  "buttons": [
+												  {						  		  {
+								  		   		 "type":"web_url",
+										   		 "title": "내용 확인",
+                								  		  "url":"https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+								  		 		 }
+											  ]
+											}
+										  ]
 									}
 							
 								]
 			    				}
 		  				}
+							}
+						]
 					}
-				}
-			});
+				});
 		}
 	}
 	else if (cs_intent  == 'del_order_check'){
