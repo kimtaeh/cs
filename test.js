@@ -22,7 +22,7 @@ mecab.nouns(text, function (err, result) {
 	message = message + result[i]  + ' ';
 	}
 
-    console.log(faq_list[0][0]);
+    console.log(faq_list);
     console.log(result);
     console.log(message);
     
