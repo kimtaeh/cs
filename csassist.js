@@ -81,9 +81,8 @@ app.post('/',function(request,response){
 									"elements": [
 										{
 										 "title": "나이키 운동화",
-									  	 "subtitle": "2017-05-27", 
-										  "image_url": "http://gdimg.gmarket.co.kr/goods_image2/shop_img/337/969/337969761.jpg",
-										  "buttons": [
+									  	 "subtitle": "2017-05-27"
+										 "buttons": [
 										    {
 										      "type": "postback",
 										      "title": "주문확인",
