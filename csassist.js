@@ -30,7 +30,7 @@ app.post('/',function(request,response){
     cs_message_log [cs_input_cnt] = cs_query;
     cs_input_cnt = cs_input_cnt+ 1;
     
-    if (cs_type == 'del_welcome' || cs_intent == '' || cs_query == "하이" || cs_query == "메뉴" || cs_query == "처음" || cs_query == "시작"){
+    if (cs_type == 'del_welcome'){
 	console.log('11');
 	console.log(cs_input_cnt);
 	console.log(cs_intent);
@@ -43,41 +43,8 @@ app.post('/',function(request,response){
 		"data": {
 			"facebook": [
 				{
-		  			"text": "hello, world!"	
-				},
-				{
-					"attachment": {
-		    			"type": "template",
-		  			 "payload": {
-		      				"template_type": "generic",
-		      				"elements": [
-							{
-						  	"title": "무엇을 도와드릴까요",
-							  "buttons": [
-							    {
-							      "type": "postback",
-							      "title": "1번 주문/배송 확인",
-							      "payload": "1"
-							    },
-							    {
-						  		    "type": "postback",
-						  		    "title": "2번 반품/교환 신청",
-						  		    "payload": "2"
-						  	    },
-							    {
-						  		    "type":"web_url",
-                						    "url":"http://member2.gmarket.co.kr/CustomerCenter/Main",
-						  		    "title": "0번 FAQ 연결"
-						  	    }
-
-							  ]
-							}
-							
-						]
-						}
-			    		}
-		  		}
-				
+		  			"text": "안녕하세요 CS TEST 챗봇 입니다.\n궁금한 사항을 입력해주세요"	
+				}
 			]
 		}
 	});
@@ -102,59 +69,44 @@ app.post('/',function(request,response){
 
 			response.json({
 				"data": {
-					"facebook": {
-				  		"attachment": {
-				    			"type": "template",
-				  			 "payload": {
-				      				"template_type": "generic",
-				      				"elements": [
-									{
-								  	"title": "나이키 운동화",
-									  "subtitle": "2017-05-27 (주문번호:1101)",
-									  "item_url": "http://gmkt.kr/gUJQJh",
-									  "image_url": "http://gdimg.gmarket.co.kr/goods_image2/shop_img/337/969/337969761.jpg",
-									  "buttons": [
-									    {
-									      "type": "postback",
-									      "title": "나이키 운동화",
-									      "payload": "1"
-									    }
-									  ]
-									}
-									,
-									{
+					"facebook": [
+							{
+								"text": "고객님이 최근 주문하신 상품은 아래와 같습니다."
+							},
+							{
+								"attachment": {
+								"type": "template",
+								 "payload": {
+									"template_type": "generic",
+									"elements": [
+										{
+										  "image_url": "http://gdimg.gmarket.co.kr/goods_image2/shop_img/337/969/337969761.jpg",
+										  "buttons": [
+										    {
+										      "type": "postback",
+										      "title": "주문확인",
+										      "payload": "1"
+										    },
+										    {
+											    "type": "postback",
+											    "title": "추가조회",
+											    "payload": "2"
+										},
+										 {
+											"type":"postback",
+											    "title": "상담원 연결",
+											    "title": "0번 FAQ 연결"
+										    }
 
-								  		"title": "신라면 번들",
-										 "subtitle": "2017-05-23 (주문번호:1008)",
-								  		"item_url": "http://gmkt.kr/g1aYMh",
-									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/896/107/896107297.jpg",
-								  		"buttons": [
-								  		  {
-								  		    "type": "postback",
-								  		    "title": "신라면 번들",
-								  		    "payload": "2"
-								  		  }
-									  ]
-									},
-									{
+										  ]
+										}
 
-								  		"title": "첫메뉴로",
-										 "subtitle": "처음으로 돌아가기",
-										"image_url": "https://sslimage.gmarket.co.kr/_Net/MyInfo/login/logo.gif",
-								  		"buttons": [
-								  		  {
-								  		    "type": "postback",
-								  		    "title": "처음으로",
-								  		    "payload": "3"
-								  		  }
-									  ]
-									}
-								]
-					    		}
-				  		}
-					}
-				}
-			});
+									]
+								}
+							}
+							]
+						}
+					});
 
 		}
 		else if (cs_query == 'del_status_check'){
