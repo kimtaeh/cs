@@ -80,22 +80,23 @@ app.post('/',function(request,response){
 				      					"template_type": "generic",
 				      					"elements": [
 										{
-									  	"title": "무엇을 도와드릴까요",
+									  	"title": "2017-05-26, 나이키 운동화 (주문번호 2100132)",
+										"image_url": "http://gdimg.gmarket.co.kr/goods_image2/shop_img/337/969/337969761.jpg",
 										  "buttons": [
 										    {
 										      "type": "postback",
-										      "title": "1번 주문/배송 확인",
+										      "title": "주문 확인",
 										      "payload": "1"
 										    },
 										    {
 									  		    "type": "postback",
-						  					    "title": "2번 반품/교환 신청",
+						  					    "title": "추가 조회",
 						  					    "payload": "2"
-						  	  	  		},
+						  	  	  		 },
 							   			 {
-						  			    		"type":"web_url",
-                									    "url":"http://member2.gmarket.co.kr/CustomerCenter/Main",
-									  		    "title": "0번 FAQ 연결"
+						  	    				    "type": "postback",
+						  					    "title": "상담원 연결",
+						  					    "payload": "0"
 									  	    }
 
 										  ]
