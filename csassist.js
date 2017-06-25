@@ -12,9 +12,6 @@ app.use(bodyParser.json());
 var cs_intent = '';
 var cs_message_log = new Array();
 var cs_input_cnt = 0;
-var ret_message = '';
-var ret_url = '';
-
 
 //faq define
 var faq_list = 
@@ -224,7 +221,7 @@ app.post('/',function(request,response){
 			cs_message_log.splice();
 
 			
-			var t = mecab.nouns(cs_query, function (err, result) {
+			mecab.nouns(cs_query, function (err, result) {
     
 			    var t1 = result.length;
 			    var message = '';
@@ -244,13 +241,7 @@ app.post('/',function(request,response){
 					    }
 				}
 				
-				return ret_message;
-
-			});
-
-			console.log(t);
-			
-			response.json({
+				response.json({
 				"data": {
 					"facebook": [
 							{
@@ -259,6 +250,9 @@ app.post('/',function(request,response){
 						]
 					}
 				});
+				
+			});
+
 		}
 	}
 	else if (cs_intent  == 'del_order_check'){
