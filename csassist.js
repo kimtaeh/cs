@@ -31,7 +31,7 @@ app.post('/',function(request,response){
     cs_input_cnt = cs_input_cnt+ 1;
 
     if (cs_query == '1' || cs_query == '2' || cs_query == '3' || cs_query == '4' || cs_query == '0'){
-	cs_query = cs_intent;
+	cs_type = cs_intent;
     }
     
     if (cs_intent == ''){
