@@ -71,7 +71,7 @@ app.post('/',function(request,response){
 			console.log(cs_intent);
 			
 			//intent 정의
-			cs_intent == 'del_order_check';
+			cs_intent = 'del_order_check';
 
 			response.json({
 				"data": {
@@ -122,7 +122,7 @@ app.post('/',function(request,response){
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
 			//intent 정의
-			cs_intent == 'del_status_check'
+			cs_intent = 'del_status_check'
 
 			response.json({
 				"data": {
@@ -188,7 +188,7 @@ app.post('/',function(request,response){
 			console.log(cs_intent);
 
 			//기존 정보 초기화
-			cs_intent == 'del_return_require';
+			cs_intent = 'del_return_require';
 			cs_input_cnt = 0;
 			cs_message_log.splice();
 		
@@ -288,7 +288,7 @@ app.post('/',function(request,response){
 			console.log(cs_intent);
 
 			//intent 정의
-			cs_intent  == 'del_status_check';
+			cs_intent  = 'del_status_check';
 
 			cs_message = "고객님이 주문하신 나이키 운동화(주문번호:1101)는 택배사에서 배송 중에 있습니다";
 			response.json({
