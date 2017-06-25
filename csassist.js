@@ -292,7 +292,7 @@ app.post('/',function(request,response){
 										"template_type": "generic",
 										"elements": [
 											{
-											  "text": "문의 주신 내용은 현재 지원하지 않는 문의 입니다.\n질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요"
+											  "text": "문의 주신 내용은 현재 지원하지 않는 문의 입니다.\n질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요",
 											  "buttons": [
 											    {
 											      	"type":"web_url",
