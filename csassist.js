@@ -254,6 +254,15 @@ app.post('/',function(request,response){
 					"facebook": [
 							{
 								"text": ret_message
+							},
+							{
+								"buttons": [
+								 {
+									    "type":"web_url",
+									    "title": "MyG",
+                							    "url":"https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+									  }
+								  ]
 							}
 						]
 					}
