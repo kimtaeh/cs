@@ -28,11 +28,10 @@ mecab.nouns(text, function (err, result) {
     //faq 조회
 	for (var j = 0; j < 2 ; j++){
 		
-        if ( faq_list[j][0] == message)
-        {
-            ret_message = faq_list[j][1];
-            ret_url = faq_list[j][2];
-        }
+		if ( faq_list[j][0] == message){
+		    ret_message = faq_list[j][1];
+		    ret_url = faq_list[j][2];
+		}
         console.log(ret_message);
         console.log(ret_url);
 	}
