@@ -260,11 +260,11 @@ app.post('/',function(request,response){
 										"template_type": "generic",
 										"elements": [
 											{
-				
+											  "문의 내역 확인",
 											  "buttons": [
 											    {
 											      	"type":"web_url",
-											    	"title": "내역 확인",
+											    	"title": "이동",
 											    	"url": ret_url
 											    }
 											  ]
