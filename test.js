@@ -14,7 +14,7 @@ mecab.nouns(text, function (err, result) {
     var message = '';
     var ret_message = ''
     var ret_url = ''
-    var t1 = result.lenth;
+    var t1 = result.length;
     
     //faq 조회
 	for (var i = 0; i < t1 ; i++){
