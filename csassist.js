@@ -288,6 +288,7 @@ app.post('/',function(request,response){
 					
 					//유의어 조회
 					for (var i = 0; i < t1 ; i++){
+						tmp_message = '';
 						for (var j = 0; j < 2 ; j++){
 							if (result[i] == synonym_list[j][0]){
 								tmp_message = synonym_list[j][1];
@@ -316,7 +317,6 @@ app.post('/',function(request,response){
 					}
 					
 					if (ret_message != '') {
-					console.log('91');
 					response.json({
 					"data": {
 						"facebook": [
