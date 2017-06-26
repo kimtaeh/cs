@@ -4,6 +4,8 @@ var http = require('http');
 var bodyParser = require('body-parser');
 var mecab = require('mecab-ya');
 var app = express();
+var request = require('request');
+var urlencode = require('urlencode');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -22,6 +24,14 @@ var faq_list =
 var synonym_list = 
 [['연락','통화']
 ,['구매','주문']]
+
+function strip_tags (input, allowed) {
+    allowed = (((allowed || "") + "").toLowerCase().match(/<[a-z][a-z0-9]*>/g) || []).join(''); // making sure the allowed arg is a string containing only tags in lowercase (<a><b><c>)
+    var tags = /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,
+        commentsAndPhpTags = /<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi;
+    return input.replace(commentsAndPhpTags, '').replace(tags, function ($0, $1) {        return allowed.indexOf('<' + $1.toLowerCase() + '>') > -1 ? $0 : '';
+    });
+}
 
 //rest_api
 app.post('/',function(request,response){
@@ -57,7 +67,7 @@ app.post('/',function(request,response){
 		"data": {
 			"facebook": [
 				{
-		  			"text": "안녕하세요 CS Assistant 입니다.\n궁금한 사항을 입력해주세요\nhttp://www.gmarket.co.kr/"	
+		  			"text": "안녕하세요 CS Assistant 입니다.\n궁금한 사항을 입력해주세요."	
 				}
 			]
 		}
@@ -1192,7 +1202,7 @@ app.post('/',function(request,response){
 		}
 		else{
 			//faq 처리
-			console.log('24');
+			console.log('11111');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
 
@@ -1294,17 +1304,56 @@ app.post('/',function(request,response){
 	}
 	else {
 		//faq 처리
-			console.log('24');
+			console.log('11111');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
-
+			console.log(cs_query);
+			
 
 			//기존 정보 초기화
 			cs_intent = 'del_welcome';
 			cs_input_cnt = 0;
 			cs_message_log.splice();
-
 			
+			//
+			var cs_encode = urlencode(cs_query);
+			console.log(cs_encode);
+		        var ori_faq = new Array();
+		
+			var name_options = {
+			uri: 'http://member2.gmarket.co.kr//CustomerCenter/JsonGetFaqSearch?pageNo=1&searchText='+cs_encode,
+			method: 'GET'
+			};
+		
+			request(name_options, function optionalCallback(err, httpResponse, body) {
+			if (err) {
+			return console.error('upload failed:', err);
+			}
+
+			var return_info = JSON.parse(body);
+			var return_cnt = return_info.length;
+			var max_iter;
+				
+			console.log(return_info);	
+
+			if (return_cnt > 0){
+
+				max_iter = return_cnt;
+				if(return_cnt > 3){
+					max_iter = 3;		
+				}
+
+				for(var i = 0 ; i < max_iter ; i++)
+				{
+					var str = strip_tags(return_info[i].Title, '');
+					console.log(str);	
+					var str2 = urlencode(str);
+					ori_faq.push('{"type":"web_url", "title": "' + str + '", "url": "'+str2+'"}'); 
+				}
+			}
+				
+			});
+		
 			mecab.nouns(cs_query, function (err, result) {
     
 			    var t1 = result.length;
