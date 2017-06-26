@@ -277,7 +277,10 @@ app.post('/',function(request,response){
 									"type": "template",
 									"payload": {
 										"template_type": "generic",
-										"elements": ori_faq
+										"elements":[ 
+										"title": "FAQ 조회 결과",
+										"buttons": ori_faq		
+										]
 										}
 									}
 								}
