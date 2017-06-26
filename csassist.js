@@ -280,7 +280,9 @@ app.post('/',function(request,response){
 										"elements":[
 											{
 											"title": "FAQ 조회 결과",
-											"buttons": ori_faq		
+											"buttons": [ '{"type":"web_url", "title": "한꺼번에 상품을 2개 구매한 후 1개만 반품하고 싶어요.", "url": "%ED%95%9C%EA%BA%BC%EB%B2%88%EC%97%90%20%EC%83%81%ED%92%88%EC%9D%84%202%EA%B0%9C%20%EA%B5%AC%EB%A7%A4%ED%95%9C%20%ED%9B%84%201%EA%B0%9C%EB%A7%8C%20%EB%B0%98%ED%92%88%ED%95%98%EA%B3%A0%20%EC%8B%B6%EC%96%B4%EC%9A%94."}',
+  													'{"type":"web_url", "title": "구매한 상품을 반품하고 싶습니다. 반품신청은 어떻게 하면 되나요?", "url": "%EA%B5%AC%EB%A7%A4%ED%95%9C%20%EC%83%81%ED%92%88%EC%9D%84%20%EB%B0%98%ED%92%88%ED%95%98%EA%B3%A0%20%EC%8B%B6%EC%8A%B5%EB%8B%88%EB%8B%A4.%20%EB%B0%98%ED%92%88%EC%8B%A0%EC%B2%AD%EC%9D%80%20%EC%96%B4%EB%96%BB%EA%B2%8C%20%ED%95%98%EB%A9%B4%20%EB%90%98%EB%82%98%EC%9A%94%3F"}',
+  													'{"type":"web_url", "title": "상품 하자로 교환(반품)하고 싶어요.", "url": "%EC%83%81%ED%92%88%20%ED%95%98%EC%9E%90%EB%A1%9C%20%EA%B5%90%ED%99%98(%EB%B0%98%ED%92%88)%ED%95%98%EA%B3%A0%20%EC%8B%B6%EC%96%B4%EC%9A%94."}' ]		
 											}
 										]
 										}
