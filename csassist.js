@@ -57,7 +57,7 @@ app.post('/',function(request,response){
 		"data": {
 			"facebook": [
 				{
-		  			"text": "안녕하세요 CS Assistant 입니다.\n궁금한 사항을 입력해주세요"	
+		  			"text": "안녕하세요 CS Assistant 입니다.\n궁금한 사항을 입력해주세요\nhttp://www.gmarket.co.kr/"	
 				}
 			]
 		}
