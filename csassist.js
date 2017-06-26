@@ -318,7 +318,7 @@ app.post('/',function(request,response){
 					mecab_message = '';
 					
 					//유의어 조회
-					for (var i = 0; i < t1 ; i++){
+					for (var i = 0; i < mecab_length ; i++){
 						tmp_message = '';
 						for (var j = 0; j < 2 ; j++){
 							if (results[i] == synonym_list[j][0]){
@@ -353,9 +353,6 @@ app.post('/',function(request,response){
 					var return_cnt = return_info.length;
 					var max_iter;	
 
-					if (return_cnt > 0){
-
-					ori_faq.push({"text": "자연어 처리 FAQ 검색 결과 입니다.\n"}); 
 					max_iter = return_cnt;
 					if(return_cnt > 3){
 						max_iter = 3;		
