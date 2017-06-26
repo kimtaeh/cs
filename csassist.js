@@ -99,7 +99,7 @@ app.post('/',function(request,response){
 										  "buttons": [
 										    {
 										      "type": "postback",
-										      "title": "배송 확인",
+										      "title": "주문 확인",
 										      "payload": "1"
 										    },
 										    {
@@ -193,7 +193,7 @@ app.post('/',function(request,response){
 										  "buttons": [
 										    {
 										      "type": "postback",
-										      "title": "배송 확인",
+										      "title": "반품 신청",
 										      "payload": "1"
 										    },
 										    {
