@@ -486,7 +486,7 @@ app.post('/',function(request,response){
 
 								  		"title": "2017-05-19, 물먹는 하마 옷장용 (주문번호 2100109)",
 								  		"item_url": "http://gmkt.kr/g1aYMh",
-									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/896/107/896107297.jpg",
+									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/954/863/954863253.jpg",
 								  		"buttons": [
 								  		  {
 								  		    "type": "postback",
@@ -731,7 +731,7 @@ app.post('/',function(request,response){
 
 								  		"title": "2017-05-19, 물먹는 하마 옷장용 (주문번호 2100109)",
 								  		"item_url": "http://gmkt.kr/g1aYMh",
-									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/896/107/896107297.jpg",
+									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/954/863/954863253.jpg",
 								  		"buttons": [
 								  		  {
 								  		    "type": "postback",
@@ -891,6 +891,9 @@ app.post('/',function(request,response){
 					"facebook": 
 						[
 						{
+							"text": "반품 신청은 MyG 나의 구매내역에서 신청이 가능합니다.\n취소 페이지로 이동하시려면 아래 버튼을 클릭하세요."
+						},
+						{
 				  		"attachment": {
 				    			"type": "template",
 				  			 "payload": {
@@ -929,13 +932,139 @@ app.post('/',function(request,response){
 					"facebook": 
 						[
 						{
+							"text": "반품 신청은 MyG 나의 구매내역에서 신청이 가능합니다.\n취소 페이지로 이동하시려면 아래 버튼을 클릭하세요."
+						},
+						{
 				  		"attachment": {
 				    			"type": "template",
 				  			 "payload": {
 				      				"template_type": "generic",
 				      				"elements": [
 									{
-								  	"title": "2017-05-23, 신라면 번들 (주문번호 2100119)",
+								  	"title": "2017-05-27, 신라면 번들 (주문번호 2100119)",
+									 "buttons": [
+									    {
+									      "type": "web_url",
+										"title": "반품 신청 이동",
+										"url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+									    }
+									  ]
+									}
+								]
+					    		}
+							}
+						}
+										
+					]
+				}
+			});
+		
+		}
+		else if (cs_query == '3'){
+			console.log('32');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+			//intent 정의
+			cs_intent = 'del_return_require';
+	
+			response.json({
+				"data": {
+					"facebook": 
+						[
+						{
+							"text": "반품 신청은 MyG 나의 구매내역에서 신청이 가능합니다.\n취소 페이지로 이동하시려면 아래 버튼을 클릭하세요."
+						},
+						{
+				  		"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": "2017-05-26, 갤럭시 탭s3 LTE (주문번호 2100117)",
+									 "buttons": [
+									    {
+									      "type": "web_url",
+										"title": "반품 신청 이동",
+										"url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+									    }
+									  ]
+									}
+								]
+					    		}
+							}
+						}
+										
+					]
+				}
+			});
+		
+		}
+		else if (cs_query == '4'){
+			console.log('32');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+			//intent 정의
+			cs_intent = 'del_return_require';
+	
+			response.json({
+				"data": {
+					"facebook": 
+						[
+						{
+							"text": "반품 신청은 MyG 나의 구매내역에서 신청이 가능합니다.\n취소 페이지로 이동하시려면 아래 버튼을 클릭하세요."
+						},
+						{
+				  		"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": "2017-05-22, 약산샘물 (주문번호 2100115)",
+									 "buttons": [
+									    {
+									      "type": "web_url",
+										"title": "반품 신청 이동",
+										"url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+									    }
+									  ]
+									}
+								]
+					    		}
+							}
+						}
+										
+					]
+				}
+			});
+		
+		}
+		else if (cs_query == '5'){
+			console.log('32');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+			//intent 정의
+			cs_intent = 'del_return_require';
+	
+			response.json({
+				"data": {
+					"facebook": 
+						[
+						{
+							"text": "반품 신청은 MyG 나의 구매내역에서 신청이 가능합니다.\n취소 페이지로 이동하시려면 아래 버튼을 클릭하세요."
+						},
+						{
+				  		"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": "2017-05-19, 물먹는 하마 옷장용 (주문번호 2100109)",
 									 "buttons": [
 									    {
 									      "type": "web_url",
