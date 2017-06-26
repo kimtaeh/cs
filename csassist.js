@@ -285,7 +285,7 @@ app.post('/',function(request,response){
 					"data": {
 						"facebook": [
 								{
-									"text": "문의 주신 내용은 현재 지원하지 않는 문의 입니다.\n질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요"
+									"text": "문의 주신 내용은 현재 지원하지 않는 문의 입니다."
 								},
 								{
 									"attachment": {
@@ -294,11 +294,11 @@ app.post('/',function(request,response){
 										"template_type": "generic",
 										"elements": [
 											{
-											  "title": "문의 주신 내용은 현재 지원하지 않는 문의 입니다.\n질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요",
+											  "title": "질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요",
 											  "buttons": [
 											    {
 											      	"type":"web_url",
-											    	"title": "이동",
+											    	"title": "모바일 고객센터 이동",
 											    	"url": "http://mobile.gmarket.co.kr/CustomerCenter"
 											    }
 											  ]
@@ -524,7 +524,7 @@ app.post('/',function(request,response){
 					"data": {
 						"facebook": [
 								{
-									"text": ret_message
+									"text": "문의 주신 내용은 현재 지원하지 않는 문의 입니다."
 								},
 								{
 									"attachment": {
@@ -533,11 +533,11 @@ app.post('/',function(request,response){
 										"template_type": "generic",
 										"elements": [
 											{
-											  "title": "문의 주신 내용은 현재 지원하지 않는 문의 입니다.\n질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요",
+											  "title": "질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요",
 											  "buttons": [
 											    {
 											      	"type":"web_url",
-											    	"title": "이동",
+											    	"title": "모바일 고객센터 이동",
 											    	"url": "http://mobile.gmarket.co.kr/CustomerCenter"
 											    }
 											  ]
@@ -994,7 +994,7 @@ app.post('/',function(request,response){
 					"data": {
 						"facebook": [
 								{
-									"text": ret_message
+									"text": "문의 주신 내용은 현재 지원하지 않는 문의 입니다."
 								},
 								{
 									"attachment": {
@@ -1003,11 +1003,11 @@ app.post('/',function(request,response){
 										"template_type": "generic",
 										"elements": [
 											{
-											  "title": "문의 주신 내용은 현재 지원하지 않는 문의 입니다.\n질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요",
+											  "title": "질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요",
 											  "buttons": [
 											    {
 											      	"type":"web_url",
-											    	"title": "이동",
+											    	"title": "모바일 고객센터 이동",
 											    	"url": "http://mobile.gmarket.co.kr/CustomerCenter"
 											    }
 											  ]
