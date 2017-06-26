@@ -741,7 +741,7 @@ app.post('/',function(request,response){
 	}
 	else if (cs_intent == 'del_return_require'){
 		//로직 처리
-		else if (cs_query == '1'){
+		if (cs_query == '1'){
 			console.log('32');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
