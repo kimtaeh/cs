@@ -99,19 +99,21 @@ app.post('/',function(request,response){
 										  "buttons": [
 										    {
 										      "type": "postback",
-										      "title": "주문 확인",
+										      "title": "배송 확인",
 										      "payload": "1"
 										    },
 										    {
 									  		    "type": "postback",
 						  					    "title": "추가 조회",
 						  					    "payload": "0"
-						  	  	  		 }
+						  	  	  		   }
 										  ]
 									}
 							
 								]
 			    				}
+		  				}
+							}
 						]
 					}
 				});
