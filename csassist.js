@@ -268,6 +268,10 @@ app.post('/',function(request,response){
 
 			console.log(ori_faq);
 			
+			var t = mecab.nouns(cs_query);
+   
+			console.log(ori_faq);
+			
 			response.json({
 					"data": {
 						"facebook": ori_faq
