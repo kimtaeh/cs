@@ -4,7 +4,7 @@ var http = require('http');
 var bodyParser = require('body-parser');
 var mecab = require('mecab-ya');
 var app = express();
-var request = require('request');
+var req = require('request');
 var urlencode = require('urlencode');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -244,7 +244,7 @@ app.post('/',function(request,response){
 			method: 'GET'
 			};
 		
-			request(name_options, function optionalCallback(err, httpResponse, body) {
+			req(name_options, function optionalCallback(err, httpResponse, body) {
 			if (err) {
 			return console.error('upload failed:', err);
 			}
