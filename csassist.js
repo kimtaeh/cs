@@ -251,9 +251,7 @@ app.post('/',function(request,response){
 
 			var return_info = JSON.parse(body);
 			var return_cnt = return_info.length;
-			var max_iter;
-				
-			console.log(return_info);	
+			var max_iter;	
 
 			if (return_cnt > 0){
 
