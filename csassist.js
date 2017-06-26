@@ -234,8 +234,8 @@ app.post('/',function(request,response){
 			//기존 정보 초기화
 			cs_intent = 'del_welcome';
 			cs_input_cnt = 0;
-			cs_message_log.splice();
-			ori_faq.splice();
+			cs_message_log = [];
+			ori_faq = [];
 			
 			var cs_encode = urlencode(cs_query);
 			console.log(cs_encode);
