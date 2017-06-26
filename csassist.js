@@ -43,6 +43,12 @@ app.post('/',function(request,response){
 	cs_type = cs_intent;
 	console.log(cs_type);
     }
+	
+    if (cs_type != 'input.unknown'){
+	console.log('000');
+	cs_intent = cs_type;
+	console.log(cs_type);
+    }
     
     if (cs_intent == '' || cs_type == 'del_welcome'){
 	console.log('11');
