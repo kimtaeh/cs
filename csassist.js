@@ -20,8 +20,7 @@ var faq_list =
 
 //synoym define
 var synonym_list = 
-[['셀러','판매자']
-,['통화','연락']
+[['통화','연락']
 ,['구매','주문']]
 
 //rest_api
@@ -265,9 +264,9 @@ app.post('/',function(request,response){
 											  "title" : "문의 내역 확인",
 											  "buttons": [
 											    {
-											      	"type":"web_url",
-											    	"title": "이동",
-											    	"url": ret_url
+												"type":"web_url",
+												"title": "이동",
+												"url": ret_url
 											    }
 											  ]
 										}
@@ -282,11 +281,37 @@ app.post('/',function(request,response){
 				}
 				else{
 					console.log('92');
-				    	response.json({
+					
+					message = '';
+					ret_message = '';
+					
+					
+					//유의어 조회
+					for (var i = 0; i < t1 ; i++){
+						for (var j = 0; j < 2 ; j++){
+							if (result[i] == synonym_list[j][0]){
+								message = message + synonym_list[j][1]  + ' ';
+							}
+							else{
+								message = message + result[i]  + ' ';
+							}
+						}
+					}
+					
+					for (var j = 0; j < 2 ; j++){
+						if (message == faq_list[j][0]){
+							ret_message = faq_list[j][1];
+							ret_url = faq_list[j][2];
+						    }
+					}
+					
+					if (ret_message != '') {
+					console.log('91');
+					response.json({
 					"data": {
 						"facebook": [
 								{
-									"text": "문의 주신 내용은 현재 지원하지 않는 문의 입니다."
+									"text": ret_message
 								},
 								{
 									"attachment": {
@@ -295,12 +320,12 @@ app.post('/',function(request,response){
 										"template_type": "generic",
 										"elements": [
 											{
-											  "title": "질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요",
+											  "title" : "문의 내역 확인",
 											  "buttons": [
 											    {
 											      	"type":"web_url",
-											    	"title": "모바일 고객센터 이동",
-											    	"url": "http://mobile.gmarket.co.kr/CustomerCenter"
+											    	"title": "이동",
+											    	"url": ret_url
 											    }
 											  ]
 										}
@@ -312,7 +337,39 @@ app.post('/',function(request,response){
 							]
 						}
 					});
-				    
+					}	
+					else {
+						response.json({
+						"data": {
+							"facebook": [
+									{
+										"text": "문의 주신 내용은 현재 지원하지 않는 문의 입니다."
+									},
+									{
+										"attachment": {
+										"type": "template",
+										"payload": {
+											"template_type": "generic",
+											"elements": [
+												{
+												  "title": "질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요",
+												  "buttons": [
+												    {
+													"type":"web_url",
+													"title": "모바일 고객센터 이동",
+													"url": "http://mobile.gmarket.co.kr/CustomerCenter"
+												    }
+												  ]
+											}
+
+										]
+										}
+									}
+									}
+								]
+							}
+						});
+					}
 				}
 			});
 
