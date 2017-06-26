@@ -817,6 +817,96 @@ app.post('/',function(request,response){
 			});
 		
 		}
+		else if (cs_query == '0'){
+			console.log('32');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+			//intent 정의
+			cs_intent = 'del_return_require';
+	
+			response.json({
+				"data": {
+					"facebook": 
+						[
+						{
+				  		"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": "나이키 운동화",
+									  "subtitle": "2017-05-27 (주문번호:1101)",
+									  "item_url": "http://gmkt.kr/gUJQJh",
+									  "image_url": "http://gdimg.gmarket.co.kr/goods_image2/shop_img/337/969/337969761.jpg",
+									  "buttons": [
+									    {
+									      "type": "postback",
+									      "title": "나이키 운동화",
+									      "payload": "1"
+									    }
+									  ]
+									}
+									,
+									{
+
+								  		"title": "신라면 번들",
+										 "subtitle": "2017-05-23 (주문번호:1008)",
+								  		"item_url": "http://gmkt.kr/g1aYMh",
+									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/896/107/896107297.jpg",
+								  		"buttons": [
+								  		  {
+								  		    "type": "postback",
+								  		    "title": "신라면 번들",
+								  		    "payload": "2"
+								  		  }
+									  ]
+									},
+									{
+
+								  		"title": "MyG",
+										 "subtitle": "MyG",
+										"image_url": "https://sslimage.gmarket.co.kr/_Net/MyInfo/login/logo.gif",
+								  		"buttons": [
+								  		  {
+								  		    "type":"web_url",
+										    "title": "MyG",
+                								    "url":"https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+								  		  }
+									  ]
+									}
+								]
+					    		}
+							}
+						},
+						{
+							"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": "이전 주문의 경우 MyG에서 조회하실 수 있습니다.",
+									  "buttons": [									
+								  		  {
+								  		    "type":"web_url",
+										    "title": "MyG",
+                								    "url":"https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+								  		  }
+									  ]
+									}
+								]
+					    		}
+							}
+						}
+						
+						
+					]
+				}
+			});
+		
+		}
 		else{
 			//faq 처리
 			console.log('24');
