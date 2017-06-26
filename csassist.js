@@ -4,7 +4,7 @@ var http = require('http');
 var bodyParser = require('body-parser');
 var mecab = require('mecab-ya');
 var app = express();
-var req = require('request');
+var request = require('sync-request');
 var urlencode = require('urlencode');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -240,17 +240,10 @@ app.post('/',function(request,response){
 			var cs_encode = urlencode(cs_query);
 			console.log(cs_encode);
 		        		
-			var name_options = {
-			uri: 'http://member2.gmarket.co.kr//CustomerCenter/JsonGetFaqSearch?pageNo=1&searchText='+cs_encode,
-			method: 'GET'
-			};
-		
-			req(name_options, function (err, httpResponse, body) {
-			if (err) {
-			return console.error('upload failed:', err);
-			}
+			var uri = 'http://member2.gmarket.co.kr//CustomerCenter/JsonGetFaqSearch?pageNo=1&searchText='+cs_encode;
+			var res = request('GET', 'http://member2.gmarket.co.kr//CustomerCenter/JsonGetFaqSearch?pageNo=1&searchText='+cs_encode);
+			var return_info = JSON.parse(res.getBody('utf8'));
 
-			var return_info = JSON.parse(body);
 			var return_cnt = return_info.length;
 			var max_iter;	
 
@@ -270,7 +263,6 @@ app.post('/',function(request,response){
 				}
 			}
 				
-			});
 
 			console.log(ori_faq);
 			
