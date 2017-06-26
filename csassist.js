@@ -741,6 +741,7 @@ app.post('/',function(request,response){
 				}
 			});
 		}
+	   }
 	}
 	else if (cs_intent == 'require'){
 		console.log('33');
