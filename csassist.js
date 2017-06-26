@@ -284,21 +284,26 @@ app.post('/',function(request,response){
 					
 					message = '';
 					ret_message = '';
-					
+					tmp_message = '';
 					
 					//유의어 조회
 					for (var i = 0; i < t1 ; i++){
 						for (var j = 0; j < 2 ; j++){
 							if (result[i] == synonym_list[j][0]){
-								message = message + synonym_list[j][1]  + ' ';
-								console.log(message+'1');
+								tmp_message = synonym_list[j][1];
 							}
 							else{
-								message = message + result[i]  + ' ';
-								console.log(message+'2');
+								tmp_message = synonym_list[j][1];
 							}
+							if(j == 1)
+							{
+								message = message + tmp_message + ' ';
+							}
+							
 						}
 					}
+					
+					console.log(message);
 					
 					for (var j = 0; j < 2 ; j++){
 						if (message == faq_list[j][0]){
