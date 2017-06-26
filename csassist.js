@@ -44,12 +44,6 @@ app.post('/',function(request,response){
 	console.log(cs_type);
     }
 	
-    if (cs_type != 'input.unknown'){
-	console.log('000');
-	cs_intent = cs_type;
-	console.log(cs_type);
-    }
-    
     if (cs_intent == '' || cs_type == 'del_welcome'){
 	console.log('11');
 	console.log(cs_input_cnt);
@@ -324,6 +318,7 @@ app.post('/',function(request,response){
 		}
 	}
 	else if (cs_intent  == 'del_order_check'){
+		    
 		//로직 처리
 		if (cs_query != '0'){
 			console.log('31');
