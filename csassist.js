@@ -279,11 +279,7 @@ app.post('/',function(request,response){
 										"template_type": "generic",
 										"elements": ori_faq
 										}
-
-									]
 								}
-							}
-						}
 					]
 				}
 			});
