@@ -760,12 +760,12 @@ app.post('/',function(request,response){
 				      				"template_type": "generic",
 				      				"elements": [
 									{
-								  	"title": "반품 신청 이동",
+								  	"title": "2017-05-26, 나이키 운동화 (주문번호 2100132)",
 									 "buttons": [
 									    {
-									      "type": "postback",
-									      "title": "나이키 운동화",
-									      "payload": "1"
+									      "type": "web_url",
+										"title": "반품 신청 이동",
+										"url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
 									    }
 									  ]
 									}
