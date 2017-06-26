@@ -192,15 +192,15 @@ app.post('/',function(request,response){
 										"image_url": "http://gdimg.gmarket.co.kr/goods_image2/shop_img/337/969/337969761.jpg",
 										  "buttons": [
 										    {
-											      "type": "web_url",
-											      "title": "반품 신청 이동",
-											      "url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+										      "type": "postback",
+										      "title": "배송 확인",
+										      "payload": "1"
 										    },
 										    {
 									  		    "type": "postback",
 						  					    "title": "추가 조회",
 						  					    "payload": "0"
-						  	  	  		    }
+						  	  	  		   }
 										  ]
 									}
 							
