@@ -1,0 +1,7 @@
+var db = require('mongojs').connect('test',['order']);
+
+db.order.find(funcion (error,data){
+
+console.log(data);
+
+});
