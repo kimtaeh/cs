@@ -275,7 +275,7 @@ app.post('/',function(request,response){
 			
 			     //faq 조회
 				for (var i = 0; i < mecab_length ; i++){
-				console.log(result[i]);
+				console.log(results[i]);
 					if (i == (mecab_length-1)){
 						mecab_message = mecab_message + results[i];
 					}
