@@ -385,6 +385,767 @@ app.post('/',function(request,response){
 
 		}
 	}
+	else if (cs_intent  == 'del_order_check'){
+		    
+		//로직 처리
+		if (cs_query == '1' || cs_query == '5'){
+			console.log('31');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+			//intent 정의
+			cs_intent  = 'del_order_check';
+			response.json({
+				"data": {
+					"facebook": [
+							{
+								"text": "요청주신 주문건은 결제가 완료되었습니다.\n배송의 경우 입금 확인 후 1~2일 이내 배송이 시작됩니다."
+							}
+						]
+					}
+				});
+		}
+		else if (cs_query == '2' || cs_query == '3'){
+			console.log('31');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+			//intent 정의
+			cs_intent  = 'del_order_check';
+			response.json({
+				"data": {
+					"facebook": [
+							{
+								"text": "요청주신 주문건은 아직 입금 확인 중입니다.\n 무통장 입금의 경우 확인에 약 1~2일 정도 소요될 수 있습니다."
+							}
+						]
+					}
+				});
+		}
+		else if (cs_query == '0'){
+			console.log('32');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+			//intent 정의
+			cs_intent = 'del_order_check';
+	
+			response.json({
+				"data": {
+					"facebook": 
+						[
+						{
+							"text": "최근 주문 내역 중 확인하고 싶으신 주문을 선택해주세요."
+						},
+						{
+				  		"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+
+								  		"title": "2017-05-27, 신라면 번들 (주문번호 2100119)",
+								  		"item_url": "http://gmkt.kr/g1aYMh",
+									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/896/107/896107297.jpg",
+								  		"buttons": [
+								  		  {
+								  		    "type": "postback",
+								  		    "title": "신라면 번들",
+								  		    "payload": "2"
+								  		  }
+									  ]
+									},
+									{
+
+								  		"title": "2017-05-26, 갤럭시 탭s3 LTE (주문번호 2100117)",
+								  		"item_url": "http://gmkt.kr/g4fZ1p",
+									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/945/537/945537706.jpg",
+								  		"buttons": [
+								  		  {
+								  		    "type": "postback",
+								  		    "title": "갤럭시 탭S3",
+								  		    "payload": "3"
+								  		  }
+									  ]
+									},
+									{
+
+								  		"title": "2017-05-22, 약산샘물 (주문번호 2100115)",
+								  		"item_url": "http://gmkt.kr/gzt8KB",
+									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/867/680/867680897.jpg",
+								  		"buttons": [
+								  		  {
+								  		    "type": "postback",
+								  		    "title": "약산샘물",
+								  		    "payload": "4"
+								  		  }
+									  ]
+									},
+									{
+
+								  		"title": "2017-05-19, 물먹는 하마 옷장용 (주문번호 2100109)",
+								  		"item_url": "http://gmkt.kr/g1aYMh",
+									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/896/107/896107297.jpg",
+								  		"buttons": [
+								  		  {
+								  		    "type": "postback",
+								  		    "title": "물먹는 하마 옷장용",
+								  		    "payload": "5"
+								  		  }
+									  ]
+									},
+								]
+					    		}
+							}
+						},
+						{
+							"text": "이전 주문의 경우 MyG에서 조회하실 수 있습니다."
+						},
+						{
+							"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": "MyG로 이동하기",
+									  "buttons": [									
+								  		  {
+								  		    "type":"web_url",
+										    "title": "MyG",
+                								    "url":"https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+								  		  }
+									  ]
+									}
+								]
+					    		}
+							}
+						}
+						
+						
+					]
+				}
+			});
+		
+		}
+		else{
+			//faq 처리
+			console.log('24');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+
+			//기존 정보 초기화
+			cs_intent = 'del_welcome';
+			cs_input_cnt = 0;
+			cs_message_log.splice();
+
+			
+			mecab.nouns(cs_query, function (err, result) {
+    
+			    var t1 = result.length;
+			    var message = '';
+			    var ret_message = '';
+			    var ret_url = '';
+
+			    //faq 조회
+				for (var i = 0; i < t1 ; i++){
+				console.log(result[i]);
+				message = message + result[i]  + ' ';
+				}
+
+				for (var j = 0; j < 2 ; j++){
+					if (message == faq_list[j][0]){
+						ret_message = faq_list[j][1];
+						ret_url = faq_list[j][2];
+					    }
+				}
+				
+				if (ret_message != '') {
+					response.json({
+					"data": {
+						"facebook": [
+								{
+									"text": ret_message
+								},
+								{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
+											{
+											  "title" : "문의 내역 확인",
+											  "buttons": [
+											    {
+											      	"type":"web_url",
+											    	"title": "이동",
+											    	"url": ret_url
+											    }
+											  ]
+										}
+
+									]
+									}
+								}
+								}
+							]
+						}
+					});
+				}
+				else{
+				    	response.json({
+					"data": {
+						"facebook": [
+								{
+									"text": "문의 주신 내용은 현재 지원하지 않는 문의 입니다."
+								},
+								{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
+											{
+											  "title": "질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요",
+											  "buttons": [
+											    {
+											      	"type":"web_url",
+											    	"title": "모바일 고객센터 이동",
+											    	"url": "http://mobile.gmarket.co.kr/CustomerCenter"
+											    }
+											  ]
+										}
+
+									]
+									}
+								}
+								}
+							]
+						}
+					});
+				    
+				}
+			});
+
+		}
+	}
+	else if (cs_intent == 'del_status_check'){
+		//로직 처리
+		if (cs_query == '1' || cs_query == '2'){
+			console.log('31');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+			//intent 정의
+			cs_intent  = 'del_status_check';
+			response.json({
+				"data": {
+					"facebook": [
+							{
+								"text": "문의주신 상품은 현재 배송중에 있습니다.\n배송완료의 경우 택배사의 사정에 따라 차이가 있을 수 있습니다."
+							}
+						]
+					}
+				});
+		}
+		else if (cs_query == '3' || cs_query == '4' || cs_query == '5'){
+			console.log('31');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+			//intent 정의
+			cs_intent  = 'del_status_check';
+			response.json({
+				"data": {
+					"facebook": [
+							{
+								"text": "배송이 완료되었습니다.\n 물건을 받지 못하셨다면 고객센터로 문의 부탁 드립니다."
+							}
+						]
+					}
+				});
+		}
+		else if (cs_query == '0'){
+			console.log('32');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+			//intent 정의
+			cs_intent = 'del_status_check';
+	
+			response.json({
+				"data": {
+					"facebook": 
+						[
+						{
+							"text": "최근 주문 내역 중 확인하고 싶으신 주문을 선택해주세요."
+						},
+						{
+				  		"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+
+								  		"title": "2017-05-27, 신라면 번들 (주문번호 2100119)",
+								  		"item_url": "http://gmkt.kr/g1aYMh",
+									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/896/107/896107297.jpg",
+								  		"buttons": [
+								  		  {
+								  		    "type": "postback",
+								  		    "title": "신라면 번들",
+								  		    "payload": "2"
+								  		  }
+									  ]
+									},
+									{
+
+								  		"title": "2017-05-26, 갤럭시 탭s3 LTE (주문번호 2100117)",
+								  		"item_url": "http://gmkt.kr/g4fZ1p",
+									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/945/537/945537706.jpg",
+								  		"buttons": [
+								  		  {
+								  		    "type": "postback",
+								  		    "title": "갤럭시 탭S3",
+								  		    "payload": "3"
+								  		  }
+									  ]
+									},
+									{
+
+								  		"title": "2017-05-22, 약산샘물 (주문번호 2100115)",
+								  		"item_url": "http://gmkt.kr/gzt8KB",
+									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/867/680/867680897.jpg",
+								  		"buttons": [
+								  		  {
+								  		    "type": "postback",
+								  		    "title": "약산샘물",
+								  		    "payload": "4"
+								  		  }
+									  ]
+									},
+									{
+
+								  		"title": "2017-05-19, 물먹는 하마 옷장용 (주문번호 2100109)",
+								  		"item_url": "http://gmkt.kr/g1aYMh",
+									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/896/107/896107297.jpg",
+								  		"buttons": [
+								  		  {
+								  		    "type": "postback",
+								  		    "title": "물먹는 하마 옷장용",
+								  		    "payload": "5"
+								  		  }
+									  ]
+									},
+								]
+					    		}
+							}
+						},
+						{
+							"text": "이전 주문의 경우 MyG에서 조회하실 수 있습니다."
+						},
+						{
+							"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": "MyG로 이동하기",
+									  "buttons": [									
+								  		  {
+								  		    "type":"web_url",
+										    "title": "MyG",
+                								    "url":"https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+								  		  }
+									  ]
+									}
+								]
+					    		}
+							}
+						}
+						
+						
+					]
+				}
+			});
+		
+		}
+		else{
+			//faq 처리
+			console.log('24');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+
+			//기존 정보 초기화
+			cs_intent = 'del_welcome';
+			cs_input_cnt = 0;
+			cs_message_log.splice();
+
+			
+			mecab.nouns(cs_query, function (err, result) {
+    
+			    var t1 = result.length;
+			    var message = '';
+			    var ret_message = '';
+			    var ret_url = '';
+
+			    //faq 조회
+				for (var i = 0; i < t1 ; i++){
+				console.log(result[i]);
+				message = message + result[i]  + ' ';
+				}
+
+				for (var j = 0; j < 2 ; j++){
+					if (message == faq_list[j][0]){
+						ret_message = faq_list[j][1];
+						ret_url = faq_list[j][2];
+					    }
+				}
+				
+				if (ret_message != '') {
+					response.json({
+					"data": {
+						"facebook": [
+								{
+									"text": ret_message
+								},
+								{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
+											{
+											  "title" : "문의 내역 확인",
+											  "buttons": [
+											    {
+											      	"type":"web_url",
+											    	"title": "이동",
+											    	"url": ret_url
+											    }
+											  ]
+										}
+
+									]
+									}
+								}
+								}
+							]
+						}
+					});
+				}
+				else{
+				    	response.json({
+					"data": {
+						"facebook": [
+								{
+									"text": "문의 주신 내용은 현재 지원하지 않는 문의 입니다."
+								},
+								{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
+											{
+											  "title": "질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요",
+											  "buttons": [
+											    {
+											      	"type":"web_url",
+											    	"title": "모바일 고객센터 이동",
+											    	"url": "http://mobile.gmarket.co.kr/CustomerCenter"
+											    }
+											  ]
+										}
+
+									]
+									}
+								}
+								}
+							]
+						}
+					});
+				    
+				}
+			});
+
+		}
+	}
+	else if (cs_intent == 'del_return_require'){
+		//로직 처리
+		if (cs_query == '1'){
+			console.log('32');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+			//intent 정의
+			cs_intent = 'del_return_require';
+	
+			response.json({
+				"data": {
+					"facebook": 
+						[
+						{
+				  		"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": "2017-05-26, 나이키 운동화 (주문번호 2100132)",
+									 "buttons": [
+									    {
+									      "type": "web_url",
+										"title": "반품 신청 이동",
+										"url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+									    }
+									  ]
+									}
+								]
+					    		}
+							}
+						}
+										
+					]
+				}
+			});
+		
+		}
+		else if (cs_query == '2'){
+			console.log('32');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+			//intent 정의
+			cs_intent = 'del_return_require';
+	
+			response.json({
+				"data": {
+					"facebook": 
+						[
+						{
+				  		"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": "2017-05-23, 신라면 번들 (주문번호 2100119)",
+									 "buttons": [
+									    {
+									      "type": "web_url",
+										"title": "반품 신청 이동",
+										"url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+									    }
+									  ]
+									}
+								]
+					    		}
+							}
+						}
+										
+					]
+				}
+			});
+		
+		}
+		else if (cs_query == '0'){
+			console.log('32');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+			//intent 정의
+			cs_intent = 'del_return_require';
+	
+			response.json({
+				"data": {
+					"facebook": 
+						[
+						{
+				  		"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": "나이키 운동화",
+									  "subtitle": "2017-05-27 (주문번호:1101)",
+									  "item_url": "http://gmkt.kr/gUJQJh",
+									  "image_url": "http://gdimg.gmarket.co.kr/goods_image2/shop_img/337/969/337969761.jpg",
+									  "buttons": [
+									    {
+									      "type": "postback",
+									      "title": "나이키 운동화",
+									      "payload": "1"
+									    }
+									  ]
+									}
+									,
+									{
+
+								  		"title": "신라면 번들",
+										 "subtitle": "2017-05-23 (주문번호:1008)",
+								  		"item_url": "http://gmkt.kr/g1aYMh",
+									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/896/107/896107297.jpg",
+								  		"buttons": [
+								  		  {
+								  		    "type": "postback",
+								  		    "title": "신라면 번들",
+								  		    "payload": "2"
+								  		  }
+									  ]
+									},
+									{
+
+								  		"title": "MyG",
+										 "subtitle": "MyG",
+										"image_url": "https://sslimage.gmarket.co.kr/_Net/MyInfo/login/logo.gif",
+								  		"buttons": [
+								  		  {
+								  		    "type":"web_url",
+										    "title": "MyG",
+                								    "url":"https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+								  		  }
+									  ]
+									}
+								]
+					    		}
+							}
+						},
+						{
+							"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": "이전 주문의 경우 MyG에서 조회하실 수 있습니다.",
+									  "buttons": [									
+								  		  {
+								  		    "type":"web_url",
+										    "title": "MyG",
+                								    "url":"https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+								  		  }
+									  ]
+									}
+								]
+					    		}
+							}
+						}
+						
+						
+					]
+				}
+			});
+		
+		}
+		else{
+			//faq 처리
+			console.log('24');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+
+			//기존 정보 초기화
+			cs_intent = 'del_welcome';
+			cs_input_cnt = 0;
+			cs_message_log.splice();
+
+			
+			mecab.nouns(cs_query, function (err, result) {
+    
+			    var t1 = result.length;
+			    var message = '';
+			    var ret_message = '';
+			    var ret_url = '';
+
+			    //faq 조회
+				for (var i = 0; i < t1 ; i++){
+				console.log(result[i]);
+				message = message + result[i]  + ' ';
+				}
+
+				for (var j = 0; j < 2 ; j++){
+					if (message == faq_list[j][0]){
+						ret_message = faq_list[j][1];
+						ret_url = faq_list[j][2];
+					    }
+				}
+				
+				if (ret_message != '') {
+					response.json({
+					"data": {
+						"facebook": [
+								{
+									"text": ret_message
+								},
+								{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
+											{
+											  "title" : "문의 내역 확인",
+											  "buttons": [
+											    {
+											      	"type":"web_url",
+											    	"title": "이동",
+											    	"url": ret_url
+											    }
+											  ]
+										}
+
+									]
+									}
+								}
+								}
+							]
+						}
+					});
+				}
+				else{
+				    	response.json({
+					"data": {
+						"facebook": [
+								{
+									"text": "문의 주신 내용은 현재 지원하지 않는 문의 입니다."
+								},
+								{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
+											{
+											  "title": "질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요",
+											  "buttons": [
+											    {
+											      	"type":"web_url",
+											    	"title": "모바일 고객센터 이동",
+											    	"url": "http://mobile.gmarket.co.kr/CustomerCenter"
+											    }
+											  ]
+										}
+
+									]
+									}
+								}
+								}
+							]
+						}
+					});
+				    
+				}
+			});
+
+		}
+	}
 	else {
 		//faq 처리
 			console.log('24');
