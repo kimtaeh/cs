@@ -245,8 +245,9 @@ app.post('/',function(request,response){
 						ret_url = faq_list[j][2];
 					    }
 				}
-				
+
 				if (ret_message != '') {
+					console.log('91');
 					response.json({
 					"data": {
 						"facebook": [
@@ -279,6 +280,7 @@ app.post('/',function(request,response){
 					});
 				}
 				else{
+					console.log('92');
 				    	response.json({
 					"data": {
 						"facebook": [
