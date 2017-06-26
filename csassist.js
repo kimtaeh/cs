@@ -291,12 +291,14 @@ app.post('/',function(request,response){
 						for (var j = 0; j < 2 ; j++){
 							if (result[i] == synonym_list[j][0]){
 								tmp_message = synonym_list[j][1];
+								console.log(result[i]);
 								console.log(tmp_message);
 							}
 							else{
 								if(tmp_message = ''){
 									tmp_message = result[i];
 								}
+								console.log(result[i]);
 								console.log(tmp_message);
 							}
 							if(j == 1)
