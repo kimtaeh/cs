@@ -4,7 +4,7 @@ var http = require('http');
 var bodyParser = require('body-parser');
 var mecab = require('mecab-ya');
 var app = express();
-var request = require('sync-request');
+var req = require('sync-request');
 var urlencode = require('urlencode');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -241,7 +241,7 @@ app.post('/',function(request,response){
 			console.log(cs_encode);
 		        		
 			var uri = 'http://member2.gmarket.co.kr//CustomerCenter/JsonGetFaqSearch?pageNo=1&searchText='+cs_encode;
-			var res = request('GET', 'http://member2.gmarket.co.kr//CustomerCenter/JsonGetFaqSearch?pageNo=1&searchText='+cs_encode);
+			var res = req('GET', 'http://member2.gmarket.co.kr//CustomerCenter/JsonGetFaqSearch?pageNo=1&searchText='+cs_encode);
 			var return_info = JSON.parse(res.getBody('utf8'));
 
 			var return_cnt = return_info.length;
