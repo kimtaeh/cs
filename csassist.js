@@ -266,6 +266,28 @@ app.post('/',function(request,response){
 
 			console.log(ori_faq);
 			
+			response.json({
+					"data": {
+						"facebook": [
+								{
+									"text": "FAQ 조회 결과입니다."
+								},
+								{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": ori_faq
+										}
+
+									]
+								}
+							}
+						}
+					]
+				}
+			});
+			
 			mecab.nouns(cs_query, function (err, result) {
     
 			    var t1 = result.length;
