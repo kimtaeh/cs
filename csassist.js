@@ -247,6 +247,8 @@ app.post('/',function(request,response){
 			var return_cnt = return_info.length;
 			var max_iter;	
 
+			ori_faq.push({"text": "FAQ 조회 결과입니다.\n"}); 
+			
 			if (return_cnt > 0){
 
 				max_iter = return_cnt;
@@ -258,27 +260,17 @@ app.post('/',function(request,response){
 				{
 					var str = strip_tags(return_info[i].Title, '');
 					console.log(str);	
-					var str2 = urlencode(str);
-					ori_faq.push('{"type":"web_url", "title": "' + str + '", "url": "'+str2+'"}'); 
+					ori_faq.push({"text":str}); 
 				}
 			}
-				
+		
+			ori_faq.push({"text": "\nFAQ 바로가기"+uri}); 
 
 			console.log(ori_faq);
 			
 			response.json({
 					"data": {
-						"facebook": [
-								{
-									"text": "FAQ 조회 결과입니다."
-								},
-								{
-									"text": "FAQ 조회 결과입니다."
-								},
-								{
-									"text": "FAQ 조회 결과입니다."
-								}
-					]
+						"facebook": ori_faq
 				}
 			});
 		}
