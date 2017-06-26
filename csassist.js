@@ -314,7 +314,7 @@ app.post('/',function(request,response){
 
 				ori_faq.push({"text": "\nFAQ 바로가기"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+cs_encode}); 
 
-			}
+			});
    
 			console.log(ori_faq);
 			
