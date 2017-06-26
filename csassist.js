@@ -16,15 +16,11 @@ var cs_message_log = new Array();
 var ori_faq = new Array();
 var cs_input_cnt = 0;
 
-//faq define
-var faq_list = 
-[['판매자 통화 ', '판매자의 주소와 연락처는 상품 상세정보 페이지에서 확인하실 수 있습니다.', 'http://member2.gmarket.co.kr/CustomerCenter/Main']
-,['주문 번호 확인 ','구매한 상품의 주문번호는 나의 쇼핑정보 > 전체주문내역에서 확인 가능합니다','http://member2.gmarket.co.kr//CustomerCenter/FaqList?SearchClass_0=01&SearchClass_1=102&SearchClass_2=10201&SearchClass_3=1020101']]
-
 //synoym define
 var synonym_list = 
 [['연락','통화']
-,['구매','주문']]
+,['구매','주문']
+,['셀러','판매자']]
 
 function strip_tags (input, allowed) {
     allowed = (((allowed || "") + "").toLowerCase().match(/<[a-z][a-z0-9]*>/g) || []).join(''); // making sure the allowed arg is a string containing only tags in lowercase (<a><b><c>)
@@ -320,7 +316,7 @@ app.post('/',function(request,response){
 					//유의어 조회
 					for (var i = 0; i < mecab_length ; i++){
 						tmp_message = '';
-						for (var j = 0; j < 2 ; j++){
+						for (var j = 0; j < 3 ; j++){
 							if (results[i] == synonym_list[j][0]){
 								tmp_message = synonym_list[j][1];
 							}
@@ -329,7 +325,7 @@ app.post('/',function(request,response){
 									tmp_message = results[i];
 								}
 							}
-							if(j == 1)
+							if(j == 2)
 							{
 								if (i == (mecab_length-1)){
 									mecab_message = mecab_message + tmp_message;
