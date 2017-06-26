@@ -1,0 +1,4 @@
+sudo mongo
+
+db.synoym_list.save({ src : '연락', trg : '통화')};
+db.synoym_list.save({ src : '', trg : '주문')};
