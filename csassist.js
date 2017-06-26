@@ -20,7 +20,7 @@ var faq_list =
 
 //synoym define
 var synonym_list = 
-[['통화','연락']
+[['연락','통화']
 ,['구매','주문']]
 
 //rest_api
