@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 //data predefine
 var cs_intent = '';
 var cs_message_log = new Array();
+var ori_faq = new Array();
 var cs_input_cnt = 0;
 
 //faq define
@@ -234,11 +235,11 @@ app.post('/',function(request,response){
 			cs_intent = 'del_welcome';
 			cs_input_cnt = 0;
 			cs_message_log.splice();
+			ori_faq.splice();
 			
 			var cs_encode = urlencode(cs_query);
 			console.log(cs_encode);
-		        var ori_faq = new Array();
-		
+		        		
 			var name_options = {
 			uri: 'http://member2.gmarket.co.kr//CustomerCenter/JsonGetFaqSearch?pageNo=1&searchText='+cs_encode,
 			method: 'GET'
