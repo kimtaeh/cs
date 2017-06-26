@@ -293,7 +293,9 @@ app.post('/',function(request,response){
 								tmp_message = synonym_list[j][1];
 							}
 							else{
-								tmp_message = synonym_list[j][1];
+								if(tmp_message = ''){
+									tmp_message = result[i];
+								}
 							}
 							if(j == 1)
 							{
