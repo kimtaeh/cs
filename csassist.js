@@ -532,7 +532,7 @@ app.post('/',function(request,response){
 	}
 	else if (cs_intent == 'del_status_check'){
 		//로직 처리
-		if (cs_query == '1' || cs_query == '1번' || cs_query == '1101'){
+		if (cs_query != '0'){
 
 			console.log('41');
 			console.log(cs_input_cnt);
@@ -541,40 +541,18 @@ app.post('/',function(request,response){
 			//intent 정의
 			cs_intent = 'del_status_check';
 
-			cs_message = "선택하신 나이키 운동화를 취소하시겠습니까";
 			response.json({
 				"data": {
-					"facebook": {
-				  		"attachment": {
-				    			"type": "template",
-				  			 "payload": {
-				      				"template_type": "generic",
-				      				"elements": [
-									{
-								  	"title": cs_message,
-									  "buttons": [
-									    {
-									      "type": "postback",
-									      "title": "예",
-									      "payload": "1"
-									    },
-									    {
-								  		"type": "postback",
-						  				"title": "아니오",
-						  				"payload": "2"
-						  	    		    }
-									  ]
-									}
-							
-								]
-			    				}
-		  				}
+					"facebook": [
+							{
+								"문의주신 상품은 현재 배송중에 있습니다.\n배송완료의 경우 택배사의 사정에 따라 차이가 있을 수 있습니다."
+							}
+						]
 					}
-				}
 			});
 
 		}
-		else if (cs_query == '2' || cs_query == '2번' || cs_query == '1008'){
+		else if (cs_query == '0'){
 
 			console.log('42');
 			console.log(cs_input_cnt);
@@ -583,65 +561,87 @@ app.post('/',function(request,response){
 			//intent 정의
 			cs_intent = 'del_status_check';
 	
-			//화면 출력
-			cs_message = "고객님이 주문하신 신라면 번들(주문번호:1008)은 반품 가능기간이 아닙니다";
 			response.json({
 				"data": {
-					"facebook": {
+					"facebook": 
+						[
+						{
 				  		"attachment": {
 				    			"type": "template",
 				  			 "payload": {
 				      				"template_type": "generic",
 				      				"elements": [
 									{
-								  	"title": cs_message,
+								  	"title": "나이키 운동화",
+									  "subtitle": "2017-05-27 (주문번호:1101)",
+									  "item_url": "http://gmkt.kr/gUJQJh",
+									  "image_url": "http://gdimg.gmarket.co.kr/goods_image2/shop_img/337/969/337969761.jpg",
 									  "buttons": [
 									    {
 									      "type": "postback",
-									      "title": "처음으로",
-									      "payload": "3"
-									    },
-									    {
-								  		    "type": "postback",
-						  				    "title": "상담원 연결",
-						  				    "payload": "0"
-						  	    		    }
+									      "title": "나이키 운동화",
+									      "payload": "1"
+									    }
 									  ]
 									}
-							
+									,
+									{
+
+								  		"title": "신라면 번들",
+										 "subtitle": "2017-05-23 (주문번호:1008)",
+								  		"item_url": "http://gmkt.kr/g1aYMh",
+									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/896/107/896107297.jpg",
+								  		"buttons": [
+								  		  {
+								  		    "type": "postback",
+								  		    "title": "신라면 번들",
+								  		    "payload": "2"
+								  		  }
+									  ]
+									},
+									{
+
+								  		"title": "MyG",
+										 "subtitle": "MyG",
+										"image_url": "https://sslimage.gmarket.co.kr/_Net/MyInfo/login/logo.gif",
+								  		"buttons": [
+								  		  {
+								  		    "type":"web_url",
+										    "title": "MyG",
+                								    "url":"https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+								  		  }
+									  ]
+									}
 								]
-			    				}
-		  				}
-					}
+					    		}
+							}
+						},
+						{
+							"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": "이전 주문의 경우 MyG에서 조회하실 수 있습니다.",
+									  "buttons": [									
+								  		  {
+								  		    "type":"web_url",
+										    "title": "MyG",
+                								    "url":"https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+								  		  }
+									  ]
+									}
+								]
+					    		}
+							}
+						}
+						
+						
+					]
 				}
 			});
 		
-		}
-		else if(cs_query == '0' || cs_query == '0번'){
-
-
-			console.log('43');
-			console.log(cs_input_cnt);
-			console.log(cs_intent);
-
-			//기존 로그를 상담원에게 전달과 동시에 챗봇 종료
-		
-			//상담원에게 정보 전달
-			for (var i = 0; i < cs_input_cnt ; i++){
-				console.log(cs_message_log[i]);
-			}
-			//기존 정보 초기화
-			cs_intent = 'require';
-			cs_input_cnt = 0;
-			cs_message_log.splice();
-		
-			//상담자에게 종료 알림
-  			cs_message = "문의 내용을 입력해 주시면 상담원 연결 시 같이 전달 드리겠습니다.";
-			response.json({
-  			"speech": cs_message ,
- 		 	"displayText": cs_message ,
-	 	 	"source": "delReturn"
-			});
 		}
 		else{
 
@@ -654,40 +654,90 @@ app.post('/',function(request,response){
 			cs_input_cnt = 0;
 			cs_message_log.splice();
 		
-			response.json({
-				"data": {
-					"facebook": {
-				  		"attachment": {
-				    			"type": "template",
-				  			 "payload": {
-				      				"template_type": "generic",
-				      				"elements": [
-									{
-								  	"title": "무엇을 도와드릴까요",
-									  "buttons": [
-									    {
-									      "type": "postback",
-									      "title": "1번 주문/배송 확인",
-									      "payload": "1"
-									    },
-									    {
-								  		    "type": "postback",
-						  				    "title": "2번 반품/교환 신청",
-						  				    "payload": "2"
-						  	    		},
-							   		 {
-						  		    		"type":"web_url",
-                								    "url":"http://member2.gmarket.co.kr/CustomerCenter/Main",
-								  		    "title": "0번 FAQ 연결"
-								  	    }
+			mecab.nouns(cs_query, function (err, result) {
+    
+			    var t1 = result.length;
+			    var message = '';
+			    var ret_message = '';
+			    var ret_url = '';
 
-									  ]
+			    //faq 조회
+				for (var i = 0; i < t1 ; i++){
+				console.log(result[i]);
+				message = message + result[i]  + ' ';
+				}
+
+				for (var j = 0; j < 2 ; j++){
+					if (message == faq_list[j][0]){
+						ret_message = faq_list[j][1];
+						ret_url = faq_list[j][2];
+					    }
+				}
+				
+				if (ret_message != '') {
+					response.json({
+					"data": {
+						"facebook": [
+								{
+									"text": ret_message
+								},
+								{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
+											{
+											  "title" : "문의 내역 확인",
+											  "buttons": [
+											    {
+											      	"type":"web_url",
+											    	"title": "이동",
+											    	"url": ret_url
+											    }
+											  ]
+										}
+
+									]
 									}
-							
-								]
-			    				}
-		  				}
-					}
+								}
+								}
+							]
+						}
+					});
+				}
+				else{
+				    	response.json({
+					"data": {
+						"facebook": [
+								{
+									"text": "문의 주신 내용은 현재 지원하지 않는 문의 입니다."
+								},
+								{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
+											{
+											  "title": "질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요",
+											  "buttons": [
+											    {
+											      	"type":"web_url",
+											    	"title": "모바일 고객센터 이동",
+											    	"url": "http://mobile.gmarket.co.kr/CustomerCenter"
+											    }
+											  ]
+										}
+
+									]
+									}
+								}
+								}
+							]
+						}
+					});
+				    
 				}
 			});
 		}
