@@ -1,6 +1,6 @@
 var db = require('mongojs').connect('test',['order']);
 
-db.order.find(funcion (error,data){
+db.order.find(function (error,data){
 
 console.log(data);
 
