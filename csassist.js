@@ -1353,45 +1353,6 @@ app.post('/',function(request,response){
 			cs_input_cnt = 0;
 			cs_message_log.splice();
 			
-			//
-			var cs_encode = urlencode(cs_query);
-			console.log(cs_encode);
-		        var ori_faq = new Array();
-		
-			var name_options = {
-			uri: 'http://member2.gmarket.co.kr//CustomerCenter/JsonGetFaqSearch?pageNo=1&searchText='+cs_encode,
-			method: 'GET'
-			};
-		
-			request(name_options, function optionalCallback(err, httpResponse, body) {
-			if (err) {
-			return console.error('upload failed:', err);
-			}
-
-			var return_info = JSON.parse(body);
-			var return_cnt = return_info.length;
-			var max_iter;
-				
-			console.log(return_info);	
-
-			if (return_cnt > 0){
-
-				max_iter = return_cnt;
-				if(return_cnt > 3){
-					max_iter = 3;		
-				}
-
-				for(var i = 0 ; i < max_iter ; i++)
-				{
-					var str = strip_tags(return_info[i].Title, '');
-					console.log(str);	
-					var str2 = urlencode(str);
-					ori_faq.push('{"type":"web_url", "title": "' + str + '", "url": "'+str2+'"}'); 
-				}
-			}
-				
-			});
-		
 			mecab.nouns(cs_query, function (err, result) {
     
 			    var t1 = result.length;
