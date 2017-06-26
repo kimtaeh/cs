@@ -268,7 +268,53 @@ app.post('/',function(request,response){
 
 			console.log(ori_faq);
 			
-			var t = mecab.nouns(cs_query);
+			mecab.nouns(cs_query, function (err, results) {
+    
+			    var mecab_length = results.length;
+			    var mecab_message = '';
+			
+			     //faq 조회
+				for (var i = 0; i < mecab_length ; i++){
+				console.log(result[i]);
+					if (i == (mecab_length-1)){
+						mecab_message = mecab_message + results[i];
+					}
+					else {
+						mecab_message = mecab_message + results[i]  + ' ';	
+					}
+				}
+				
+				console.log(mecab_message);
+				var mecab_encode = urlencode(cs_query);
+				
+				var uri = 'http://member2.gmarket.co.kr//CustomerCenter/JsonGetFaqSearch?pageNo=1&searchText='+mecab_encode;
+				var res = req('GET', 'http://member2.gmarket.co.kr//CustomerCenter/JsonGetFaqSearch?pageNo=1&searchText='+mecab_encode);
+				var return_info = JSON.parse(res.getBody('utf8'));
+				
+
+				var return_cnt = return_info.length;
+				var max_iter;	
+
+				ori_faq.push({"text": "자연어 처리 FAQ 검색 결과 입니다.\n"}); 
+
+				if (return_cnt > 0){
+
+					max_iter = return_cnt;
+					if(return_cnt > 3){
+						max_iter = 3;		
+					}
+
+					for(var i = 0 ; i < max_iter ; i++)
+					{
+						var str = strip_tags(return_info[i].Title, '');
+						console.log(str);	
+						ori_faq.push({"text":str}); 
+					}
+				}
+
+				ori_faq.push({"text": "\nFAQ 바로가기"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+cs_encode}); 
+
+			}
    
 			console.log(ori_faq);
 			
