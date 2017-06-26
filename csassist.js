@@ -643,11 +643,7 @@ app.post('/',function(request,response){
 			});
 		
 		}
-		else{
 
-			
-		
-	   	}
 	}
 	else if (cs_intent == 'require'){
 		console.log('33');
