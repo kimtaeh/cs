@@ -320,7 +320,7 @@ app.post('/',function(request,response){
 	else if (cs_intent  == 'del_order_check'){
 		    
 		//로직 처리
-		if (cs_query != '0'){
+		if (cs_query == '1' || cs_query == '2' || cs_query == '3' || cs_query == '4'){
 			console.log('31');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
@@ -531,7 +531,7 @@ app.post('/',function(request,response){
 	}
 	else if (cs_intent == 'del_status_check'){
 		//로직 처리
-		if (cs_query != '0'){
+		if (cs_query == '1' || cs_query == '2' || cs_query == '3' || cs_query == '4'){
 			console.log('31');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
