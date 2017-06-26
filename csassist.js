@@ -283,7 +283,7 @@ app.post('/',function(request,response){
 				}
 				
 				console.log(mecab_message);
-				var mecab_encode = urlencode(cs_query);
+				var mecab_encode = urlencode(mecab_message);
 				
 				var uri = 'http://member2.gmarket.co.kr//CustomerCenter/JsonGetFaqSearch?pageNo=1&searchText='+mecab_encode;
 				var res = req('GET', 'http://member2.gmarket.co.kr//CustomerCenter/JsonGetFaqSearch?pageNo=1&searchText='+mecab_encode);
