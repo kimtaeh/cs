@@ -967,29 +967,17 @@ app.post('/',function(request,response){
 					"facebook": 
 						[
 						{
+							"text": "최근 주문 내역 중 확인하고 싶으신 주문을 선택해주세요."
+						},
+						{
 				  		"attachment": {
 				    			"type": "template",
 				  			 "payload": {
 				      				"template_type": "generic",
 				      				"elements": [
 									{
-								  	"title": "나이키 운동화",
-									  "subtitle": "2017-05-27 (주문번호:1101)",
-									  "item_url": "http://gmkt.kr/gUJQJh",
-									  "image_url": "http://gdimg.gmarket.co.kr/goods_image2/shop_img/337/969/337969761.jpg",
-									  "buttons": [
-									    {
-									      "type": "postback",
-									      "title": "나이키 운동화",
-									      "payload": "1"
-									    }
-									  ]
-									}
-									,
-									{
 
-								  		"title": "신라면 번들",
-										 "subtitle": "2017-05-23 (주문번호:1008)",
+								  		"title": "2017-05-27, 신라면 번들 (주문번호 2100119)",
 								  		"item_url": "http://gmkt.kr/g1aYMh",
 									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/896/107/896107297.jpg",
 								  		"buttons": [
@@ -1002,20 +990,49 @@ app.post('/',function(request,response){
 									},
 									{
 
-								  		"title": "MyG",
-										 "subtitle": "MyG",
-										"image_url": "https://sslimage.gmarket.co.kr/_Net/MyInfo/login/logo.gif",
+								  		"title": "2017-05-26, 갤럭시 탭s3 LTE (주문번호 2100117)",
+								  		"item_url": "http://gmkt.kr/g4fZ1p",
+									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/945/537/945537706.jpg",
 								  		"buttons": [
 								  		  {
-								  		    "type":"web_url",
-										    "title": "MyG",
-                								    "url":"https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
+								  		    "type": "postback",
+								  		    "title": "갤럭시 탭S3",
+								  		    "payload": "3"
 								  		  }
 									  ]
-									}
+									},
+									{
+
+								  		"title": "2017-05-22, 약산샘물 (주문번호 2100115)",
+								  		"item_url": "http://gmkt.kr/gzt8KB",
+									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/867/680/867680897.jpg",
+								  		"buttons": [
+								  		  {
+								  		    "type": "postback",
+								  		    "title": "약산샘물",
+								  		    "payload": "4"
+								  		  }
+									  ]
+									},
+									{
+
+								  		"title": "2017-05-19, 물먹는 하마 옷장용 (주문번호 2100109)",
+								  		"item_url": "http://gmkt.kr/g1aYMh",
+									  	"image_url": "http://gdimg.gmarket.co.kr/goods_image2/middle_jpgimg3/896/107/896107297.jpg",
+								  		"buttons": [
+								  		  {
+								  		    "type": "postback",
+								  		    "title": "물먹는 하마 옷장용",
+								  		    "payload": "5"
+								  		  }
+									  ]
+									},
 								]
 					    		}
 							}
+						},
+						{
+							"text": "이전 주문의 경우 MyG에서 조회하실 수 있습니다."
 						},
 						{
 							"attachment": {
@@ -1024,7 +1041,7 @@ app.post('/',function(request,response){
 				      				"template_type": "generic",
 				      				"elements": [
 									{
-								  	"title": "이전 주문의 경우 MyG에서 조회하실 수 있습니다.",
+								  	"title": "MyG로 이동하기",
 									  "buttons": [									
 								  		  {
 								  		    "type":"web_url",
