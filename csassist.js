@@ -325,7 +325,7 @@ app.post('/',function(request,response){
 			console.log(cs_intent);
 
 			//intent 정의
-			cs_intent  = 'del_welcome';
+			cs_intent  = 'del_order_check';
 			response.json({
 				"data": {
 					"facebook": [
@@ -427,32 +427,6 @@ app.post('/',function(request,response){
 				}
 			});
 		
-		}
-		else if(cs_query == '0' || cs_query == '0번'){
-			console.log('33');
-			console.log(cs_input_cnt);
-			console.log(cs_intent);
-
-
-			//기존 로그를 상담원에게 전달과 동시에 챗봇 종료
-		
-			//상담원에게 정보 전달
-			for (var i = 0; i < cs_input_cnt ; i++){
-				console.log(cs_message_log[i]);
-			}
-			//기존 정보 초기화
-			cs_intent = 'require';
-			cs_input_cnt = 0;
-			cs_message_log.splice();
-		
-			//상담자에게 종료 알림
-  			cs_message = "상담받고 싶으신 내용을 입력해주세요.";
-			response.json({
-  			"speech": cs_message ,
- 		 	"displayText": cs_message ,
-	 	 	"source": "delReturn"
-			});
-
 		}
 		else{
 			//faq 처리
