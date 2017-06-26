@@ -291,9 +291,11 @@ app.post('/',function(request,response){
 						for (var j = 0; j < 2 ; j++){
 							if (result[i] == synonym_list[j][0]){
 								message = message + synonym_list[j][1]  + ' ';
+								console.log(message+'1');
 							}
 							else{
 								message = message + result[i]  + ' ';
+								console.log(message+'2');
 							}
 						}
 					}
