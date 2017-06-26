@@ -21,6 +21,7 @@ var faq_list =
 //synoym define
 var synonym_list = 
 [['셀러','판매자']
+,['통화','연락']
 ,['구매','주문']]
 
 //rest_api
