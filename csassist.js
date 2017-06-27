@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 var cs_intent = '';
 var cs_message_log = new Array();
 var ori_faq = new Array();
+var mod_faq = new Array();
 var cs_input_cnt = 0;
 
 //synoym define
@@ -243,6 +244,7 @@ app.post('/',function(request,response){
 			cs_input_cnt = 0;
 			cs_message_log = [];
 			ori_faq = [];
+			mod_faq = [];
 			
 			var cs_encode = urlencode(cs_query);
 			console.log(cs_encode);
@@ -274,25 +276,6 @@ app.post('/',function(request,response){
 				}
 			}
 			
-			response.json({
-				"data": {
-					"facebook": [
-						{
-							"text": "문의하신 FAQ 조회 결과 입니다."	
-						},
-						{
-									"attachment": {
-									"type": "template",
-									 "payload": {
-										"template_type": "generic",
-										"elements": ori_faq
-								}
-								}
-						}
-					]
-				}
-			});
-
 		
 			//ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+cs_encode}); 
 
@@ -336,7 +319,6 @@ app.post('/',function(request,response){
 						var str = strip_tags(return_info[i].Title, '');
 						var encode_str = urlencode(str);
 						console.log(str);	
-						ori_faq.push({"text":str}); 
 						ori_faq.push({"title": str, "buttons": [{"type":"web_url","title": "MyG", "url":"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+encode_str}]}); 
 					}
 					
@@ -395,14 +377,12 @@ app.post('/',function(request,response){
 						var str = strip_tags(return_info[i].Title, '');
 						var encode_str = urlencode(str);
 						console.log(str);	
-						ori_faq.push({"title": str, "buttons": [{"type":"web_url","title": "MyG", "url":"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+encode_str}]}); 
+						mod_faq.push({"title": str, "buttons": [{"type":"web_url","title": "MyG", "url":"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+encode_str}]}); 
 					}
 							
 					//ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+mecab_encode}); 
 				}	
 					
-				consol.log(ori_faq);
-				
 				response.json({
 				"data": {
 					"facebook": [
@@ -415,6 +395,18 @@ app.post('/',function(request,response){
 									 "payload": {
 										"template_type": "generic",
 										"elements": ori_faq
+								}
+								}
+						},
+						{
+							"text": "수정된 FAQ 조회 결과 입니다."	
+						},
+						{
+									"attachment": {
+									"type": "template",
+									 "payload": {
+										"template_type": "generic",
+										"elements": mod_faq
 								}
 								}
 						}
