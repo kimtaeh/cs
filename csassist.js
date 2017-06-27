@@ -72,7 +72,7 @@ app.post('/',function(request,response){
 				  			 "payload": {
 				      				"template_type": "generic",
 				      				"elements": [
-								{"title": "MyG로 이동하기", "buttons": [{"type":"web_url","title": "MyG", "url":"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText=%25ED%258C%2590%25EB%25A7%25A4%25EC%259E%2590%25EB%259E%2591%2520%25ED%2586%25B5%25ED%2599%2594%25ED%2595%25A0%25EB%259E%2598%25EC%259A%2594"}
+								{"title": "MyG로 이동하기", "buttons": [{"type":"web_url","title": "MyG", "url":"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText=%25ED%258C%2590%25EB%25A7%25A4%25EC%259E%2590%25EB%259E%2591%2520%25ED%2586%25B5%25ED%2599%2594%25ED%2595%25A0%25EB%259E%2598%25EC%259A%2594"}}
 								]
 					    	}
 						}
