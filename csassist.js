@@ -406,7 +406,7 @@ app.post('/',function(request,response){
 					}
 					});
 			}
-			else if(){
+			else if(mod_faq.length > 0){
 				response.json({
 					"data": {
 						"facebook": [
