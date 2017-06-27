@@ -377,15 +377,28 @@ app.post('/',function(request,response){
 						console.log(str);	
 						ori_faq.push({"title": str, "buttons": [{"type":"web_url","title": "MyG", "url":"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+encode_str}]}); 
 					}
-								
+							
 					//ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+mecab_encode}); 
 				}	
 							
 				response.json({
-						"data": {
-							"facebook": ori_faq
-					}
-				});
+				"data": {
+					"facebook": [
+						{
+							"text": "문의하신 FAQ 조회 결과 입니다."	
+						},
+						{
+									"attachment": {
+									"type": "template",
+									 "payload": {
+										"template_type": "generic",
+										"elements": ori_faq
+								}
+								}
+						}
+					]
+				}
+			});
 			});
 		}
 	}
