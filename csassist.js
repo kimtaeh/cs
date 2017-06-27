@@ -321,7 +321,7 @@ app.post('/',function(request,response){
 						var str = strip_tags(return_info[i].Title, '');
 						var encode_str = urlencode(str);
 						console.log(str);	
-						ori_faq.push({"title": str, "buttons": [{"type":"web_url","title": "MyG", "url":"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+encode_str}]}); 
+						mod_faq.push({"title": str, "buttons": [{"type":"web_url","title": "MyG", "url":"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+encode_str}]}); 
 					}
 					
 					//ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+mecab_encode}); 
