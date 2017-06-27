@@ -325,7 +325,7 @@ app.post('/',function(request,response){
 				}
 				else{
 
-					ori_faq.push({"text": "유의어 처리 FAQ 검색 결과 입니다.\n"}); 
+					//ori_faq.push({"text": "유의어 처리 FAQ 검색 결과 입니다.\n"}); 
 					
 					mecab_message = '';
 					
