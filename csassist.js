@@ -255,7 +255,7 @@ app.post('/',function(request,response){
 
 			var return_cnt = return_info.length;
 			var max_iter;	
-
+			var faq_title = "FAQ 조회 결과입니다.";
 			//ori_faq.push({"text": "FAQ 조회 결과입니다.\n"}); 
 			
 			if (return_cnt > 0){
@@ -276,13 +276,14 @@ app.post('/',function(request,response){
 				}
 			}
 			
-			console.log(ori_faq.length);
+			
 			//ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+cs_encode}); 
 
 			mecab.nouns(cs_query, function (err, results) {
     
 			    var mecab_length = results.length;
 			    var mecab_message = '';
+			    var me_title = '';
 			
 			     //faq 조회
 				for (var i = 0; i < mecab_length ; i++){
@@ -308,6 +309,7 @@ app.post('/',function(request,response){
 
 				if (me_return_cnt > 0){
 
+					me_title = "자연어 처리 FAQ 검색 결과 입니다.";
 					//ori_faq.push({"text": "자연어 처리 FAQ 검색 결과 입니다.\n"}); 
 					max_iter = me_return_cnt;
 					if(me_return_cnt > 3){
@@ -328,7 +330,7 @@ app.post('/',function(request,response){
 				else{
 
 					//ori_faq.push({"text": "유의어 처리 FAQ 검색 결과 입니다.\n"}); 
-					
+					me_title = "유의어 처리 FAQ 검색 결과 입니다.";
 					mecab_message = '';
 					
 					//유의어 조회
@@ -383,37 +385,71 @@ app.post('/',function(request,response){
 					//ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+mecab_encode}); 
 				}	
 					
-				
+			if(ori_faq.length > 0){
+			   
+					response.json({
+					"data": {
+						"facebook": [
+							{
+								"text": faq_title	
+							},
+							{
+										"attachment": {
+										"type": "template",
+										 "payload": {
+											"template_type": "generic",
+											"elements": ori_faq
+									}
+									}
+							}							
+						]
+					}
+					});
+			}
+			else if(){
 				response.json({
-				"data": {
-					"facebook": [
-						{
-							"text": "문의하신 FAQ 조회 결과 입니다."	
-						},
-						{
-									"attachment": {
-									"type": "template",
-									 "payload": {
-										"template_type": "generic",
-										"elements": ori_faq
-								}
-								}
-						},
-						{
-							"text": "수정된 FAQ 조회 결과 입니다."	
-						},
-						{
-									"attachment": {
-									"type": "template",
-									 "payload": {
-										"template_type": "generic",
-										"elements": mod_faq
-								}
-								}
-						}
-					]
-				}
+					"data": {
+						"facebook": [
+							{
+								"text": me_title	
+							},
+							{
+										"attachment": {
+										"type": "template",
+										 "payload": {
+											"template_type": "generic",
+											"elements": mod_faq
+									}
+									}
+							}
+						]
+					}
+					});
+			}
+			else{
+				response.json({
+					"data": {
+						"facebook": [
+							{
+								"text": "문의주신 내용은 지원하지 않는 기능입니다.\nG마켓에 문의하기를 이용해주세요."	
+							},
+							{
+										"attachment": {
+										"type": "template",
+										 "payload": {
+											"template_type": "generic",
+											"elements": [
+											{"title": "G마켓에 문의하기로 이동하기", "buttons": [{"type":"web_url","title": "MyG", "url":"http://member2.gmarket.co.kr/CustomerCenter/Main"}]}
+											]
+									}
+									}
+							}
+						]
+					}
 				});
+			}
+			
+				
 			});
 		}
 	}
