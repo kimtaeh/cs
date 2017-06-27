@@ -303,14 +303,14 @@ app.post('/',function(request,response){
 				var return_info = JSON.parse(res.getBody('utf8'));
 				
 
-				var return_cnt = return_info.length;
+				var me_return_cnt = return_info.length;
 				var max_iter;	
 
-				if (return_cnt > 0){
+				if (me_return_cnt > 0){
 
 					//ori_faq.push({"text": "자연어 처리 FAQ 검색 결과 입니다.\n"}); 
-					max_iter = return_cnt;
-					if(return_cnt > 3){
+					max_iter = me_return_cnt;
+					if(me_return_cnt > 3){
 						max_iter = 3;		
 					}
 
@@ -364,11 +364,11 @@ app.post('/',function(request,response){
 					var return_info = JSON.parse(res.getBody('utf8'));
 
 
-					var return_cnt = return_info.length;
+					var me_return_cnt = return_info.length;
 					var max_iter;	
 
-					max_iter = return_cnt;
-					if(return_cnt > 3){
+					max_iter = me_return_cnt;
+					if(me_return_cnt > 3){
 						max_iter = 3;		
 					}
 
@@ -383,8 +383,9 @@ app.post('/',function(request,response){
 					//ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+mecab_encode}); 
 				}	
 					
-				consol.log(ori_faq.length);
-				consol.log(mod_faq.length);
+				consol.log(return_cnt);
+				consol.log(me_return_cnt);
+				
 				
 				response.json({
 				"data": {
