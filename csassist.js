@@ -254,7 +254,7 @@ app.post('/',function(request,response){
 			var return_cnt = return_info.length;
 			var max_iter;	
 
-			ori_faq.push({"text": "FAQ 조회 결과입니다.\n"}); 
+			//ori_faq.push({"text": "FAQ 조회 결과입니다.\n"}); 
 			
 			if (return_cnt > 0){
 
@@ -266,12 +266,15 @@ app.post('/',function(request,response){
 				for(var i = 0 ; i < max_iter ; i++)
 				{
 					var str = strip_tags(return_info[i].Title, '');
-					console.log(str);	
-					ori_faq.push({"text":str}); 
+					var encode_str = urlencode(str);
+					console.log(str);
+					console.log(encode_str);
+					
+					ori_faq.push({"title": str, "buttons": [{"type":"web_url","title": "MyG", "url":"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+encode_str}]}); 
 				}
 			}
 		
-			ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+cs_encode}); 
+			//ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+cs_encode}); 
 
 			mecab.nouns(cs_query, function (err, results) {
     
@@ -302,7 +305,7 @@ app.post('/',function(request,response){
 
 				if (return_cnt > 0){
 
-					ori_faq.push({"text": "자연어 처리 FAQ 검색 결과 입니다.\n"}); 
+					//ori_faq.push({"text": "자연어 처리 FAQ 검색 결과 입니다.\n"}); 
 					max_iter = return_cnt;
 					if(return_cnt > 3){
 						max_iter = 3;		
@@ -311,11 +314,13 @@ app.post('/',function(request,response){
 					for(var i = 0 ; i < max_iter ; i++)
 					{
 						var str = strip_tags(return_info[i].Title, '');
+						var encode_str = urlencode(str);
 						console.log(str);	
 						ori_faq.push({"text":str}); 
+						ori_faq.push({"title": str, "buttons": [{"type":"web_url","title": "MyG", "url":"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+encode_str}]}); 
 					}
 					
-					ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+mecab_encode}); 
+					//ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+mecab_encode}); 
 
 				}
 				else{
@@ -368,11 +373,12 @@ app.post('/',function(request,response){
 					for(var i = 0 ; i < max_iter ; i++)
 					{
 						var str = strip_tags(return_info[i].Title, '');
+						var encode_str = urlencode(str);
 						console.log(str);	
-						ori_faq.push({"text":str}); 
+						ori_faq.push({"title": str, "buttons": [{"type":"web_url","title": "MyG", "url":"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+encode_str}]}); 
 					}
 								
-					ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+mecab_encode}); 
+					//ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+mecab_encode}); 
 				}	
 							
 				response.json({
