@@ -65,6 +65,26 @@ app.post('/',function(request,response){
 			"facebook": [
 				{
 		  			"text": "안녕하세요 CS Assistant 입니다.\n궁금한 사항을 입력해주세요."	
+				},
+				{
+							"attachment": {
+				    			"type": "template",
+				  			 "payload": {
+				      				"template_type": "generic",
+				      				"elements": [
+									{
+								  	"title": "MyG로 이동하기",
+									  "buttons": [									
+								  		  {
+								  		    "type":"web_url",
+										    "title": "MyG",
+                								    "url":"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText=%25ED%258C%2590%25EB%25A7%25A4%25EC%259E%2590%25EB%259E%2591%2520%25ED%2586%25B5%25ED%2599%2594%25ED%2595%25A0%25EB%259E%2598%25EC%259A%2594"
+								  		  }
+									  ]
+									}
+								]
+					    	}
+						}
 				}
 			]
 		}
