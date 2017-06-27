@@ -46,13 +46,13 @@ app.post('/',function(request,response){
     cs_message_log [cs_input_cnt] = cs_query;
     cs_input_cnt = cs_input_cnt+ 1;
 
-    if (cs_query == '1' || cs_query == '2' || cs_query == '3' || cs_query == '4' || cs_query == '0' || cs_query == '5'){
+    if (cs_query == '1' || cs_query == '2' || cs_query == '3' || cs_query == '4' || cs_query == '0' || cs_query == '5' || cs_query == '9'){
 	console.log('00');
 	cs_type = cs_intent;
 	console.log(cs_type);
     }
 	
-    if (cs_intent == '' || cs_type == 'del_welcome'){
+    if (cs_intent == '' || cs_type == 'del_welcome' || cs_query == '하이'){
 	console.log('11');
 	console.log(cs_input_cnt);
 	console.log(cs_intent);
@@ -462,7 +462,7 @@ app.post('/',function(request,response){
 					}
 				});
 		}
-		else if (cs_query == '2' || cs_query == '3'){
+		else if (cs_query == '2' || cs_query == '3' || cs_query == '4'){
 			console.log('31');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
@@ -586,106 +586,64 @@ app.post('/',function(request,response){
 			});
 		
 		}
-		else{
-			//faq 처리
-			console.log('24');
+		else if (cs_query == '9'){
+			console.log('33');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
-
-
 			//기존 정보 초기화
 			cs_intent = 'del_welcome';
 			cs_input_cnt = 0;
 			cs_message_log.splice();
 
-			
-			mecab.nouns(cs_query, function (err, result) {
-    
-			    var t1 = result.length;
-			    var message = '';
-			    var ret_message = '';
-			    var ret_url = '';
-
-			    //faq 조회
-				for (var i = 0; i < t1 ; i++){
-				console.log(result[i]);
-				message = message + result[i]  + ' ';
-				}
-
-				for (var j = 0; j < 2 ; j++){
-					if (message == faq_list[j][0]){
-						ret_message = faq_list[j][1];
-						ret_url = faq_list[j][2];
-					    }
-				}
-				
-				if (ret_message != '') {
-					response.json({
-					"data": {
-						"facebook": [
-								{
-									"text": ret_message
-								},
-								{
-									"attachment": {
-									"type": "template",
-									"payload": {
-										"template_type": "generic",
-										"elements": [
-											{
-											  "title" : "문의 내역 확인",
-											  "buttons": [
-											    {
-											      	"type":"web_url",
-											    	"title": "이동",
-											    	"url": ret_url
-											    }
-											  ]
-										}
-
-									]
-									}
-								}
-								}
-							]
+			response.json({
+				"data": {
+					"facebook": [
+						{
+							"text": "안녕하세요 CS Assistant 입니다.\n궁금한 사항을 입력해주세요."	
 						}
-					});
-				}
-				else{
-				    	response.json({
-					"data": {
-						"facebook": [
-								{
-									"text": "문의 주신 내용은 현재 지원하지 않는 문의 입니다."
-								},
-								{
-									"attachment": {
-									"type": "template",
-									"payload": {
-										"template_type": "generic",
-										"elements": [
-											{
-											  "title": "질문 주신 내용에 대해 상담을 원하신다면 아래 버튼을 클릭해주세요",
-											  "buttons": [
-											    {
-											      	"type":"web_url",
-											    	"title": "모바일 고객센터 이동",
-											    	"url": "http://mobile.gmarket.co.kr/CustomerCenter"
-											    }
-											  ]
-										}
-
-									]
-									}
-								}
-								}
-							]
-						}
-					});
-				    
+					]
 				}
 			});
+		
+		}
+		else{
+			console.log('34');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+			
+			//intent 정의
+			cs_intent = 'del_order_check';
 
+			response.json({
+				"data": {
+					"facebook": [
+							{
+								"text": "현재 메뉴는 배송상태 조회 입니다.\nw조회하고 싶으신 상품을 클릭해주세요."
+							},
+							{
+								"attachment": {
+				    				"type": "template",
+				  			 	"payload": {
+				      					"template_type": "generic",
+				      					"elements": [
+										{
+									  	"title": "처음으로 돌아가려면 아래 버튼을 클릭해주세요.",
+										"buttons": [
+										    {
+										      "type": "postback",
+										      "title": "처음으로",
+										      "payload": "9"
+										    }										  
+										  ]
+									}
+							
+								]
+			    				}
+		  				}
+							}
+						]
+					}
+				});
 		}
 	}
 	else if (cs_intent == 'del_status_check'){
