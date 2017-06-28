@@ -19,7 +19,7 @@ var faq_cnt= faq_list.length;
 var seqno = faq_list[i][0];
 var title = faq_list[i][0];
   
-for(var i = 0 ; i < faq_cnt= ; i++)
+for(var i = 0 ; i < faq_cnt ; i++)
 {
   seqno = faq_list[i][0];
   title = faq_list[i][0];
