@@ -1,0 +1,43 @@
+//module call
+var express = require('express');
+var http = require('http');
+var bodyParser = require('body-parser');
+var mecab = require('mecab-ya');
+var app = express();
+var req = require('sync-request');
+var urlencode = require('urlencode');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+var faq_list = 
+[['121','통화를 하고 싶어요']
+,['122','주문 취소 어떻게 해요']
+,['123','판매자랑 통화할 수 있나요']]
+
+
+var faq_cnt= faq_list.length;
+var seqno = faq_list[i][0];
+var title = faq_list[i][0];
+  
+for(var i = 0 ; i < faq_cnt= ; i++)
+{
+  seqno = faq_list[i][0];
+  title = faq_list[i][0];
+  mecab.nouns(title, function (err, results) {
+    
+    var mecab_length = results.length;
+    var me_title = '';
+    
+    if (i == (mecab_length-1)){
+						me_title = me_title + results[i];
+			    }
+					else {
+						me_title = me_title + results[i]  + ' ';	
+					}
+          
+    var faq_title = {"seqno": seqno, "title": title, "me_title" : me_title };
+    
+    console.log(faq_title);
+  }
+ }
+ 
