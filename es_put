@@ -16,7 +16,9 @@ var faq_list =
 
 
 var faq_cnt= faq_list.length;
-  
+var seqno = '';
+var title = '';
+
 for(var i = 0 ; i < faq_cnt ; i++)
 {
 
