@@ -26,13 +26,15 @@ for(var i = 0 ; i < faq_cnt ; i++)
     var mecab_length = results.length;
     var me_title = '';
     
-    if (i == (mecab_length-1)){
+	for (var i = 0; i < mecab_length ; i++){
+				console.log(results[i]);
+					if (i == (mecab_length-1)){
 						me_title = me_title + results[i];
-			    }
+					}
 					else {
 						me_title = me_title + results[i]  + ' ';	
 					}
-          
+				}
     var faq_title = {"seqno": seqno, "title": title, "me_title" : me_title };
     
     console.log(faq_title);
