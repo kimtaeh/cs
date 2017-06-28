@@ -1,1 +1,2 @@
+curl -XPUT http://192.168.59.103:9200/korean/ -d '{"settings": {"index":{"analysis":{"analyzer":{"korean":{"type":"custom","tokenizer":"mecab_ko_standard_tokenizer"}}}}}}'
 curl -XGET http://127.0.0.1:9200/korean/_analyze?analyzer=korean\&pretty=true -d '아버지가 방에 들어간다' | jq '.tokens[] | {token: .token, type: .type}'
