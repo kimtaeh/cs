@@ -65,7 +65,7 @@ app.post('/',function(request,response){
 		"data": {
 			"facebook": [
 				{
-		  			"text": "안녕하세요 CS Assistant 입니다.\n궁금한 사항을 입력해주세요."	
+		  			"text": "안녕하세요 CS Assistant 입니다.\n현재 FAQ 기반의 답변을 지원해 드리고 있습니다.\n궁금한 사항을 말씀해주세요\n\n FAQ외 주문조회,배송조회,반품신청이 필요하시면 해당 메뉴를 입력해주세요"	
 				}
 			]
 		}
