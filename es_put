@@ -38,6 +38,6 @@ for(var i = 0 ; i < faq_cnt ; i++)
     var faq_title = {"seqno": seqno, "title": title, "me_title" : me_title };
     
     console.log(faq_title);
-  }
+  });
  }
  
