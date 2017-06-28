@@ -19,20 +19,21 @@ var faq_cnt= faq_list.length;
   
 for(var i = 0 ; i < faq_cnt ; i++)
 {
-  seqno = faq_list[i][0];
-  title = faq_list[i][1];
   mecab.nouns(title, function (err, results) {
-    
+      
+    seqno = faq_list[i][0];
+    title = faq_list[i][1];
     var mecab_length = results.length;
+    
     var me_title = '';
     
-	for (var i = 0; i < mecab_length ; i++){
-				console.log(results[i]);
-					if (i == (mecab_length-1)){
-						me_title = me_title + results[i];
+	for (var j = 0; j < mecab_length ; j++){
+				console.log(results[j]);
+					if (j == (mecab_length-1)){
+						me_title = me_title + results[j];
 					}
 					else {
-						me_title = me_title + results[i]  + ' ';	
+						me_title = me_title + results[j]  + ' ';	
 					}
 				}
     var faq_title = {"seqno": seqno, "title": title, "me_title" : me_title };
