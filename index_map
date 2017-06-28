@@ -1,0 +1,15 @@
+curl -XPUT http://0.0.0.0:9200/faqs/_mapping -d '
+{"faqs": {
+	"mappings":{
+		"faq":{
+			"properties":{
+				"seqno":{"type":"string"},
+				"title":{"type":"string"},
+				"me_title":{"type":"string"}	
+				}
+			}	
+		}		
+
+	}
+
+}'
