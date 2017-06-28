@@ -19,10 +19,12 @@ var faq_cnt= faq_list.length;
   
 for(var i = 0 ; i < faq_cnt ; i++)
 {
+
+  seqno = faq_list[i][0];
+  title = faq_list[i][1];
+    
   mecab.nouns(title, function (err, results) {
       
-    seqno = faq_list[i][0];
-    title = faq_list[i][1];
     var mecab_length = results.length;
     
     var me_title = '';
