@@ -457,6 +457,25 @@ app.post('/',function(request,response){
 					"facebook": [
 							{
 								"text": "요청주신 주문건은 결제가 완료되었습니다.\n배송의 경우 입금 확인 후 1~2일 이내 배송이 시작됩니다."
+							},
+							{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
+											{
+											"title": "처음으로 돌아가려면 아래 버튼을 클릭해주세요.",
+											"buttons": [
+											    {
+											      "type": "postback",
+											      "title": "처음으로",
+											      "payload": "9"
+											    }										  
+											  ]
+										}
+
+									]
 							}
 						]
 					}
@@ -474,6 +493,25 @@ app.post('/',function(request,response){
 					"facebook": [
 							{
 								"text": "요청주신 주문건은 아직 입금 확인 중입니다.\n 무통장 입금의 경우 확인에 약 1~2일 정도 소요될 수 있습니다."
+							},
+							{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
+											{
+											"title": "처음으로 돌아가려면 아래 버튼을 클릭해주세요.",
+											"buttons": [
+											    {
+											      "type": "postback",
+											      "title": "처음으로",
+											      "payload": "9"
+											    }										  
+											  ]
+										}
+
+									]
 							}
 						]
 					}
@@ -566,14 +604,20 @@ app.post('/',function(request,response){
 				      				"template_type": "generic",
 				      				"elements": [
 									{
-								  	"title": "MyG로 이동하기",
+								  	"title": "이동하기",
 									  "buttons": [									
 								  		  {
 								  		    "type":"web_url",
 										    "title": "MyG",
                 								    "url":"https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
-								  		  }
-									  ]
+								  		  },
+										    {
+											"type": "postback",
+											"title": "처음으로",
+											"payload": "9"
+										 }										  
+
+									  	]
 									}
 								]
 					    		}
@@ -599,7 +643,7 @@ app.post('/',function(request,response){
 				"data": {
 					"facebook": [
 						{
-							"text": "안녕하세요 CS Assistant 입니다.\n궁금한 사항을 입력해주세요."	
+							"text": "안녕하세요 CS Assistant 입니다.\n현재 FAQ 기반의 답변을 지원해 드리고 있습니다.\n궁금한 사항을 말씀해주세요\n\n FAQ외 다른 업무가 필요하신 경우 아래 메뉴를 입력해주세요\n주문조회/배송조회/반품신청"	
 						}
 					]
 				}
@@ -618,7 +662,7 @@ app.post('/',function(request,response){
 				"data": {
 					"facebook": [
 							{
-								"text": "현재 메뉴는 주문조회 입니다.\nw조회하고 싶으신 상품을 클릭해주세요."
+								"text": "현재 메뉴는 주문조회 입니다.\n조회하고 싶으신 상품을 클릭해주세요."
 							},
 							{
 								"attachment": {
@@ -660,6 +704,25 @@ app.post('/',function(request,response){
 					"facebook": [
 							{
 								"text": "문의주신 상품은 현재 배송중에 있습니다.\n배송완료의 경우 택배사의 사정에 따라 차이가 있을 수 있습니다."
+							},
+							{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
+											{
+											"title": "처음으로 돌아가려면 아래 버튼을 클릭해주세요.",
+											"buttons": [
+											    {
+											      "type": "postback",
+											      "title": "처음으로",
+											      "payload": "9"
+											    }										  
+											  ]
+										}
+
+									]
 							}
 						]
 					}
@@ -677,6 +740,25 @@ app.post('/',function(request,response){
 					"facebook": [
 							{
 								"text": "배송이 완료되었습니다.\n 물건을 받지 못하셨다면 고객센터로 문의 부탁 드립니다."
+							},
+							{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
+											{
+											"title": "처음으로 돌아가려면 아래 버튼을 클릭해주세요.",
+											"buttons": [
+											    {
+											      "type": "postback",
+											      "title": "처음으로",
+											      "payload": "9"
+											    }										  
+											  ]
+										}
+
+									]
 							}
 						]
 					}
@@ -802,7 +884,7 @@ app.post('/',function(request,response){
 				"data": {
 					"facebook": [
 						{
-							"text": "안녕하세요 CS Assistant 입니다.\n궁금한 사항을 입력해주세요."	
+							"text": "안녕하세요 CS Assistant 입니다.\n현재 FAQ 기반의 답변을 지원해 드리고 있습니다.\n궁금한 사항을 말씀해주세요\n\n FAQ외 다른 업무가 필요하신 경우 아래 메뉴를 입력해주세요\n주문조회/배송조회/반품신청"	
 						}
 					]
 				}
@@ -879,10 +961,15 @@ app.post('/',function(request,response){
 									      "type": "web_url",
 										"title": "반품 신청 이동",
 										"url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
-									    }
+									    },
+									     {
+										      "type": "postback",
+										      "title": "처음으로",
+										      "payload": "9"
+										}		
 									  ]
 									}
-								]
+																	]
 					    		}
 							}
 						}
@@ -920,7 +1007,12 @@ app.post('/',function(request,response){
 									      "type": "web_url",
 										"title": "반품 신청 이동",
 										"url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
-									    }
+									    },
+									     {
+										      "type": "postback",
+										      "title": "처음으로",
+										      "payload": "9"
+										}	
 									  ]
 									}
 								]
@@ -961,7 +1053,12 @@ app.post('/',function(request,response){
 									      "type": "web_url",
 										"title": "반품 신청 이동",
 										"url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
-									    }
+									    },
+									     {
+										      "type": "postback",
+										      "title": "처음으로",
+										      "payload": "9"
+										}	
 									  ]
 									}
 								]
@@ -1002,7 +1099,12 @@ app.post('/',function(request,response){
 									      "type": "web_url",
 										"title": "반품 신청 이동",
 										"url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
-									    }
+									    },
+									     {
+										      "type": "postback",
+										      "title": "처음으로",
+										      "payload": "9"
+										}	
 									  ]
 									}
 								]
@@ -1043,7 +1145,12 @@ app.post('/',function(request,response){
 									      "type": "web_url",
 										"title": "반품 신청 이동",
 										"url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
-									    }
+									    },
+									     {
+										      "type": "postback",
+										      "title": "처음으로",
+										      "payload": "9"
+										}	
 									  ]
 									}
 								]
@@ -1143,13 +1250,18 @@ app.post('/',function(request,response){
 				      				"template_type": "generic",
 				      				"elements": [
 									{
-								  	"title": "MyG로 이동하기",
+								  	"title": "이동하기",
 									  "buttons": [									
 								  		  {
 								  		    "type":"web_url",
 										    "title": "MyG",
                 								    "url":"https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
-								  		  }
+								  		  },
+									     	{
+										      "type": "postback",
+										      "title": "처음으로",
+										      "payload": "9"
+										}	
 									  ]
 									}
 								]
@@ -1176,7 +1288,7 @@ app.post('/',function(request,response){
 				"data": {
 					"facebook": [
 						{
-							"text": "안녕하세요 CS Assistant 입니다.\n궁금한 사항을 입력해주세요."	
+							"text": "안녕하세요 CS Assistant 입니다.\n현재 FAQ 기반의 답변을 지원해 드리고 있습니다.\n궁금한 사항을 말씀해주세요\n\n FAQ외 다른 업무가 필요하신 경우 아래 메뉴를 입력해주세요\n주문조회/배송조회/반품신청"	
 						}
 					]
 				}
