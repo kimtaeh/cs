@@ -114,7 +114,12 @@ app.post('/',function(request,response){
 									  		    "type": "postback",
 						  					    "title": "추가 조회",
 						  					    "payload": "0"
-						  	  	  		   }
+						  	  	  		   },
+										   {
+										      "type": "postback",
+										      "title": "처음으로",
+										      "payload": "9"
+										    }
 										  ]
 									}
 							
@@ -159,7 +164,12 @@ app.post('/',function(request,response){
 									  		    "type": "postback",
 						  					    "title": "추가 조회",
 						  					    "payload": "0"
-						  	  	  		   }
+						  	  	  		   },
+										   {
+										      "type": "postback",
+										      "title": "처음으로",
+										      "payload": "9"
+										    }
 										  ]
 									}
 							
@@ -208,7 +218,12 @@ app.post('/',function(request,response){
 									  		    "type": "postback",
 						  					    "title": "추가 조회",
 						  					    "payload": "0"
-						  	  	  		   }
+						  	  	  		   },
+										   {
+										      "type": "postback",
+										      "title": "처음으로",
+										      "payload": "9"
+										    }
 										  ]
 									}
 							
