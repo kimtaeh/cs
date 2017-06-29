@@ -302,7 +302,7 @@ app.post('/',function(request,response){
 					}
 				}
 				
-				console.log(mecab_message);
+				console.log("자연어:"mecab_message);
 				var mecab_encode = urlencode(mecab_message);
 				
 				var uri = 'http://member2.gmarket.co.kr//CustomerCenter/JsonGetFaqSearch?pageNo=1&searchText='+mecab_encode;
