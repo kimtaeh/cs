@@ -326,7 +326,6 @@ app.post('/',function(request,response){
 					{
 						var str = strip_tags(return_info[i].Title, '');
 						//var encode_str = urlencode(str);
-						console.log("자연어:"+str);
 						var seqno = return_info[i].Seqno;
 						console.log(seqno);
 						mod_faq.push({"title": str, "buttons": [{"type":"web_url","title": "FAQ 바로가기", "url":"http://mobile.gmarket.co.kr/customercenter/FaqDetail?seq="+seqno}]}); 
