@@ -449,7 +449,7 @@ app.post('/',function(request,response){
 										 "payload": {
 											"template_type": "generic",
 											"elements": [
-											{"title": "G마켓에 문의하기로 이동하기", "buttons": [{"type":"web_url","title": "MyG", "url":"http://member2.gmarket.co.kr/CustomerCenter/Main"}]}
+											{"title": "G마켓에 문의하기로 이동하기", "buttons": [{"type":"web_url","title": "", "url":"http://mobile.gmarket.co.kr/CustomerCenter"]}
 											]
 									}
 									}
