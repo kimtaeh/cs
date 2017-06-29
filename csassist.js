@@ -272,7 +272,7 @@ app.post('/',function(request,response){
 				for(var i = 0 ; i < max_iter ; i++)
 				{
 					//console.log(return_info[i]);
-					//var str = strip_tags(return_info[i].Seqno, '');
+					var str = strip_tags(return_info[i].Seqno, '');
 					var seqno = return_info[i].Seqno;
 					//var encode_str = urlencode(str);
 					console.log(seqno);
@@ -324,7 +324,7 @@ app.post('/',function(request,response){
 
 					for(var i = 0 ; i < max_iter ; i++)
 					{
-						//var str = strip_tags(return_info[i].Title, '');
+						var str = strip_tags(return_info[i].Title, '');
 						//var encode_str = urlencode(str);
 						//console.log(str);
 						var seqno = return_info[i].Seqno;
@@ -384,7 +384,7 @@ app.post('/',function(request,response){
 
 					for(var i = 0 ; i < max_iter ; i++)
 					{
-						//var str = strip_tags(return_info[i].Title, '');
+						var str = strip_tags(return_info[i].Title, '');
 						//var encode_str = urlencode(str);
 						//console.log(str);
 						var seqno = return_info[i].Seqno;
