@@ -286,7 +286,7 @@ app.post('/',function(request,response){
 			//ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+cs_encode}); 
 
 			mecab.nouns(cs_query, function (err, results) {
-    
+    			    mod_faq = [];
 			    var mecab_length = results.length;
 			    var mecab_message = '';
 			    var me_title = '';
