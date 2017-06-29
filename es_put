@@ -20,31 +20,37 @@ var seqno = '';
 var title = '';
 var mod_faq =[];
 
+function f_mecab(seqno, title) {
+
+	mecab.nouns(title, function (err, results) {
+      
+	var mecab_length = results.length;
+
+	var me_title = '';
+
+	for (var j = 0; j < mecab_length ; j++){
+					console.log(results[j]);
+						if (j == (mecab_length-1)){
+							me_title = me_title + results[j];
+						}
+						else {
+							me_title = me_title + results[j]  + ' ';	
+						}
+					}
+	      console.log(seqno);
+	      console.log(title);
+	      console.log(me_title);
+	 });
+ }
+
+
 for(var i = 0 ; i < faq_cnt ; i++)
 {
 
   seqno = faq_list[i][0];
   title = faq_list[i][1];
  
-    
-  mecab.nouns(title, function (err, results, seqno, title) {
-      
-    var mecab_length = results.length;
-    
-    var me_title = '';
-    
-	for (var j = 0; j < mecab_length ; j++){
-				console.log(results[j]);
-					if (j == (mecab_length-1)){
-						me_title = me_title + results[j];
-					}
-					else {
-						me_title = me_title + results[j]  + ' ';	
-					}
-				}
-      console.log(seqno);
-      console.log(title);
-      console.log(me_title);
-  });
+  f_mecab(seqno, title);
+  
  }
  
