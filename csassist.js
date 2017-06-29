@@ -272,7 +272,7 @@ app.post('/',function(request,response){
 				for(var i = 0 ; i < max_iter ; i++)
 				{
 					//console.log(return_info[i]);
-					var str = strip_tags(return_info[i].Seqno, '');
+					var str = strip_tags(return_info[i].Title, '');
 					var seqno = return_info[i].Seqno;
 					//var encode_str = urlencode(str);
 					console.log(seqno);
