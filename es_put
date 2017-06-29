@@ -47,5 +47,8 @@ for(var i = 0 ; i < faq_cnt ; i++)
     
     console.log(faq_title);
   });
+  
+  var waitTill = new Date(new Date().getTime() + 1 * 1000);
+  while(waitTill > new Date()){}
  }
  
