@@ -775,7 +775,7 @@ app.post('/',function(request,response){
 				"data": {
 					"facebook": [
 							{
-								"text": "문의주신 상품은 출고 예정입니다.\n상품 출고의 경우 판매자의 사정에 따라 차이가 있을 수 있습니다."
+								"text": "문의주신 상품은 출고 예정입니다.\n상품 출고는 입금확인 후 1~2일 이후 진행됩니다."
 							},
 							{
 									"attachment": {
