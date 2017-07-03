@@ -318,29 +318,28 @@ app.post('/',function(request,response){
 				console.log("n_return:"+me_return_cnt);
 
 				if (mecab_message == ''){
-				console.log("oh ye");	
-				}
-				
-				if (me_return_cnt > 0){
 
-					me_title = "자연어 처리 FAQ 검색 결과 입니다.";
-					//ori_faq.push({"text": "자연어 처리 FAQ 검색 결과 입니다.\n"}); 
-					max_iter = me_return_cnt;
-					if(me_return_cnt > 3){
-						max_iter = 3;		
+					if (me_return_cnt > 0){
+
+						me_title = "자연어 처리 FAQ 검색 결과 입니다.";
+						//ori_faq.push({"text": "자연어 처리 FAQ 검색 결과 입니다.\n"}); 
+						max_iter = me_return_cnt;
+						if(me_return_cnt > 3){
+							max_iter = 3;		
+						}
+
+						for(var i = 0 ; i < max_iter ; i++)
+						{
+							var str = strip_tags(return_info[i].Title, '');
+							//var encode_str = urlencode(str);
+							var seqno = return_info[i].Seqno;
+							console.log(seqno);
+							mod_faq.push({"title": str, "buttons": [{"type":"web_url","title": "FAQ 바로가기", "url":"http://mobile.gmarket.co.kr/customercenter/FaqDetail?seq="+seqno}]}); 
+						}
+
+						//ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+mecab_encode}); 
+
 					}
-
-					for(var i = 0 ; i < max_iter ; i++)
-					{
-						var str = strip_tags(return_info[i].Title, '');
-						//var encode_str = urlencode(str);
-						var seqno = return_info[i].Seqno;
-						console.log(seqno);
-						mod_faq.push({"title": str, "buttons": [{"type":"web_url","title": "FAQ 바로가기", "url":"http://mobile.gmarket.co.kr/customercenter/FaqDetail?seq="+seqno}]}); 
-					}
-					
-					//ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+mecab_encode}); 
-
 				}
 				else{
 
@@ -389,17 +388,19 @@ app.post('/',function(request,response){
 						max_iter = 3;		
 					}
 
-					for(var i = 0 ; i < max_iter ; i++)
-					{
-						var str = strip_tags(return_info[i].Title, '');
-						//var encode_str = urlencode(str);
-						//console.log(str);
-						var seqno = return_info[i].Seqno;
-						console.log(seqno);
-						mod_faq.push({"title": str, "buttons": [{"type":"web_url","title": "FAQ 바로가기", "url":"http://mobile.gmarket.co.kr/customercenter/FaqDetail?seq="+seqno}]}); 
-					}
+					if (mecab_message == ''){
+						for(var i = 0 ; i < max_iter ; i++)
+						{
+							var str = strip_tags(return_info[i].Title, '');
+							//var encode_str = urlencode(str);
+							//console.log(str);
+							var seqno = return_info[i].Seqno;
+							console.log(seqno);
+							mod_faq.push({"title": str, "buttons": [{"type":"web_url","title": "FAQ 바로가기", "url":"http://mobile.gmarket.co.kr/customercenter/FaqDetail?seq="+seqno}]}); 
+						}
 							
 					//ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://mobile.gmarket.co.kr/customercenter/FaqDetail?seq="+seqno}); 
+					}
 				}	
 					
 			if(ori_faq.length > 0){
