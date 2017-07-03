@@ -812,7 +812,7 @@ app.post('/',function(request,response){
 				"data": {
 					"facebook": [
 							{
-								"text": "문의주신 상품은 배송이 완료되었습니다.\n 물건을 받지 못하셨다면 고객센터로 문의 부탁 드립니다."
+								"text": "문의주신 상품은 배송이 완료되었습니다.\n물건을 받지 못하셨다면 고객센터로 문의 부탁 드립니다."
 							},
 							{
 									"attachment": {
