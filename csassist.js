@@ -457,7 +457,7 @@ app.post('/',function(request,response){
 										 "payload": {
 											"template_type": "generic",
 											"elements": [
-											{"title": "G마켓에 문의하기로 이동하기", "buttons": [{"type":"web_url","title": "고객센터", "url":"http://mobile.gmarket.co.kr/CustomerCenter"}]}
+											{"title": "G마켓에 문의하기", "buttons": [{"type":"web_url","title": "고객센터", "url":"http://mobile.gmarket.co.kr/CustomerCenter"}]}
 											]
 									}
 									}
