@@ -319,6 +319,7 @@ app.post('/',function(request,response){
 
 				if (mecab_message != ''){
 
+					console.log('naural');
 					if (me_return_cnt > 0){
 
 						me_title = "자연어 처리 FAQ 검색 결과 입니다.";
@@ -343,6 +344,7 @@ app.post('/',function(request,response){
 				}
 				else{
 
+					console.log('similar');
 					//ori_faq.push({"text": "유의어 처리 FAQ 검색 결과 입니다.\n"}); 
 					me_title = "유의어 처리 FAQ 검색 결과 입니다.";
 					mecab_message = '';
