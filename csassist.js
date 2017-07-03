@@ -313,6 +313,8 @@ app.post('/',function(request,response){
 				var me_return_cnt = return_info.length;
 				var max_iter;	
 				
+				
+				console.log("mecab_encode:"+mecab_encode);
 				console.log("n_return:"+me_return_cnt);
 
 				if (me_return_cnt > 0){
