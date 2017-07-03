@@ -309,9 +309,11 @@ app.post('/',function(request,response){
 				var res = req('GET', 'http://member2.gmarket.co.kr//CustomerCenter/JsonGetFaqSearch?pageNo=1&searchText='+mecab_encode);
 				var return_info = JSON.parse(res.getBody('utf8'));
 				
-
+				
 				var me_return_cnt = return_info.length;
 				var max_iter;	
+				
+				console.log("n_return:"+me_return_cnt);
 
 				if (me_return_cnt > 0){
 
