@@ -449,7 +449,7 @@ app.post('/',function(request,response){
 					"data": {
 						"facebook": [
 							{
-								"text": "문의주신 내용은 지원하지 않는 기능입니다.\nG마켓에 문의하기를 이용해주세요."	
+								"text": "문의주신 내용은 지원하지 않는 기능입니다.\n고객센터 내 G마켓에 문의하기를 이용해주세요."	
 							},
 							{
 										"attachment": {
@@ -457,7 +457,7 @@ app.post('/',function(request,response){
 										 "payload": {
 											"template_type": "generic",
 											"elements": [
-											{"title": "G마켓에 문의하기", "buttons": [{"type":"web_url","title": "고객센터", "url":"http://mobile.gmarket.co.kr/CustomerCenter"}]}
+											{"title": "고객센터", "buttons": [{"type":"web_url","title": "G마켓에 문의하기", "url":"http://mobile.gmarket.co.kr/CustomerCenter"}]}
 											]
 									}
 									}
