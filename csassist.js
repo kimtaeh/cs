@@ -317,7 +317,7 @@ app.post('/',function(request,response){
 				console.log("mecab_encode:"+mecab_encode);
 				console.log("n_return:"+me_return_cnt);
 
-				if (mecab_message == ''){
+				if (mecab_message != ''){
 
 					if (me_return_cnt > 0){
 
@@ -388,7 +388,7 @@ app.post('/',function(request,response){
 						max_iter = 3;		
 					}
 
-					if (mecab_message == ''){
+					if (mecab_message != ''){
 						for(var i = 0 ; i < max_iter ; i++)
 						{
 							var str = strip_tags(return_info[i].Title, '');
