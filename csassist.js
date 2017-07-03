@@ -474,7 +474,7 @@ app.post('/',function(request,response){
 	else if (cs_intent  == 'del_order_check'){
 		    
 		//로직 처리
-		if (cs_query == '1' || cs_query == '5'){
+		if (cs_query == '1'){
 			console.log('31');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
@@ -485,7 +485,7 @@ app.post('/',function(request,response){
 				"data": {
 					"facebook": [
 							{
-								"text": "요청주신 주문건은 결제가 완료되었습니다.\n배송의 경우 입금 확인 후 1~2일 이내 배송이 시작됩니다."
+								"text": "문의주신 주문건은 결제가 완료되었습니다.\n배송의 경우 입금 확인 후 1~2일 이내 배송이 시작됩니다."
 							},
 							{
 									"attachment": {
@@ -512,7 +512,7 @@ app.post('/',function(request,response){
 					}
 				});
 		}
-		else if (cs_query == '2' || cs_query == '3' || cs_query == '4'){
+		else if (cs_query == '2'){
 			console.log('31');
 			console.log(cs_input_cnt);
 			console.log(cs_intent);
@@ -523,7 +523,45 @@ app.post('/',function(request,response){
 				"data": {
 					"facebook": [
 							{
-								"text": "요청주신 주문건은 아직 입금 확인 중입니다.\n 무통장 입금의 경우 확인에 약 1~2일 정도 소요될 수 있습니다."
+								"text": "문의주신 주문건은 아직 입금 확인 중입니다.\n 무통장 입금의 경우 확인에 약 1~2일 정도 소요될 수 있습니다."
+							},
+							{
+									"attachment": {
+									"type": "template",
+									"payload": {
+										"template_type": "generic",
+										"elements": [
+											{
+											"title": "처음으로 돌아가려면 아래 버튼을 클릭해주세요.",
+											"buttons": [
+											    {
+											      "type": "postback",
+											      "title": "처음으로",
+											      "payload": "9"
+											    }										  
+											  ]
+										}
+
+									]
+									}
+								}
+							}
+						]
+					}
+				});
+		}
+		else if (cs_query == '3' || cs_query == '4' || cs_query == '5'){
+			console.log('31');
+			console.log(cs_input_cnt);
+			console.log(cs_intent);
+
+			//intent 정의
+			cs_intent  = 'del_order_check';
+			response.json({
+				"data": {
+					"facebook": [
+							{
+								"text": "문의주신 주문건은 결제가 완료되었습니다."
 							},
 							{
 									"attachment": {
@@ -736,7 +774,7 @@ app.post('/',function(request,response){
 				"data": {
 					"facebook": [
 							{
-								"text": "문의주신 상품은 현재 배송중에 있습니다.\n배송완료의 경우 택배사의 사정에 따라 차이가 있을 수 있습니다."
+								"text": "문의주신 상품은 출고 예정입니다.\n상품 출고의 경우 판매자의 사정에 따라 차이가 있을 수 있습니다."
 							},
 							{
 									"attachment": {
@@ -774,7 +812,7 @@ app.post('/',function(request,response){
 				"data": {
 					"facebook": [
 							{
-								"text": "배송이 완료되었습니다.\n 물건을 받지 못하셨다면 고객센터로 문의 부탁 드립니다."
+								"text": "문의주신 상품은 배송이 완료되었습니다.\n 물건을 받지 못하셨다면 고객센터로 문의 부탁 드립니다."
 							},
 							{
 									"attachment": {
@@ -983,7 +1021,7 @@ app.post('/',function(request,response){
 					"facebook": 
 						[
 						{
-							"text": "반품 신청은 MyG 나의 구매내역에서 신청이 가능합니다.\n취소 페이지로 이동하시려면 아래 버튼을 클릭하세요."
+							"text": "문의주신 주문건은 아직 배송이 시작되지 않았습니다.\n주문취소는 MyG 나의 구매내역에서 신청이 가능합니다.\nMyG 페이지로 이동하시려면 아래 버튼을 클릭하세요."
 						},
 						{
 				  		"attachment": {
@@ -996,7 +1034,7 @@ app.post('/',function(request,response){
 									 "buttons": [
 									    {
 									      "type": "web_url",
-										"title": "반품 신청 이동",
+										"title": "MyG",
 										"url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
 									    },
 									     {
@@ -1029,7 +1067,7 @@ app.post('/',function(request,response){
 					"facebook": 
 						[
 						{
-							"text": "반품 신청은 MyG 나의 구매내역에서 신청이 가능합니다.\n취소 페이지로 이동하시려면 아래 버튼을 클릭하세요."
+							"text": "문의주신 주문건은 아직 배송이 시작되지 않았습니다.\n주문취소는 MyG 나의 구매내역에서 신청이 가능합니다.\nMyG 페이지로 이동하시려면 아래 버튼을 클릭하세요."
 						},
 						{
 				  		"attachment": {
@@ -1042,7 +1080,7 @@ app.post('/',function(request,response){
 									 "buttons": [
 									    {
 									      "type": "web_url",
-										"title": "반품 신청 이동",
+										"title": "MyG",
 										"url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
 									    },
 									     {
@@ -1075,7 +1113,7 @@ app.post('/',function(request,response){
 					"facebook": 
 						[
 						{
-							"text": "반품 신청은 MyG 나의 구매내역에서 신청이 가능합니다.\n취소 페이지로 이동하시려면 아래 버튼을 클릭하세요."
+							"text": "반품 신청은 MyG 나의 구매내역에서 신청이 가능합니다.\nMyG 페이지로 이동하시려면 아래 버튼을 클릭하세요."
 						},
 						{
 				  		"attachment": {
@@ -1088,7 +1126,7 @@ app.post('/',function(request,response){
 									 "buttons": [
 									    {
 									      "type": "web_url",
-										"title": "반품 신청 이동",
+										"title": "MyG",
 										"url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
 									    },
 									     {
@@ -1121,7 +1159,7 @@ app.post('/',function(request,response){
 					"facebook": 
 						[
 						{
-							"text": "반품 신청은 MyG 나의 구매내역에서 신청이 가능합니다.\n취소 페이지로 이동하시려면 아래 버튼을 클릭하세요."
+							"text": "반품 신청은 MyG 나의 구매내역에서 신청이 가능합니다.\nMyG 페이지로 이동하시려면 아래 버튼을 클릭하세요."
 						},
 						{
 				  		"attachment": {
@@ -1134,7 +1172,7 @@ app.post('/',function(request,response){
 									 "buttons": [
 									    {
 									      "type": "web_url",
-										"title": "반품 신청 이동",
+										"title": "MyG",
 										"url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
 									    },
 									     {
@@ -1167,7 +1205,7 @@ app.post('/',function(request,response){
 					"facebook": 
 						[
 						{
-							"text": "반품 신청은 MyG 나의 구매내역에서 신청이 가능합니다.\n취소 페이지로 이동하시려면 아래 버튼을 클릭하세요."
+							"text": "반품 신청은 MyG 나의 구매내역에서 신청이 가능합니다.\nMyG 페이지로 이동하시려면 아래 버튼을 클릭하세요."
 						},
 						{
 				  		"attachment": {
@@ -1180,7 +1218,7 @@ app.post('/',function(request,response){
 									 "buttons": [
 									    {
 									      "type": "web_url",
-										"title": "반품 신청 이동",
+										"title": "MyG",
 										"url": "https://mobile.gmarket.co.kr/Login/Login?URL=http://mmyg.gmarket.co.kr/home"
 									    },
 									     {
