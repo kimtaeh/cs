@@ -317,6 +317,10 @@ app.post('/',function(request,response){
 				console.log("mecab_encode:"+mecab_encode);
 				console.log("n_return:"+me_return_cnt);
 
+				if (mecab_message == ''){
+				console.log("oh ye");	
+				}
+				
 				if (me_return_cnt > 0){
 
 					me_title = "자연어 처리 FAQ 검색 결과 입니다.";
