@@ -317,19 +317,19 @@ app.post('/',function(request,response){
 				console.log("mecab_encode:"+mecab_encode);
 				console.log("n_return:"+me_return_cnt);
 
-				if (mecab_message != ''){
+				
+				if (me_return_cnt > 0){
 
 					console.log('naural');
-					if (me_return_cnt > 0){
+					me_title = "자연어 처리 FAQ 검색 결과 입니다.";
+					//ori_faq.push({"text": "자연어 처리 FAQ 검색 결과 입니다.\n"}); 
+					max_iter = me_return_cnt;
+					if(me_return_cnt > 3){
+						max_iter = 3;		
+					}
 
-						me_title = "자연어 처리 FAQ 검색 결과 입니다.";
-						//ori_faq.push({"text": "자연어 처리 FAQ 검색 결과 입니다.\n"}); 
-						max_iter = me_return_cnt;
-						if(me_return_cnt > 3){
-							max_iter = 3;		
-						}
-
-						for(var i = 0 ; i < max_iter ; i++)
+					if (mecab_message != ''){
+					for(var i = 0 ; i < max_iter ; i++)
 						{
 							var str = strip_tags(return_info[i].Title, '');
 							//var encode_str = urlencode(str);
@@ -339,7 +339,6 @@ app.post('/',function(request,response){
 						}
 
 						//ori_faq.push({"text": "\nFAQ 바로가기\n"+"http://member2.gmarket.co.kr//CustomerCenter/FaqSearch?searchText="+mecab_encode}); 
-
 					}
 				}
 				else{
